@@ -46,7 +46,7 @@ const AppLayout: React.FC = () => {
       <div className="min-h-screen flex flex-col items-center justify-center bg-slate-50 dark:bg-[#090d16] text-slate-900 dark:text-white">
         <div className="h-10 w-10 border-4 border-blue-600 border-t-transparent rounded-full animate-spin mb-4" />
         <p className="text-sm font-semibold tracking-wide text-slate-500 dark:text-slate-400">
-          Initializing CareerBridge Workspace...
+          Preparing your career workspace...
         </p>
       </div>
     );
