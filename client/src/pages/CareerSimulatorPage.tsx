@@ -62,7 +62,7 @@ export const CareerSimulatorPage: React.FC = () => {
         <div className="flex items-center gap-2">
           <GitCompare className="h-5 w-5 text-cyan-600 dark:text-cyan-400" />
           <h1 className="text-xl sm:text-2xl font-extrabold text-slate-900 dark:text-white tracking-tight">
-            Career Simulator & Pivot Studio
+            Career Pathway Planner
           </h1>
         </div>
         <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400">

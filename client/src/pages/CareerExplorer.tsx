@@ -97,12 +97,12 @@ export const CareerExplorer: React.FC = () => {
         <div className="flex items-center gap-2">
           <Briefcase className="h-5 w-5 text-blue-600 dark:text-blue-400" />
           <h1 className="text-xl sm:text-2xl font-extrabold text-slate-900 dark:text-white tracking-tight">
-            {isStudent && !showAllDisciplines ? 'Personal-Disciplinary Career Explorer' : 'Career Explorer & Benchmark Matrix'}
+            {isStudent && !showAllDisciplines ? 'Career Explorer' : 'Explore Career Pathways'}
           </h1>
         </div>
         <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400">
           {isStudent && !showAllDisciplines
-            ? `Specialized high-demand pathways and industry benchmarks calibrated for your discipline (${getDisciplineLabel(studentDiscipline)}).`
+            ? `Career options and skill benchmarks tailored to your discipline (${getDisciplineLabel(studentDiscipline)}).`
             : 'Discover high-demand career pathways, benchmark requirements, and skill hierarchies across diverse academic streams.'}
         </p>
       </div>

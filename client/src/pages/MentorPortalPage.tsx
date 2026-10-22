@@ -150,7 +150,7 @@ export const MentorPortalPage: React.FC = () => {
           <div className="flex items-center gap-2">
             <GraduationCap className="h-6 w-6 text-amber-500" />
             <h1 className="text-xl sm:text-2xl font-extrabold text-slate-900 dark:text-white tracking-tight">
-              Faculty & Academic Mentor Hub
+              Mentor Workspace
             </h1>
             <span className="rounded-full bg-amber-100 dark:bg-amber-950/80 px-2.5 py-0.5 text-[11px] font-bold text-amber-700 dark:text-amber-300 border border-amber-200 dark:border-amber-800">
               Dr. Balu Prasath

@@ -63,7 +63,7 @@ export const SkillGapStudio: React.FC = () => {
         <div className="flex items-center gap-2">
           <Layers className="h-5 w-5 text-blue-600 dark:text-blue-400" />
           <h1 className="text-xl sm:text-2xl font-extrabold text-slate-900 dark:text-white tracking-tight">
-            Skill Intelligence & Gap Studio
+            Skills Analysis
           </h1>
         </div>
         <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400">

@@ -201,7 +201,7 @@ export const PlacementCellPortalPage: React.FC = () => {
               </span>
             </div>
             <h1 className="text-2xl md:text-3xl font-extrabold tracking-tight text-white font-sans">
-              Campus Placement & Corporate Relations Portal
+              Placement Management
             </h1>
             <p className="text-sm text-slate-300 leading-relaxed">
               Supervise company recruitment drives, coordinate Tier-1 hiring pipelines, verify student eligibility scores, and dispatch real-time interview stage updates to candidates.

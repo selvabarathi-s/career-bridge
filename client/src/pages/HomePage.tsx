@@ -116,19 +116,19 @@ export const HomePage: React.FC<HomePageProps> = ({ onOpenMobileCompanion }) => 
         <div className="max-w-4xl space-y-6">
           <div className="inline-flex items-center gap-2 rounded-full border border-blue-200 dark:border-blue-900/60 bg-blue-50 dark:bg-blue-950/60 px-3.5 py-1 text-xs font-bold text-blue-700 dark:text-blue-300">
             <Sparkles className="h-3.5 w-3.5 text-blue-600 dark:text-blue-400" />
-            <span>Next-Generation Adaptive Career Navigation</span>
+            <span>CAREER DEVELOPMENT PLATFORM</span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight text-slate-900 dark:text-white leading-[1.15]">
-            Bridge the Gap from <br className="hidden sm:inline" />
-            <span className="text-blue-600 dark:text-blue-400">College Classroom</span> to{' '}
+          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-slate-900 dark:text-white leading-[1.15]">
+            Build the skills for your <br className="hidden sm:inline" />
+            <span className="text-blue-600 dark:text-blue-400">next opportunity</span>{' '}
             <span className="bg-gradient-to-r from-blue-600 via-indigo-600 to-emerald-600 bg-clip-text text-transparent">
-              Career Readiness
+              with confidence.
             </span>
           </h1>
 
           <p className="text-sm sm:text-lg text-slate-600 dark:text-slate-300 max-w-2xl leading-relaxed">
-            One connected platform tailored for every academic discipline. Diagnose skill deficits, follow personalized adaptive roadmaps, simulate career pivots, and receive context-aware AI mentorship.
+            A connected workspace to explore career options, understand your strengths, build in-demand skills, and prepare for placements with personalized learning plans and guided mentorship.
           </p>
 
           {/* Action CTAs */}
@@ -137,7 +137,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onOpenMobileCompanion }) => 
               onClick={handleLaunchApp}
               className="flex items-center justify-center gap-2 rounded-xl bg-blue-600 hover:bg-blue-700 px-6 py-3.5 text-sm font-bold text-white shadow-lg shadow-blue-600/30 transition-all transform hover:-translate-y-0.5"
             >
-              <span>{user ? `Go to My Dashboard (${user.role})` : 'Sign In / Select Demo Account'}</span>
+              <span>{user ? `Go to My Dashboard (${user.role})` : 'Sign in to your workspace'}</span>
               <ArrowRight className="h-4 w-4" />
             </button>
 
@@ -145,7 +145,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onOpenMobileCompanion }) => 
               onClick={() => navigate('/explore')}
               className="flex items-center justify-center gap-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700 px-6 py-3.5 text-sm font-bold text-slate-700 dark:text-slate-200 transition-colors"
             >
-              <span>Explore Career Paths</span>
+              <span>Explore careers</span>
             </button>
 
             <button
@@ -153,7 +153,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onOpenMobileCompanion }) => 
               className="flex items-center justify-center gap-2 rounded-xl border border-emerald-300 dark:border-emerald-800/80 bg-emerald-50 dark:bg-emerald-950/40 hover:bg-emerald-100 dark:hover:bg-emerald-900/40 px-4 py-3.5 text-sm font-bold text-emerald-700 dark:text-emerald-300 transition-colors"
             >
               <QrCode className="h-4 w-4" />
-              <span>Mobile QR App</span>
+              <span>Mobile companion</span>
             </button>
           </div>
         </div>
@@ -163,10 +163,10 @@ export const HomePage: React.FC<HomePageProps> = ({ onOpenMobileCompanion }) => 
       <section className="space-y-6">
         <div className="text-center md:text-left space-y-1">
           <h2 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white">
-            Multidisciplinary Career Pathways
+            Explore career pathways
           </h2>
           <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400">
-            CareerBridge is built for every higher-education stream, not just computer science.
+            Discover opportunities across disciplines and industries.
           </p>
         </div>
 
@@ -205,10 +205,10 @@ export const HomePage: React.FC<HomePageProps> = ({ onOpenMobileCompanion }) => 
       <section className="space-y-6">
         <div className="text-center md:text-left space-y-1">
           <h2 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white">
-            The 4-Pillar Adaptive Engine
+            Tools for every step of your career journey
           </h2>
           <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400">
-            Engineered to continuously measure progress and tailor learning actions.
+            Explore, learn, practice, and prepare—all in one place.
           </p>
         </div>
 
@@ -218,7 +218,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onOpenMobileCompanion }) => 
             <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-blue-100 dark:bg-blue-950 text-blue-600 dark:text-blue-400">
               <Layers className="h-5 w-5" />
             </div>
-            <h3 className="text-base font-bold text-slate-900 dark:text-white">Skill Gap Studio</h3>
+            <h3 className="text-base font-bold text-slate-900 dark:text-white">Skills analysis</h3>
             <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
               Compares current verified student skills against target benchmarks. Classifies gaps into Mastered, Strong, Developing, and Critical Deficits.
             </p>
@@ -229,7 +229,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onOpenMobileCompanion }) => 
             <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-emerald-100 dark:bg-emerald-950 text-emerald-600 dark:text-emerald-400">
               <MapPin className="h-5 w-5" />
             </div>
-            <h3 className="text-base font-bold text-slate-900 dark:text-white">Adaptive Roadmaps</h3>
+            <h3 className="text-base font-bold text-slate-900 dark:text-white">Personal learning plan</h3>
             <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
               Step-by-step *Learn → Practice → Build → Evaluate* progression with integrated query sandboxes, remedial loops, and portfolio project briefs.
             </p>
@@ -240,7 +240,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onOpenMobileCompanion }) => 
             <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-cyan-100 dark:bg-cyan-950 text-cyan-600 dark:text-cyan-400">
               <Sparkles className="h-5 w-5" />
             </div>
-            <h3 className="text-base font-bold text-slate-900 dark:text-white">Context-Aware AI Mentor</h3>
+            <h3 className="text-base font-bold text-slate-900 dark:text-white">AI career coach</h3>
             <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
               AI guidance that grounds responses in the student's actual degree, CGPA, target career, and top skill deficits rather than generic chatbot responses.
             </p>
@@ -251,7 +251,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onOpenMobileCompanion }) => 
             <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-purple-100 dark:bg-purple-950 text-purple-600 dark:text-purple-400">
               <Compass className="h-5 w-5" />
             </div>
-            <h3 className="text-base font-bold text-slate-900 dark:text-white">Career Simulator & Pivot</h3>
+            <h3 className="text-base font-bold text-slate-900 dark:text-white">Career pathways</h3>
             <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
               Run "What-If" career scenarios to evaluate transferable skill overlaps, transition difficulty ratings, and custom bridge timelines.
             </p>
@@ -263,10 +263,10 @@ export const HomePage: React.FC<HomePageProps> = ({ onOpenMobileCompanion }) => 
       <section className="rounded-3xl border border-slate-200 dark:border-slate-800 bg-slate-100/80 dark:bg-slate-900/60 p-8 sm:p-10 space-y-8">
         <div className="text-center max-w-2xl mx-auto space-y-2">
           <h2 className="text-2xl font-bold text-slate-900 dark:text-white">
-            Designed for the Entire Higher-Ed Ecosystem
+            One workspace for your campus career journey
           </h2>
           <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400">
-            Dedicated experiences and tools for students, faculty mentors, and institutional decision-makers.
+            Purpose-built tools for students, faculty mentors, and placement teams.
           </p>
         </div>
 
@@ -318,7 +318,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onOpenMobileCompanion }) => 
           {/* Admin */}
           <div className="rounded-2xl bg-white dark:bg-slate-950 p-6 border border-slate-200 dark:border-slate-800 space-y-3">
             <div className="text-xs font-bold uppercase tracking-wider text-rose-600 dark:text-rose-400">
-              For Institutional Deans
+              For Institution Teams
             </div>
             <h3 className="text-base font-bold text-slate-900 dark:text-white">Curriculum Gap Intelligence</h3>
             <ul className="text-xs text-slate-600 dark:text-slate-400 space-y-2">
@@ -342,17 +342,17 @@ export const HomePage: React.FC<HomePageProps> = ({ onOpenMobileCompanion }) => 
       {/* Bottom CTA Banner */}
       <section className="rounded-3xl border border-blue-200 dark:border-blue-900/80 bg-gradient-to-r from-blue-600 to-indigo-600 p-8 sm:p-12 text-center text-white space-y-6 shadow-2xl">
         <h2 className="text-2xl sm:text-4xl font-extrabold tracking-tight">
-          Ready to Test Your Career Readiness?
+          Take your next career step
         </h2>
         <p className="text-sm sm:text-base text-blue-100 max-w-xl mx-auto">
-          Experience the full CareerBridge adaptive navigation engine with pre-configured student, mentor, and admin personas.
+          Sign in to access your personalized dashboard, learning plan, mentoring tools, and placement opportunities.
         </p>
         <div className="flex justify-center gap-3">
           <button
             onClick={() => navigate('/login')}
             className="rounded-xl bg-white hover:bg-slate-100 px-6 py-3 text-sm font-bold text-blue-600 shadow-lg transition-colors"
           >
-            Launch Demo Portal
+            Open career workspace
           </button>
         </div>
       </section>

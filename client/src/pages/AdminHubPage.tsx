@@ -72,7 +72,7 @@ export const AdminHubPage: React.FC = () => {
           <div className="flex items-center gap-2">
             <Building2 className="h-5 w-5 text-rose-500" />
             <h1 className="text-xl sm:text-2xl font-extrabold text-slate-900 dark:text-white tracking-tight">
-              Institutional Curriculum & Intelligence Center
+              Institutional Insights
             </h1>
           </div>
           <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400">

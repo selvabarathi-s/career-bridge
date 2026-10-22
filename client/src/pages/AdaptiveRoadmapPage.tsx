@@ -173,7 +173,7 @@ export const AdaptiveRoadmapPage: React.FC = () => {
           <div className="flex items-center gap-2">
             <MapPin className="h-5 w-5 text-blue-600 dark:text-blue-400" />
             <h1 className="text-xl sm:text-2xl font-extrabold text-slate-900 dark:text-white tracking-tight">
-              Dynamic Adaptive Roadmap
+              Personalized Learning Roadmap
             </h1>
             <span className="rounded-full bg-emerald-100 dark:bg-emerald-950/80 px-2.5 py-0.5 text-[11px] font-bold text-emerald-700 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800">
               Live Calibrated

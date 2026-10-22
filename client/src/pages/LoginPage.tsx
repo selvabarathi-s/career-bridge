@@ -223,10 +223,10 @@ export const LoginPage: React.FC = () => {
           <Compass className="h-7 w-7" />
         </div>
         <h1 className="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white tracking-tight">
-          Sign In to Career<span className="text-blue-600 dark:text-blue-400">Bridge</span>
+          Sign in to your <span className="text-blue-600 dark:text-blue-400">workspace</span>
         </h1>
         <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 max-w-md mx-auto">
-          Select your institutional portal and enter your verified credentials to access your workspace.
+          Choose your portal and sign in to continue your career journey.
         </p>
       </div>
 

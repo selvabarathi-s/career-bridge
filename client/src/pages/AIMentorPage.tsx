@@ -21,9 +21,13 @@ export const AIMentorPage: React.FC = () => {
     {
       id: 'welcome-msg',
       sender: 'assistant',
-      content: `Hello ${profile?.fullName || 'there'}! I am your personal CareerBridge AI Advisor.
+      content: profile
+        ? `Hello ${profile.fullName || 'there'}! I am your personal CareerBridge AI Advisor.
 
-I have synchronized with your current academic performance, your target career milestone status, and your top skill gaps. How can I guide you today?`,
+I can help you use your academic performance, target career, and skill gaps to plan your next steps. How can I guide you today?`
+        : `Hello there! I am your CareerBridge AI Advisor.
+
+I can help with career exploration, skill development, resumes, projects, and interview preparation. This account does not have a linked student profile, so I will provide general career guidance. What would you like to work on?`,
       timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
       suggestedActions: [
         'How do I bridge my highest priority skill deficit?',
@@ -82,10 +86,6 @@ I have synchronized with your current academic performance, your target career m
     }
   };
 
-  if (!profile) {
-    return <div className="p-8 text-center text-slate-500 dark:text-slate-400">Loading student context...</div>;
-  }
-
   return (
     <div className="flex flex-col h-[calc(100vh-6.5rem)] space-y-4 pb-4">
       {/* Context Snapshot Banner */}
@@ -98,11 +98,11 @@ I have synchronized with your current academic performance, your target career m
             <div className="flex items-center gap-2">
               <h2 className="text-sm font-bold text-slate-900 dark:text-white">Context-Aware AI Career Mentor</h2>
               <span className="rounded bg-cyan-100 dark:bg-cyan-950 px-2 py-0.5 text-[10px] font-bold text-cyan-800 dark:text-cyan-300 border border-cyan-200 dark:border-cyan-800">
-                Live Profile Sync
+                {profile ? 'Profile connected' : 'General guidance'}
               </span>
             </div>
             <p className="text-xs text-slate-600 dark:text-slate-400 font-medium">
-              Assisting <strong>{profile.fullName}</strong> • Goal: <strong>{targetCareer?.title}</strong>
+              Assisting <strong>{profile?.fullName || 'you'}</strong> • Goal: <strong>{targetCareer?.title || 'Explore career options'}</strong>
             </p>
           </div>
         </div>
@@ -110,7 +110,11 @@ I have synchronized with your current academic performance, your target career m
         <div className="flex items-center gap-4 text-xs font-mono">
           <div className="text-right">
             <div className="text-[10px] text-slate-500 dark:text-slate-400">Current Readiness</div>
-            <div className="font-bold text-emerald-600 dark:text-emerald-400">{profile.readinessScore.overallPercentage}% ({profile.readinessScore.status})</div>
+            <div className="font-bold text-emerald-600 dark:text-emerald-400">
+              {profile?.readinessScore
+                ? `${profile.readinessScore.overallPercentage}% (${profile.readinessScore.status})`
+                : 'Not available'}
+            </div>
           </div>
           <div className="text-right">
             <div className="text-[10px] text-slate-500 dark:text-slate-400">Top Deficit Focus</div>
