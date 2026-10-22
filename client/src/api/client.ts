@@ -260,12 +260,25 @@ export const api = {
   },
 
   async sendAIMessage(studentId: string, message: string) {
-    const res = await fetch(`${API_BASE}/ai-mentor/chat`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ studentId, message })
-    });
-    return res.json() as Promise<{ message: AIMessage }>;
+    let res: Response;
+    try {
+      res = await fetch(`${API_BASE}/ai-mentor/chat`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ studentId, message })
+      });
+    } catch {
+      throw new Error('Unable to connect to the CareerBridge API. Start the backend server on port 4000 and try again.');
+    }
+
+    const data = await res.json().catch(() => ({})) as { message?: AIMessage; error?: string };
+    if (!res.ok) {
+      throw new Error(data.error || `AI Mentor request failed (HTTP ${res.status}).`);
+    }
+    if (!data.message) {
+      throw new Error(data.error || 'The API returned an empty AI Mentor response.');
+    }
+    return { message: data.message };
   },
 
   // Mentor Portal
