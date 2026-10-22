@@ -71,7 +71,7 @@ export const AssessmentArena: React.FC = () => {
         <div className="flex items-center gap-2">
           <Award className="h-6 w-6 text-blue-600 dark:text-blue-400" />
           <h1 className="text-xl sm:text-2xl font-extrabold text-slate-900 dark:text-white tracking-tight">
-            Skill Assessment Arena & Diagnostic Engine
+            Skills Assessment
           </h1>
         </div>
         <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400">
