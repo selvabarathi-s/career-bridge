@@ -103,7 +103,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenMobileCompanion, onOpenQRS
                 Career<span className="text-blue-600 dark:text-blue-400">Bridge</span>
               </span>
               <span className="rounded-md bg-blue-50 dark:bg-blue-950/80 px-2 py-0.5 text-[10px] font-semibold text-blue-700 dark:text-blue-300 border border-blue-200 dark:border-blue-800/60 uppercase tracking-wider">
-                PRO
+                CAREER
               </span>
             </div>
             <p className="hidden sm:block text-[11px] text-slate-500 dark:text-slate-400 font-medium">
