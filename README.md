@@ -249,7 +249,3 @@ CareerBridge is fully configured for zero-friction cloud deployment on [Render.c
 ```
 
 ---
-
-## 📄 License
-
-This project is licensed under the MIT License — see the [LICENSE](LICENSE) file for details.
