@@ -107,7 +107,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenMobileCompanion, onOpenQRS
               </span>
             </div>
             <p className="hidden sm:block text-[11px] text-slate-500 dark:text-slate-400 font-medium">
-              Personal-Disciplinary Career Intelligence & Navigation
+              Career development, skills and placement workspace
             </p>
           </div>
         </Link>
@@ -137,7 +137,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenMobileCompanion, onOpenQRS
             <div className="flex h-5 w-5 items-center justify-center rounded bg-blue-600/10 dark:bg-blue-600/20 text-blue-600 dark:text-blue-400 group-hover:bg-blue-600 group-hover:text-white transition-colors">
               <QrCode className="h-3.5 w-3.5" />
             </div>
-            <span className="hidden md:inline">Mobile App & QR Sync</span>
+            <span className="hidden md:inline">Mobile companion</span>
             <span className="inline md:hidden">Mobile</span>
             <span className="relative flex h-2 w-2">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
@@ -296,7 +296,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenMobileCompanion, onOpenQRS
                           className="w-full flex items-center gap-2 rounded-lg px-2.5 py-2 text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors font-medium"
                         >
                           <User className="h-4 w-4 text-blue-600 dark:text-blue-400" />
-                          <span>Student Profile & Settings</span>
+                          <span>My profile & settings</span>
                         </button>
                       )}
 
@@ -310,7 +310,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenMobileCompanion, onOpenQRS
                         className="w-full flex items-center gap-2 rounded-lg px-2.5 py-2 text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors font-medium"
                       >
                         <Compass className="h-4 w-4 text-indigo-600 dark:text-indigo-400" />
-                        <span>My Workspace Portal</span>
+                        <span>Open my workspace</span>
                       </button>
                     </div>
 
@@ -321,7 +321,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenMobileCompanion, onOpenQRS
                         className="w-full flex items-center justify-center gap-2 rounded-xl bg-rose-50 dark:bg-rose-950/40 text-rose-600 dark:text-rose-400 hover:bg-rose-100 dark:hover:bg-rose-900/60 py-2.5 text-xs font-bold transition-colors border border-rose-200 dark:border-rose-900/60"
                       >
                         <LogOut className="h-3.5 w-3.5" />
-                        <span>Sign Out of CareerBridge</span>
+                        <span>Sign out</span>
                       </button>
                     </div>
                   </div>
