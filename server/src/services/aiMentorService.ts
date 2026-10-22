@@ -81,6 +81,167 @@ export class AIMentorService {
     return aiMessage;
   }
 
+  /**
+   * Generate general career or technical guidance for accounts that do not have
+   * a linked student profile (for example, admins and placement staff).
+   * This path deliberately avoids selecting or writing to any student's record.
+   */
+  public static async generateGeneralGuidance(userQuery: string): Promise<AIMessage> {
+    const llmReply = await this.callGeneralGeminiAPI(userQuery);
+    const { reply, suggestedActions } = llmReply
+      ? {
+          reply: llmReply,
+          suggestedActions: [
+            'Create a practical learning plan for me',
+            'Suggest a portfolio project',
+            'Help me prepare for technical interviews'
+          ]
+        }
+      : this.evaluateGeneralGuidance(userQuery);
+
+    return {
+      id: `general-msg-${Date.now()}`,
+      sender: 'assistant',
+      content: reply,
+      timestamp: new Date().toISOString(),
+      suggestedActions
+    };
+  }
+
+  private static evaluateGeneralGuidance(userQuery: string): { reply: string; suggestedActions: string[] } {
+    const q = userQuery.toLowerCase();
+
+    if (q.includes('npm') || q.includes('node package manager')) {
+      return {
+        reply: `### What is npm?
+
+**npm** stands for **Node Package Manager**. It is installed alongside Node.js and helps JavaScript projects install, update, and manage external packages.
+
+- \`npm install\` installs the dependencies listed in \`package.json\`.
+- \`npm install <package>\` adds a package to a project.
+- \`npm run dev\` runs the project's development script.
+- \`npm run build\` runs its production build script.
+- \`package.json\` records project metadata, scripts, and dependency ranges; \`package-lock.json\` locks the resolved dependency versions.
+
+**In your CareerBridge project:** run frontend commands from the \`client\` folder and backend commands from the \`server\` folder. The frontend and backend are separate processes during local development.`,
+        suggestedActions: [
+          'Explain package.json and package-lock.json',
+          'How do I run the frontend and backend together?',
+          'Explain Node.js vs npm'
+        ]
+      };
+    }
+
+    if (q.includes('mlops') || q.includes('machine learning engineer') || q.includes('ml engineer')) {
+      return {
+        reply: `### A practical roadmap toward MLOps
+
+MLOps combines machine learning with software engineering and reliable deployment. Build your skills in this order:
+
+1. **Foundations:** Python, Git, Linux, APIs, and basic SQL.
+2. **ML workflow:** pandas, scikit-learn, data validation, and model evaluation.
+3. **Packaging:** create a prediction API with FastAPI or Flask and write tests.
+4. **Deployment:** learn Docker, CI/CD, and one cloud platform.
+5. **Model operations:** experiment tracking, model/version management, monitoring, and reproducible pipelines.
+
+**Portfolio project:** train a model, expose it through an API, package it with Docker, add automated tests and a CI workflow, then document deployment and monitoring in your README. Start small and make each stage reproducible.`,
+        suggestedActions: [
+          'Give me a 6-week MLOps learning plan',
+          'Suggest an MLOps portfolio project',
+          'What should I learn before Docker?'
+        ]
+      };
+    }
+
+    if (q.includes('resume') || q.includes('portfolio project') || q.includes('project for my')) {
+      return {
+        reply: `### Build a project that demonstrates real skills
+
+A strong portfolio project should solve a clear problem and show how you build, test, and explain a solution.
+
+1. Pick one focused problem related to your target role.
+2. Build a working end-to-end version rather than only a notebook or static UI.
+3. Add validation, error handling, tests, and a clear README.
+4. Deploy a demo when practical; include screenshots and setup instructions.
+5. In your resume, describe the problem, your contribution, the technologies used, and measurable results only when you have actually measured them.
+
+Tell me your target role and current skill level, and I can suggest a project with a realistic feature list and implementation plan.`,
+        suggestedActions: [
+          'Suggest an MLOps portfolio project',
+          'Help me prepare for technical interviews',
+          'How do I write project bullets on my resume?'
+        ]
+      };
+    }
+
+    if (q.includes('interview')) {
+      return {
+        reply: `### Technical interview preparation plan
+
+- **Core concepts:** revise the fundamentals most relevant to the role.
+- **Practice:** solve a small number of problems consistently and explain your reasoning aloud.
+- **Projects:** prepare a clear walkthrough of the problem, architecture, trade-offs, testing, and what you would improve.
+- **Behavioral questions:** prepare concise examples using Situation, Task, Action, and Result.
+- **Mock interviews:** practise under a time limit and keep a list of mistakes to revisit.
+
+Share the role you are targeting (for example, frontend, backend, data analyst, or MLOps) and I can tailor the practice plan.`,
+        suggestedActions: [
+          'Create a 7-day interview preparation plan',
+          'Give me common Python interview questions',
+          'Help me explain my project in an interview'
+        ]
+      };
+    }
+
+    return {
+      reply: `I can help with career planning and technical topics, including programming concepts, learning roadmaps, project ideas, resumes, and interview preparation.
+
+For **“${userQuery.trim()}”**, tell me the level of detail you need— a beginner-friendly explanation, a code example, or a step-by-step implementation plan—and I’ll tailor the guidance. This response uses general guidance because this account has no linked student profile.`,
+      suggestedActions: [
+        'Create a practical learning plan for me',
+        'Suggest a portfolio project',
+        'Help me prepare for technical interviews'
+      ]
+    };
+  }
+
+  private static async callGeneralGeminiAPI(userQuery: string): Promise<string | null> {
+    const apiKey = process.env.GEMINI_API_KEY;
+    if (!apiKey) return null;
+
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 6000);
+
+    try {
+      const res = await fetch(
+        `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`,
+        {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          signal: controller.signal,
+          body: JSON.stringify({
+            contents: [{
+              role: 'user',
+              parts: [{
+                text: `You are CareerBridge's general career and technical guidance assistant. The user is not linked to a student profile. Do not invent personal details, academic results, readiness scores, or career goals. Answer the actual question with practical, accurate steps and concise Markdown.\n\nUser question: ${userQuery}`
+              }]
+            }],
+            generationConfig: { temperature: 0.6, maxOutputTokens: 800 }
+          })
+        }
+      );
+
+      if (!res.ok) return null;
+      const data = await res.json() as any;
+      const responseText = data?.candidates?.[0]?.content?.parts?.[0]?.text;
+      return typeof responseText === 'string' && responseText.trim() ? responseText.trim() : null;
+    } catch {
+      return null;
+    } finally {
+      clearTimeout(timeoutId);
+    }
+  }
+
   private static evaluateLocalGuidance(
     profile: StudentProfile,
     career: Career,
