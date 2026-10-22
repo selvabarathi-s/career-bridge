@@ -69,7 +69,7 @@ I can help with career exploration, skill development, resumes, projects, and in
     setSending(true);
 
     try {
-      const res = await api.sendAIMessage(profile?.id || 'demo-stu', query.trim());
+      const res = await api.sendAIMessage(profile?.id || '', query.trim());
       if (res.message) {
         setMessages(prev => [...prev, res.message]);
       }
