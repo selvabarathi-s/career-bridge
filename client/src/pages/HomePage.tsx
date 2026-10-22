@@ -119,11 +119,11 @@ export const HomePage: React.FC<HomePageProps> = ({ onOpenMobileCompanion }) => 
             <span>CAREER DEVELOPMENT PLATFORM</span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight text-slate-900 dark:text-white leading-[1.15]">
+          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-slate-900 dark:text-white leading-[1.15]">
             Build the skills for your <br className="hidden sm:inline" />
             <span className="text-blue-600 dark:text-blue-400">next opportunity</span>{' '}
             <span className="bg-gradient-to-r from-blue-600 via-indigo-600 to-emerald-600 bg-clip-text text-transparent">
-              Career Confidence
+              with confidence.
             </span>
           </h1>
 
