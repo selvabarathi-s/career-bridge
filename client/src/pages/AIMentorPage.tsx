@@ -74,10 +74,13 @@ I can help with career exploration, skill development, resumes, projects, and in
         setMessages(prev => [...prev, res.message]);
       }
     } catch (err) {
+      const detail = err instanceof Error ? err.message : 'An unexpected error occurred.';
       const errorReply: AIMessage = {
         id: `err-${Date.now()}`,
         sender: 'assistant',
-        content: 'I encountered an issue processing your query against your live profile. Please try asking again shortly.',
+        content: detail.includes('Unable to connect to the CareerBridge API')
+          ? 'I cannot reach the CareerBridge backend right now. In a second terminal, start the backend with `cd server` and `npm run dev`, then try your message again.'
+          : `I could not generate a response. ${detail}`,
         timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
       };
       setMessages(prev => [...prev, errorReply]);
