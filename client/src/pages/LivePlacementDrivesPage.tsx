@@ -252,7 +252,7 @@ export const LivePlacementDrivesPage: React.FC = () => {
               </span>
             </div>
             <h1 className="text-2xl md:text-3xl font-extrabold tracking-tight text-white font-sans">
-              Live Placement Companies & Recruitment Drives
+              Placement Opportunities
             </h1>
             <p className="text-sm text-slate-300 leading-relaxed">
               Real-time recruitment drives from Fortune 500 engineering and tech enterprises.
