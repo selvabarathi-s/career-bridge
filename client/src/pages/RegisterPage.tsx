@@ -515,10 +515,10 @@ export const RegisterPage: React.FC = () => {
           <Compass className="h-7 w-7" />
         </div>
         <h1 className="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white tracking-tight">
-          Student Career Discovery & Personalization
+          Create your career profile
         </h1>
         <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 max-w-xl mx-auto">
-          Complete your multidisciplinary onboarding questionnaire so our adaptive AI engine can calibrate your roadmap, identify skill gaps, and personalize your curriculum.
+          Tell us about your interests, education and goals so we can tailor your career plan and learning recommendations.
         </p>
       </div>
 
