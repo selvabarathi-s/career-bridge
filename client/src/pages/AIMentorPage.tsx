@@ -179,7 +179,7 @@ I can help with career exploration, skill development, resumes, projects, and in
               <Bot className="h-4 w-4 animate-spin" />
             </div>
             <div className="rounded-2xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-4 text-xs text-slate-500 dark:text-slate-400 animate-pulse">
-              Synthesizing personalized advice with student profile...
+              Preparing career guidance...
             </div>
           </div>
         )}
