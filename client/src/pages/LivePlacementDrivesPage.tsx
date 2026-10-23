@@ -240,7 +240,7 @@ export const LivePlacementDrivesPage: React.FC = () => {
   return (
     <div className="space-y-6 pb-12">
       {/* Top Banner & Header */}
-      <div className="relative overflow-hidden rounded-2xl border border-slate-200 dark:border-slate-800 bg-gradient-to-r from-blue-900/40 via-indigo-900/30 to-purple-900/30 p-6 md:p-8 backdrop-blur-md">
+      <div className="relative overflow-hidden rounded-2xl border border-slate-200 dark:border-slate-800 bg-gradient-to-r from-slate-950 via-indigo-950 to-blue-950 p-6 md:p-8 shadow-lg shadow-indigo-950/10">
         <div className="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-6">
           <div className="space-y-2 max-w-2xl">
             <div className="flex items-center gap-2">
