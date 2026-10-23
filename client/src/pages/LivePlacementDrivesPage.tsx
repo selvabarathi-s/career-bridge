@@ -157,7 +157,7 @@ export const LivePlacementDrivesPage: React.FC = () => {
       if (!matchesName && !matchesRole && !matchesLocation && !matchesSkills) return false;
     }
 
-    if (onlyEligible) {
+    if (onlyEligible && role === 'student') {
       const { isFullyEligible } = checkEligibility(drive);
       if (!isFullyEligible) return false;
     }
@@ -255,8 +255,9 @@ export const LivePlacementDrivesPage: React.FC = () => {
               Placement Opportunities
             </h1>
             <p className="text-sm text-slate-300 leading-relaxed">
-              Real-time recruitment drives from Fortune 500 engineering and tech enterprises.
-              Eligibility dynamically computed against your academic performance, stream, and Career Readiness Score.
+              {role === 'student'
+                ? 'Explore recruitment drives from engineering and technology employers. Review eligibility requirements and track opportunities that match your career goals.'
+                : 'Browse recruitment drives, role requirements, locations, and hiring timelines. Student eligibility checks are shown in student accounts.'}
             </p>
           </div>
 
@@ -347,7 +348,7 @@ export const LivePlacementDrivesPage: React.FC = () => {
           )}
         </div>
 
-        {activeTab === 'drives' && (
+        {activeTab === 'drives' && role === 'student' && (
           <div className="flex items-center gap-2">
             <label className="flex items-center gap-2 text-xs font-medium text-slate-700 dark:text-slate-300 cursor-pointer select-none">
               <input
@@ -420,8 +421,11 @@ export const LivePlacementDrivesPage: React.FC = () => {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
               {filteredDrives.map(drive => {
                 const eligibility = checkEligibility(drive);
-                const app = getApplicationForDrive(drive.id);
-                const isRegistered = !!app || drive.registeredStudentIds?.includes(studentId);
+                const app = role === 'student' ? getApplicationForDrive(drive.id) : undefined;
+                const isRegistered = role === 'student' && (!!app || !!drive.registeredStudentIds?.includes(studentId));
+                const deadline = new Date(drive.applicationDeadline);
+                deadline.setHours(23, 59, 59, 999);
+                const deadlinePassed = !Number.isNaN(deadline.getTime()) && deadline.getTime() < Date.now();
 
                 return (
                   <div
@@ -449,7 +453,13 @@ export const LivePlacementDrivesPage: React.FC = () => {
                             </h3>
                           </div>
                         </div>
-                        <div>{getStatusBadge(drive.status)}</div>
+                        <div>
+                          {deadlinePassed && drive.status === 'active' ? (
+                            <span className="inline-flex items-center gap-1 rounded-full bg-slate-500/10 border border-slate-500/30 px-2.5 py-0.5 text-xs font-semibold text-slate-500">
+                              <Clock className="h-3 w-3" /> Deadline Passed
+                            </span>
+                          ) : getStatusBadge(drive.status)}
+                        </div>
                       </div>
 
                       {/* Package & Key Details Bar */}
@@ -492,7 +502,8 @@ export const LivePlacementDrivesPage: React.FC = () => {
                         </span>
                       </div>
 
-                      {/* Dynamic Eligibility Breakdown */}
+                      {/* Student-only eligibility breakdown */}
+                      {role === 'student' && (
                       <div className="rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50/70 dark:bg-slate-900/50 p-3 mb-4 space-y-2">
                         <div className="flex items-center justify-between text-xs">
                           <span className="font-bold text-slate-700 dark:text-slate-300">Eligibility Status</span>
@@ -550,7 +561,11 @@ export const LivePlacementDrivesPage: React.FC = () => {
                         <ChevronRight className="h-3.5 w-3.5" />
                       </button>
 
-                      {isRegistered ? (
+                      {role !== 'student' ? (
+                        <span className="text-xs font-medium text-slate-500 dark:text-slate-400">
+                          Student applications only
+                        </span>
+                      ) : isRegistered ? (
                         <div className="flex items-center gap-2">
                           <span className="text-xs font-bold text-blue-600 dark:text-blue-400 flex items-center gap-1">
                             <Check className="h-4 w-4" />
@@ -560,14 +575,14 @@ export const LivePlacementDrivesPage: React.FC = () => {
                       ) : (
                         <button
                           onClick={() => setApplyingDrive(drive)}
-                          disabled={!eligibility.isFullyEligible}
+                          disabled={!eligibility.isFullyEligible || deadlinePassed}
                           className={`flex items-center gap-1.5 rounded-xl px-4 py-2 text-xs font-bold transition-all ${
-                            eligibility.isFullyEligible
+                            eligibility.isFullyEligible && !deadlinePassed
                               ? 'bg-blue-600 text-white hover:bg-blue-700 shadow-md shadow-blue-600/20 active:scale-95 cursor-pointer'
                               : 'bg-slate-100 dark:bg-slate-800 text-slate-400 cursor-not-allowed'
                           }`}
                         >
-                          <span>{eligibility.isFullyEligible ? 'Apply for Drive' : 'Ineligible'}</span>
+                          <span>{deadlinePassed ? 'Deadline Passed' : eligibility.isFullyEligible ? 'Apply for Drive' : 'Ineligible'}</span>
                           <ArrowUpRight className="h-3.5 w-3.5" />
                         </button>
                       )}
