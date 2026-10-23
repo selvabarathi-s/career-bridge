@@ -538,6 +538,8 @@ export const LivePlacementDrivesPage: React.FC = () => {
                         </div>
                       </div>
 
+                                            )}
+
                       {/* Required Skills Badges */}
                       <div className="flex flex-wrap gap-1.5 mb-4">
                         {drive.requiredSkills.map(skill => (
