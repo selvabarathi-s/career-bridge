@@ -825,7 +825,10 @@ export const LivePlacementDrivesPage: React.FC = () => {
               >
                 Close
               </button>
-              {checkEligibility(selectedDrive).isFullyEligible && !getApplicationForDrive(selectedDrive.id) && (
+              {role === 'student' &&
+                !isApplicationDeadlinePassed(selectedDrive) &&
+                checkEligibility(selectedDrive).isFullyEligible &&
+                !getApplicationForDrive(selectedDrive.id) && (
                 <button
                   onClick={() => {
                     const d = selectedDrive;
