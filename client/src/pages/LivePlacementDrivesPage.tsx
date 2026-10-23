@@ -51,6 +51,12 @@ export const LivePlacementDrivesPage: React.FC = () => {
   const studentReadiness = profile?.readinessScore?.overallPercentage ?? 75;
   const studentStream = profile?.stream || 'Computer Science & Engineering';
 
+  const isApplicationDeadlinePassed = (drive: PlacementCompanyDrive) => {
+    const deadline = new Date(drive.applicationDeadline);
+    deadline.setHours(23, 59, 59, 999);
+    return !Number.isNaN(deadline.getTime()) && deadline.getTime() < Date.now();
+  };
+
   const fetchData = async () => {
     try {
       setLoading(true);
@@ -143,10 +149,19 @@ export const LivePlacementDrivesPage: React.FC = () => {
     }
   };
 
+  // Expired application deadlines are not shown as currently active.
+  const activeDrivesCount = drives.filter(
+    drive => drive.status === 'active' && !isApplicationDeadlinePassed(drive)
+  ).length;
+
   // Filtered drives
   const filteredDrives = drives.filter(drive => {
     if (selectedIndustry !== 'all' && drive.industry !== selectedIndustry) return false;
-    if (selectedStatus !== 'all' && drive.status !== selectedStatus) return false;
+    if (selectedStatus === 'active') {
+      if (drive.status !== 'active' || isApplicationDeadlinePassed(drive)) return false;
+    } else if (selectedStatus !== 'all' && drive.status !== selectedStatus) {
+      return false;
+    }
 
     if (searchQuery.trim()) {
       const q = searchQuery.toLowerCase();
@@ -324,9 +339,9 @@ export const LivePlacementDrivesPage: React.FC = () => {
             }`}
           >
             <Building2 className="h-4 w-4" />
-            <span>Active Recruitment Drives</span>
+            <span>{activeDrivesCount > 0 ? 'Active Recruitment Drives' : 'Recruitment Drives'}</span>
             <span className="ml-1.5 rounded-full bg-white/20 px-1.5 py-0.2 text-[11px] font-mono">
-              {drives.length}
+              {activeDrivesCount}
             </span>
           </button>
 
@@ -423,9 +438,7 @@ export const LivePlacementDrivesPage: React.FC = () => {
                 const eligibility = checkEligibility(drive);
                 const app = role === 'student' ? getApplicationForDrive(drive.id) : undefined;
                 const isRegistered = role === 'student' && (!!app || !!drive.registeredStudentIds?.includes(studentId));
-                const deadline = new Date(drive.applicationDeadline);
-                deadline.setHours(23, 59, 59, 999);
-                const deadlinePassed = !Number.isNaN(deadline.getTime()) && deadline.getTime() < Date.now();
+                const deadlinePassed = isApplicationDeadlinePassed(drive);
 
                 return (
                   <div
