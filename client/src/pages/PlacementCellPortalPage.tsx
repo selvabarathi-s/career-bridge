@@ -58,8 +58,8 @@ export const PlacementCellPortalPage: React.FC = () => {
   const [minCgpa, setMinCgpa] = useState(7.5);
   const [minReadiness, setMinReadiness] = useState(70);
   const [hiringCount, setHiringCount] = useState(15);
-  const [driveDate, setDriveDate] = useState('2026-10-15');
-  const [deadline, setDeadline] = useState('2026-10-05');
+  const [driveDate, setDriveDate] = useState(() => new Date(Date.now() + 14 * 86400000).toISOString().split('T')[0]);
+  const [deadline, setDeadline] = useState(() => new Date(Date.now() + 7 * 86400000).toISOString().split('T')[0]);
   const [eligibleDepts, setEligibleDepts] = useState('Computer Science, Artificial Intelligence, IT, Electronics & Communication');
   const [skills, setSkills] = useState('Distributed Systems, Java/Python, Cloud, SQL');
   const [description, setDescription] = useState('');
@@ -115,6 +115,11 @@ export const PlacementCellPortalPage: React.FC = () => {
     e.preventDefault();
     if (!companyName.trim() || !roleTitle.trim()) {
       alert('Please provide company name and role title.');
+      return;
+    }
+
+    if (new Date(deadline) > new Date(driveDate)) {
+      alert('Application deadline cannot be after the campus recruitment drive date.');
       return;
     }
 
@@ -186,15 +191,35 @@ export const PlacementCellPortalPage: React.FC = () => {
 
   const selectedDrive = drives.find(d => d.id === selectedDriveId);
 
+  if (role !== 'placement_cell' && role !== 'admin') {
+    return (
+      <div className="rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-8 text-center space-y-4 my-8 max-w-xl mx-auto">
+        <div className="h-12 w-12 rounded-full bg-emerald-500/10 text-emerald-600 flex items-center justify-center mx-auto">
+          <ShieldCheck className="h-6 w-6" />
+        </div>
+        <h2 className="text-lg font-bold text-slate-900 dark:text-white">Placement Officer Access Only</h2>
+        <p className="text-sm text-slate-600 dark:text-slate-400">
+          This portal is reserved for college placement cell officers and administrators to manage recruitment drives and candidate applications.
+        </p>
+        <a
+          href="/placements"
+          className="inline-flex items-center gap-2 rounded-xl bg-blue-600 px-4 py-2 text-xs font-bold text-white hover:bg-blue-700"
+        >
+          View Live Placement Drives →
+        </a>
+      </div>
+    );
+  }
+
   return (
     <div className="space-y-6 pb-12">
-      {/* Top Banner: Placement Directorate */}
+      {/* Top Banner: Career & Placement Cell */}
       <div className="relative overflow-hidden rounded-2xl border border-slate-200 dark:border-slate-800 bg-gradient-to-r from-emerald-950/40 via-teal-950/30 to-blue-950/40 p-6 md:p-8 backdrop-blur-md">
         <div className="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-6">
           <div className="space-y-2 max-w-2xl">
             <div className="flex items-center gap-2">
               <span className="inline-flex items-center gap-1.5 rounded-full bg-emerald-500/20 px-3 py-1 text-xs font-bold text-emerald-300 border border-emerald-400/30">
-                <Building2 className="h-3.5 w-3.5 text-emerald-400" /> College Placement Directorate
+                <Building2 className="h-3.5 w-3.5 text-emerald-400" /> Career & Placement Cell
               </span>
               <span className="inline-flex items-center gap-1.5 rounded-full bg-blue-500/20 px-3 py-1 text-xs font-bold text-blue-300 border border-blue-400/30">
                 <ShieldCheck className="h-3.5 w-3.5 text-blue-400" /> Institutional Console
@@ -575,7 +600,7 @@ export const PlacementCellPortalPage: React.FC = () => {
             <div className="flex items-start justify-between">
               <div>
                 <span className="text-xs font-bold text-emerald-600 dark:text-emerald-400 uppercase tracking-wider">
-                  College Placement Directorate
+                  Career & Placement Cell
                 </span>
                 <h3 className="text-lg font-bold text-slate-900 dark:text-white mt-0.5">
                   Launch New Campus Recruitment Drive

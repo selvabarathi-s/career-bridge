@@ -6915,6 +6915,19 @@ export const SEED_USERS: UserAccount[] = [
     studentId: 'ADM-EXEC-001',
     avatarUrl: '',
     createdAt: '2023-08-01T08:00:00.000Z'
+  },
+  {
+    id: 'user-placement-1',
+    profileId: '',
+    name: 'Mr. K. Senthil Kumar',
+    email: 'placement@college.edu',
+    password: 'password123',
+    role: 'placement_cell',
+    discipline: 'engineering',
+    stream: 'Central Placement & Corporate Relations Directorate',
+    studentId: 'OFF-PLC-001',
+    avatarUrl: '',
+    createdAt: '2023-08-15T08:00:00.000Z'
   }
 ];
 

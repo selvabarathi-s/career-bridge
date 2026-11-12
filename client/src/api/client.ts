@@ -23,6 +23,18 @@ import {
 
 const API_BASE = (typeof import.meta !== 'undefined' && (import.meta as any).env && (import.meta as any).env.VITE_API_BASE) || '/api';
 
+export function getAuthHeaders(): Record<string, string> {
+  const headers: Record<string, string> = { 'Content-Type': 'application/json' };
+  if (typeof window !== 'undefined' && window.localStorage) {
+    const token = localStorage.getItem('careerbridge_token') || localStorage.getItem('careerbridge_user_id');
+    if (token) {
+      headers['Authorization'] = `Bearer ${token}`;
+      headers['x-user-id'] = token;
+    }
+  }
+  return headers;
+}
+
 export const api = {
   // Auth & Account
   async login(email: string, password?: string, portalRole?: string) {
@@ -127,7 +139,7 @@ export const api = {
   async updateProfile(id: string, updates: Partial<StudentProfile>) {
     const res = await fetch(`${API_BASE}/profiles/${id}`, {
       method: 'PUT',
-      headers: { 'Content-Type': 'application/json' },
+      headers: getAuthHeaders(),
       body: JSON.stringify(updates)
     });
     return res.json() as Promise<{
@@ -255,7 +267,9 @@ export const api = {
 
   // AI Mentor
   async getChatHistory(studentId: string) {
-    const res = await fetch(`${API_BASE}/ai-mentor/history/${studentId}`);
+    const res = await fetch(`${API_BASE}/ai-mentor/history/${studentId}`, {
+      headers: getAuthHeaders()
+    });
     return res.json() as Promise<{ history: AIMessage[] }>;
   },
 
@@ -264,7 +278,7 @@ export const api = {
     try {
       res = await fetch(`${API_BASE}/ai-mentor/chat`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: getAuthHeaders(),
         body: JSON.stringify({ studentId, message })
       });
     } catch {
@@ -283,19 +297,23 @@ export const api = {
 
   // Mentor Portal
   async getMentorStudents() {
-    const res = await fetch(`${API_BASE}/mentor/students`);
+    const res = await fetch(`${API_BASE}/mentor/students`, {
+      headers: getAuthHeaders()
+    });
     return res.json() as Promise<{ students: any[] }>;
   },
 
   async getInterventions() {
-    const res = await fetch(`${API_BASE}/mentor/interventions`);
+    const res = await fetch(`${API_BASE}/mentor/interventions`, {
+      headers: getAuthHeaders()
+    });
     return res.json() as Promise<{ interventions: MentorIntervention[] }>;
   },
 
   async createIntervention(data: { studentId: string; reason: string; notes: string; status?: string }) {
     const res = await fetch(`${API_BASE}/mentor/interventions`, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      headers: getAuthHeaders(),
       body: JSON.stringify(data)
     });
     return res.json() as Promise<{ success: boolean; intervention: MentorIntervention }>;
@@ -303,19 +321,29 @@ export const api = {
 
   // Admin Portal
   async getAdminAnalytics() {
-    const res = await fetch(`${API_BASE}/admin/analytics`);
+    const res = await fetch(`${API_BASE}/admin/analytics`, {
+      headers: getAuthHeaders()
+    });
     return res.json() as Promise<{
       metrics: any;
       careerDistribution: Record<string, number>;
       disciplineReadiness: Record<string, { total: number; count: number; avg: number }>;
       curriculumGaps: CurriculumGapInsight[];
+      modelEvaluation?: any;
     }>;
+  },
+
+  async getModelEvaluationMetrics() {
+    const res = await fetch(`${API_BASE}/admin/model-metrics`, {
+      headers: getAuthHeaders()
+    });
+    return res.json() as Promise<{ metrics: any }>;
   },
 
   async createCurriculumGap(data: Partial<CurriculumGapInsight>) {
     const res = await fetch(`${API_BASE}/admin/curriculum-gaps`, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      headers: getAuthHeaders(),
       body: JSON.stringify(data)
     });
     return res.json() as Promise<{ success: boolean; gap: CurriculumGapInsight }>;
@@ -436,7 +464,7 @@ export const api = {
   async updateApplicationStatus(applicationId: string, status: string, feedback?: string) {
     const res = await fetch(`${API_BASE}/placements/applications/${applicationId}/status`, {
       method: 'PUT',
-      headers: { 'Content-Type': 'application/json' },
+      headers: getAuthHeaders(),
       body: JSON.stringify({ status, feedback })
     });
     return res.json() as Promise<{ success: boolean; application: PlacementApplication }>;

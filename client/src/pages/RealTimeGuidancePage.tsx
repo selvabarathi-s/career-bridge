@@ -119,7 +119,7 @@ export const RealTimeGuidancePage: React.FC = () => {
 
       const authorRole = isMentor ? 'mentor' : isPlacement ? 'placement_cell' : isExpert ? 'industrial_expert' : 'student';
       const authorTitle = isMentor ? 'Faculty Mentor & Academic Advisor' :
-                          isPlacement ? 'Head Placement Officer & Corporate Directorate' :
+                          isPlacement ? 'Head Placement Officer & Corporate Relations' :
                           isExpert ? 'Senior Industrial Practitioner' : 'Peer Engineer';
       const authorOrg = isMentor ? 'College Academic Faculty' :
                         isPlacement ? 'Central Placement Cell' :
@@ -220,7 +220,7 @@ export const RealTimeGuidancePage: React.FC = () => {
         };
       case 'placement_cell':
         return {
-          label: 'Placement Directorate',
+          label: 'Placement Cell',
           className: 'bg-emerald-100 text-emerald-800 dark:bg-emerald-950/80 dark:text-emerald-300 border-emerald-200 dark:border-emerald-800'
         };
       default:

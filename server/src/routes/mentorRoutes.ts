@@ -1,7 +1,11 @@
 import { Router } from 'express';
 import { db } from '../db/database.js';
+import { authenticate, requireRole } from '../middleware/authMiddleware.js';
 
 export const mentorRouter = Router();
+
+// Enforce authentication and mentor/admin role permissions across all mentor endpoints
+mentorRouter.use(authenticate, requireRole(['mentor', 'admin']));
 
 // List all students for mentor oversight
 mentorRouter.get('/students', (req, res) => {

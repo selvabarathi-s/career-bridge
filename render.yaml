@@ -12,4 +12,10 @@ services:
         value: production
       - key: PORT
         value: 10000
+      - key: MONGODB_URI
+        value: "mongodb+srv://selvabarathisit_db_user:FuaBPhDJrJK6tRJN@careerbrigde.0i8vqzt.mongodb.net/careerbridge?retryWrites=true&w=majority&appName=careerbrigde"
+      - key: USE_LOCAL_MODEL
+        value: "true"
+      - key: LOCAL_MODEL_NAME
+        value: "careerbridge-slm-calibrated"
     healthCheckPath: /api/health

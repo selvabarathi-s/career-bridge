@@ -23,12 +23,23 @@ import {
 } from 'lucide-react';
 
 export const StudentDashboard: React.FC = () => {
-  const { profile, targetCareer, skillGaps } = useAuth();
+  const { user, role, profile, targetCareer, skillGaps, loading: authLoading } = useAuth();
   const navigate = useNavigate();
 
   const [milestones, setMilestones] = useState<RoadmapMilestone[]>([]);
   const [nextAction, setNextAction] = useState<NextBestAction | null>(null);
   const [loading, setLoading] = useState(true);
+
+  // Non-student roles land on their designated portal overview
+  useEffect(() => {
+    if (role === 'mentor') {
+      navigate('/mentor', { replace: true });
+    } else if (role === 'admin') {
+      navigate('/admin', { replace: true });
+    } else if (role === 'placement_cell') {
+      navigate('/placement-cell', { replace: true });
+    }
+  }, [role, navigate]);
 
   useEffect(() => {
     if (profile) {
@@ -40,16 +51,37 @@ export const StudentDashboard: React.FC = () => {
         console.error('Failed to load dashboard roadmap:', err);
         setLoading(false);
       });
+    } else if (!authLoading) {
+      setLoading(false);
     }
-  }, [profile]);
+  }, [profile, authLoading]);
 
-  if (!profile || !targetCareer) {
+  if (authLoading || (loading && profile)) {
     return (
       <div className="flex h-96 items-center justify-center">
         <div className="text-center space-y-2">
           <div className="h-8 w-8 animate-spin rounded-full border-4 border-blue-500 border-t-transparent mx-auto"></div>
           <p className="text-xs text-slate-500 dark:text-slate-400">Loading student career intelligence...</p>
         </div>
+      </div>
+    );
+  }
+
+  if (!profile || !targetCareer) {
+    return (
+      <div className="rounded-2xl border border-dashed border-slate-300 dark:border-slate-800 p-8 text-center max-w-md mx-auto my-12 space-y-3 bg-white dark:bg-slate-900">
+        <Compass className="h-10 w-10 text-blue-500 mx-auto" />
+        <h2 className="text-base font-bold text-slate-900 dark:text-white">Profile setup required</h2>
+        <p className="text-xs text-slate-500">
+          Please set up your academic background and dream career path to unlock your personalized dashboard.
+        </p>
+        <button
+          onClick={() => navigate('/profile')}
+          className="inline-flex items-center gap-1.5 rounded-xl bg-blue-600 px-4 py-2 text-xs font-bold text-white shadow-md hover:bg-blue-700 cursor-pointer"
+        >
+          <span>Complete Setup</span>
+          <ArrowRight className="h-3.5 w-3.5" />
+        </button>
       </div>
     );
   }
@@ -267,7 +299,7 @@ export const StudentDashboard: React.FC = () => {
             onClick={() => navigate('/skills')}
             className="text-xs font-semibold text-blue-600 dark:text-blue-400 hover:underline flex items-center gap-1 transition-colors self-start sm:self-auto"
           >
-            <span>View Detailed Skill Studio</span>
+            <span>View Skills Analysis</span>
             <ArrowRight className="h-3.5 w-3.5" />
           </button>
         </div>

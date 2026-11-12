@@ -7,7 +7,15 @@ export const simulatorRouter = Router();
 // Run career pivot simulation
 simulatorRouter.post('/simulate', (req, res) => {
   const { studentId, sourceCareerId, targetCareerId } = req.body;
-  const profile = db.getProfileById(studentId) || db.getProfiles()[0];
+
+  if (!studentId) {
+    return res.status(400).json({ error: 'Valid student profile required' });
+  }
+
+  const profile = db.getProfileById(studentId);
+  if (!profile) {
+    return res.status(404).json({ error: 'Valid student profile required' });
+  }
 
   const result = SimulatorService.simulatePivot(profile, sourceCareerId, targetCareerId);
 

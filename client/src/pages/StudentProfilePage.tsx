@@ -22,7 +22,7 @@ import {
 import { UserAvatar } from '../components/common/UserAvatar';
 
 export const StudentProfilePage: React.FC = () => {
-  const { profile, updateStudentProfile } = useAuth();
+  const { user, role, profile, updateStudentProfile } = useAuth();
   const [allCareers, setAllCareers] = useState<Career[]>([]);
   const [formData, setFormData] = useState<{
     fullName: string;
@@ -109,7 +109,27 @@ export const StudentProfilePage: React.FC = () => {
     setFormData(prev => ({ ...prev, certifications: prev.certifications.filter(c => c !== item) }));
   };
 
-  if (!profile) return null;
+  if (!profile) {
+    return (
+      <div className="rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-8 text-center space-y-4 my-8 max-w-xl mx-auto">
+        <div className="h-12 w-12 rounded-full bg-blue-500/10 text-blue-600 flex items-center justify-center mx-auto">
+          <User className="h-6 w-6" />
+        </div>
+        <h2 className="text-lg font-bold text-slate-900 dark:text-white">Student Profile</h2>
+        <p className="text-sm text-slate-600 dark:text-slate-400">
+          {role === 'student'
+            ? 'Your student profile is currently being prepared. If this is a new account, please complete onboarding.'
+            : `You are logged in as ${user?.name || 'Faculty / Staff'} (${role.replace('_', ' ')}). Individual profile editing is designed for student accounts.`}
+        </p>
+        <a
+          href={role === 'mentor' ? '/mentor' : role === 'admin' ? '/admin' : role === 'placement_cell' ? '/placement-cell' : '/dashboard'}
+          className="inline-flex items-center gap-2 rounded-xl bg-blue-600 px-4 py-2 text-xs font-bold text-white hover:bg-blue-700"
+        >
+          Return to Portal Overview →
+        </a>
+      </div>
+    );
+  }
 
   const currentCareer = allCareers.find(c => c.id === formData.targetCareerId);
 

@@ -11,7 +11,8 @@
       "stream": "Artificial Intelligence & Data Science",
       "studentId": "STU-ENG-2024-001",
       "avatarUrl": "",
-      "createdAt": "2024-01-10T08:00:00.000Z"
+      "createdAt": "2024-01-10T08:00:00.000Z",
+      "updatedAt": "2026-11-12T02:17:35.805Z"
     },
     {
       "id": "user-sabari",
@@ -24,7 +25,8 @@
       "stream": "Computer Science & Engineering / IT",
       "studentId": "STU-ENG-2024-002",
       "avatarUrl": "",
-      "createdAt": "2024-01-12T08:00:00.000Z"
+      "createdAt": "2024-01-12T08:00:00.000Z",
+      "updatedAt": "2026-11-12T02:17:35.807Z"
     },
     {
       "id": "user-ram",
@@ -37,7 +39,8 @@
       "stream": "Computer Science & Engineering / IT",
       "studentId": "STU-ENG-2024-003",
       "avatarUrl": "",
-      "createdAt": "2024-01-15T08:00:00.000Z"
+      "createdAt": "2024-01-15T08:00:00.000Z",
+      "updatedAt": "2026-11-12T02:17:35.808Z"
     },
     {
       "id": "user-gokul",
@@ -50,7 +53,8 @@
       "stream": "Electrical & Electronics Engineering (EEE)",
       "studentId": "STU-ENG-2024-004",
       "avatarUrl": "",
-      "createdAt": "2024-01-18T08:00:00.000Z"
+      "createdAt": "2024-01-18T08:00:00.000Z",
+      "updatedAt": "2026-11-12T02:17:35.808Z"
     },
     {
       "id": "user-sanjay",
@@ -63,7 +67,8 @@
       "stream": "Mechanical & Robotics Engineering",
       "studentId": "STU-ENG-2024-005",
       "avatarUrl": "",
-      "createdAt": "2024-01-20T08:00:00.000Z"
+      "createdAt": "2024-01-20T08:00:00.000Z",
+      "updatedAt": "2026-11-12T02:17:35.808Z"
     },
     {
       "id": "user-kishore",
@@ -76,7 +81,8 @@
       "stream": "Electronics & Communication (ECE)",
       "studentId": "STU-ENG-2024-006",
       "avatarUrl": "",
-      "createdAt": "2024-01-22T08:00:00.000Z"
+      "createdAt": "2024-01-22T08:00:00.000Z",
+      "updatedAt": "2026-11-12T02:17:35.808Z"
     },
     {
       "id": "user-karthick",
@@ -89,7 +95,8 @@
       "stream": "Computer Science & Engineering / IT",
       "studentId": "STU-ENG-2024-007",
       "avatarUrl": "",
-      "createdAt": "2024-01-25T08:00:00.000Z"
+      "createdAt": "2024-01-25T08:00:00.000Z",
+      "updatedAt": "2026-11-12T02:17:35.808Z"
     },
     {
       "id": "user-kalai",
@@ -102,7 +109,8 @@
       "stream": "Computer Science & Engineering / IT",
       "studentId": "STU-ENG-2024-008",
       "avatarUrl": "",
-      "createdAt": "2024-01-28T08:00:00.000Z"
+      "createdAt": "2024-01-28T08:00:00.000Z",
+      "updatedAt": "2026-11-12T02:17:35.808Z"
     },
     {
       "id": "user-deepa",
@@ -115,7 +123,8 @@
       "stream": "Artificial Intelligence & Data Science",
       "studentId": "STU-ENG-2024-009",
       "avatarUrl": "",
-      "createdAt": "2024-02-01T08:00:00.000Z"
+      "createdAt": "2024-02-01T08:00:00.000Z",
+      "updatedAt": "2026-11-12T02:17:35.808Z"
     },
     {
       "id": "user-seetha",
@@ -128,7 +137,8 @@
       "stream": "Electronics & Communication (ECE)",
       "studentId": "STU-ENG-2024-010",
       "avatarUrl": "",
-      "createdAt": "2024-02-03T08:00:00.000Z"
+      "createdAt": "2024-02-03T08:00:00.000Z",
+      "updatedAt": "2026-11-12T02:17:35.808Z"
     },
     {
       "id": "user-sathya",
@@ -141,7 +151,8 @@
       "stream": "Computer Science & Engineering / IT",
       "studentId": "STU-ENG-2024-011",
       "avatarUrl": "",
-      "createdAt": "2024-02-05T08:00:00.000Z"
+      "createdAt": "2024-02-05T08:00:00.000Z",
+      "updatedAt": "2026-11-12T02:17:35.808Z"
     },
     {
       "id": "user-saranya",
@@ -154,7 +165,8 @@
       "stream": "Civil & Environmental Engineering",
       "studentId": "STU-ENG-2024-012",
       "avatarUrl": "",
-      "createdAt": "2024-02-08T08:00:00.000Z"
+      "createdAt": "2024-02-08T08:00:00.000Z",
+      "updatedAt": "2026-11-12T02:17:35.808Z"
     },
     {
       "id": "user-mentor-1",
@@ -167,7 +179,8 @@
       "stream": "Department of Computing & Engineering Sciences",
       "studentId": "FAC-ENG-904",
       "avatarUrl": "",
-      "createdAt": "2023-09-01T08:00:00.000Z"
+      "createdAt": "2023-09-01T08:00:00.000Z",
+      "updatedAt": "2026-11-12T02:17:35.808Z"
     },
     {
       "id": "user-admin-1",
@@ -180,11 +193,12 @@
       "stream": "Dean of Academic Intelligence & Curriculum Alignment",
       "studentId": "ADM-EXEC-001",
       "avatarUrl": "",
-      "createdAt": "2023-08-01T08:00:00.000Z"
+      "createdAt": "2023-08-01T08:00:00.000Z",
+      "updatedAt": "2026-11-12T02:17:35.808Z"
     },
     {
-      "id": "user-placement-cell",
-      "profileId": "profile-placement-officer",
+      "id": "user-placement_cell-1",
+      "profileId": "",
       "name": "Mr. K. Senthil Kumar",
       "email": "placement@college.edu",
       "password": "password123",
@@ -193,7 +207,20 @@
       "stream": "Central Placement & Corporate Relations Directorate",
       "studentId": "OFF-PLC-001",
       "avatarUrl": "",
-      "createdAt": "2023-06-01T08:00:00.000Z"
+      "createdAt": "2026-11-12T02:29:24.798Z"
+    },
+    {
+      "id": "user-1794452261228",
+      "profileId": "student-1794452261228",
+      "name": "Selva",
+      "email": "selva.barathi2007@gmail.com",
+      "password": "727624bit113",
+      "role": "student",
+      "discipline": "engineering",
+      "stream": "Computer Science & Engineering / IT",
+      "studentId": "727624bit113",
+      "avatarUrl": "https://api.dicebear.com/7.x/initials/svg?seed=Selva",
+      "createdAt": "2026-11-12T02:57:41.229Z"
     }
   ],
   "careers": [
@@ -7164,75 +7191,42 @@
       "degree": "B.Tech in Artificial Intelligence & Data Science",
       "yearOfStudy": 3,
       "cgpa": 8.85,
-      "targetCareerId": "career-data-analyst",
+      "targetCareerId": "career-ai-engineer",
       "interests": [
-        "Deep Learning",
-        "Generative AI",
-        "Computer Vision",
-        "PyTorch Automation"
+        "AI",
+        "Data Science",
+        "Adaptive Learning"
       ],
       "skills": [
         {
           "skillId": "skill-python",
           "skillName": "Python Programming",
-          "level": 100,
+          "level": 85,
           "verified": true,
-          "lastAssessedAt": "2026-09-12"
+          "lastAssessedAt": "2024-03-01",
+          "_id": "6af521bf2be9199b1fd3b9b2"
         },
         {
           "skillId": "skill-stats",
           "skillName": "Applied Statistics & Probability",
           "level": 80,
           "verified": true,
-          "lastAssessedAt": "2024-03-05"
+          "lastAssessedAt": "2024-03-05",
+          "_id": "6af521bf2be9199b1fd3b9b3"
         },
         {
           "skillId": "skill-data-viz",
           "skillName": "Data Visualization & BI",
           "level": 70,
-          "verified": true
+          "verified": true,
+          "_id": "6af521bf2be9199b1fd3b9b4"
         },
         {
           "skillId": "skill-sql",
           "skillName": "SQL & Relational Databases",
-          "level": 80,
+          "level": 65,
           "verified": false,
-          "lastAssessedAt": "2026-09-12"
-        },
-        {
-          "skillId": "skill-statistics",
-          "skillName": "skill-statistics",
-          "level": 100,
-          "verified": true,
-          "lastAssessedAt": "2026-09-12"
-        },
-        {
-          "skillId": "skill-pandas",
-          "skillName": "skill-pandas",
-          "level": 100,
-          "verified": true,
-          "lastAssessedAt": "2026-09-12"
-        },
-        {
-          "skillId": "skill-scikit-learn",
-          "skillName": "skill-scikit-learn",
-          "level": 100,
-          "verified": true,
-          "lastAssessedAt": "2026-09-12"
-        },
-        {
-          "skillId": "capstone-career-data",
-          "skillName": "capstone-career-data",
-          "level": 90,
-          "verified": false,
-          "lastAssessedAt": "2026-09-12"
-        },
-        {
-          "skillId": "future-career-data",
-          "skillName": "future-career-data",
-          "level": 100,
-          "verified": false,
-          "lastAssessedAt": "2026-09-12"
+          "_id": "6af521bf2be9199b1fd3b9b5"
         }
       ],
       "projects": [
@@ -7247,51 +7241,8 @@
             "Transformers"
           ],
           "verified": true,
-          "link": "https://github.com/selva/code-llm"
-        },
-        {
-          "id": "proj-skill-python",
-          "title": "Python Programming Production Showcase",
-          "description": "Applied industry implementation verifying practical capability in Python Programming for Data Analyst & BI Specialist.",
-          "technologies": [
-            "Python Programming",
-            "Git",
-            "Production Deployment"
-          ],
-          "verified": true
-        },
-        {
-          "id": "proj-skill-statistics",
-          "title": "skill-statistics Production Showcase",
-          "description": "Applied industry implementation verifying practical capability in skill-statistics for Data Analyst & BI Specialist.",
-          "technologies": [
-            "skill-statistics",
-            "Git",
-            "Production Deployment"
-          ],
-          "verified": true
-        },
-        {
-          "id": "proj-skill-pandas",
-          "title": "skill-pandas Production Showcase",
-          "description": "Applied industry implementation verifying practical capability in skill-pandas for Data Analyst & BI Specialist.",
-          "technologies": [
-            "skill-pandas",
-            "Git",
-            "Production Deployment"
-          ],
-          "verified": true
-        },
-        {
-          "id": "proj-skill-scikit-learn",
-          "title": "skill-scikit-learn Production Showcase",
-          "description": "Applied industry implementation verifying practical capability in skill-scikit-learn for Data Analyst & BI Specialist.",
-          "technologies": [
-            "skill-scikit-learn",
-            "Git",
-            "Production Deployment"
-          ],
-          "verified": true
+          "link": "https://github.com/selva/code-llm",
+          "_id": "6af521bf2be9199b1fd3b9b6"
         }
       ],
       "certifications": [
@@ -7304,39 +7255,27 @@
       },
       "uncertaintyScore": 10,
       "readinessScore": {
-        "overallPercentage": 99,
-        "technicalScore": 91,
-        "projectScore": 100,
-        "problemSolvingScore": 97,
+        "overallPercentage": 73,
+        "technicalScore": 75,
+        "projectScore": 55,
+        "problemSolvingScore": 80,
         "softSkillScore": 75,
-        "status": "career_ready"
+        "status": "competent"
       },
       "learningPace": "accelerated",
       "weeklyHoursCommitted": 14,
       "learningStyle": "hands_on",
-      "targetTimeline": "intensive",
+      "targetTimeline": "immediate",
       "completedMilestoneIds": [
         "ms-ai-1",
-        "ms-ai-2",
-        "ms-skill-statistics-learn",
-        "ms-skill-pandas-learn",
-        "ms-skill-scikit-learn-learn",
-        "ms-skill-sql-learn",
-        "ms-skill-statistics-practice",
-        "ms-skill-pandas-practice",
-        "ms-skill-scikit-learn-practice",
-        "ms-skill-statistics-build",
-        "ms-skill-scikit-learn-build"
+        "ms-ai-2"
       ],
       "completedResourceIds": [
         "res-py-1",
-        "res-math-1",
-        "res-ext-autodesk-learning",
-        "res-ext-epa-resources",
-        "res-ext-hugging-face-learn",
-        "res-ext-asq-learning",
-        "res-ext-aws-skill-builder"
-      ]
+        "res-math-1"
+      ],
+      "createdAt": "2026-11-12T02:17:35.838Z",
+      "updatedAt": "2026-11-12T02:27:30.769Z"
     },
     {
       "id": "student-sabari",
@@ -7362,25 +7301,29 @@
           "skillName": "Cloud Architecture & DevOps",
           "level": 85,
           "verified": true,
-          "lastAssessedAt": "2024-03-02"
+          "lastAssessedAt": "2024-03-02",
+          "_id": "6af521bf2be9199b1fd3b9b8"
         },
         {
           "skillId": "skill-python",
           "skillName": "Python Programming",
           "level": 78,
-          "verified": true
+          "verified": true,
+          "_id": "6af521bf2be9199b1fd3b9b9"
         },
         {
           "skillId": "skill-sql",
           "skillName": "SQL & Relational Databases",
           "level": 72,
-          "verified": true
+          "verified": true,
+          "_id": "6af521bf2be9199b1fd3b9ba"
         },
         {
           "skillId": "skill-stats",
           "skillName": "Applied Statistics & Probability",
           "level": 60,
-          "verified": false
+          "verified": false,
+          "_id": "6af521bf2be9199b1fd3b9bb"
         }
       ],
       "projects": [
@@ -7395,7 +7338,8 @@
             "ArgoCD"
           ],
           "verified": true,
-          "link": "https://github.com/sabari/gitops-infra"
+          "link": "https://github.com/sabari/gitops-infra",
+          "_id": "6af521bf2be9199b1fd3b9bc"
         }
       ],
       "certifications": [
@@ -7424,7 +7368,9 @@
       ],
       "completedResourceIds": [
         "res-cloud-1"
-      ]
+      ],
+      "createdAt": "2026-11-12T02:17:35.838Z",
+      "updatedAt": "2026-11-12T02:17:35.838Z"
     },
     {
       "id": "student-ram",
@@ -7449,25 +7395,29 @@
           "skillId": "skill-python",
           "skillName": "Python Programming",
           "level": 70,
-          "verified": true
+          "verified": true,
+          "_id": "6af521bf2be9199b1fd3b9be"
         },
         {
           "skillId": "skill-cloud",
           "skillName": "Cloud Architecture & DevOps",
           "level": 60,
-          "verified": false
+          "verified": false,
+          "_id": "6af521bf2be9199b1fd3b9bf"
         },
         {
           "skillId": "skill-sql",
           "skillName": "SQL & Relational Databases",
           "level": 55,
-          "verified": false
+          "verified": false,
+          "_id": "6af521bf2be9199b1fd3b9c0"
         },
         {
           "skillId": "skill-stats",
           "skillName": "Applied Statistics & Probability",
           "level": 50,
-          "verified": false
+          "verified": false,
+          "_id": "6af521bf2be9199b1fd3b9c1"
         }
       ],
       "projects": [
@@ -7481,7 +7431,8 @@
             "Wireshark",
             "Elasticsearch"
           ],
-          "verified": true
+          "verified": true,
+          "_id": "6af521bf2be9199b1fd3b9c2"
         }
       ],
       "certifications": [
@@ -7503,7 +7454,11 @@
       "learningPace": "accelerated",
       "weeklyHoursCommitted": 10,
       "learningStyle": "hands_on",
-      "targetTimeline": "skill_building"
+      "targetTimeline": "skill_building",
+      "completedMilestoneIds": [],
+      "completedResourceIds": [],
+      "createdAt": "2026-11-12T02:17:35.839Z",
+      "updatedAt": "2026-11-12T02:17:35.839Z"
     },
     {
       "id": "student-gokul",
@@ -7528,19 +7483,22 @@
           "skillId": "skill-soil-sensors",
           "skillName": "Soil Sensor & Telemetry Integration",
           "level": 50,
-          "verified": false
+          "verified": false,
+          "_id": "6af521bf2be9199b1fd3b9c4"
         },
         {
           "skillId": "skill-python",
           "skillName": "Python Programming",
           "level": 45,
-          "verified": false
+          "verified": false,
+          "_id": "6af521bf2be9199b1fd3b9c5"
         },
         {
           "skillId": "skill-smart-irrigation",
           "skillName": "Automated Irrigation & Climate Control",
           "level": 40,
-          "verified": false
+          "verified": false,
+          "_id": "6af521bf2be9199b1fd3b9c6"
         }
       ],
       "projects": [],
@@ -7560,7 +7518,11 @@
       "learningPace": "steady",
       "weeklyHoursCommitted": 8,
       "learningStyle": "interactive",
-      "targetTimeline": "skill_building"
+      "targetTimeline": "skill_building",
+      "completedMilestoneIds": [],
+      "completedResourceIds": [],
+      "createdAt": "2026-11-12T02:17:35.839Z",
+      "updatedAt": "2026-11-12T02:17:35.839Z"
     },
     {
       "id": "student-sanjay",
@@ -7585,19 +7547,22 @@
           "skillId": "skill-python",
           "skillName": "Python Programming",
           "level": 74,
-          "verified": true
+          "verified": true,
+          "_id": "6af521bf2be9199b1fd3b9c8"
         },
         {
           "skillId": "skill-stats",
           "skillName": "Applied Statistics & Probability",
           "level": 65,
-          "verified": true
+          "verified": true,
+          "_id": "6af521bf2be9199b1fd3b9c9"
         },
         {
           "skillId": "skill-data-viz",
           "skillName": "Data Visualization & BI",
           "level": 60,
-          "verified": false
+          "verified": false,
+          "_id": "6af521bf2be9199b1fd3b9ca"
         }
       ],
       "projects": [
@@ -7611,7 +7576,8 @@
             "Python",
             "C++"
           ],
-          "verified": true
+          "verified": true,
+          "_id": "6af521bf2be9199b1fd3b9cb"
         }
       ],
       "certifications": [
@@ -7632,7 +7598,11 @@
       "learningPace": "accelerated",
       "weeklyHoursCommitted": 12,
       "learningStyle": "hands_on",
-      "targetTimeline": "immediate"
+      "targetTimeline": "immediate",
+      "completedMilestoneIds": [],
+      "completedResourceIds": [],
+      "createdAt": "2026-11-12T02:17:35.839Z",
+      "updatedAt": "2026-11-12T02:17:35.839Z"
     },
     {
       "id": "student-kishore",
@@ -7657,19 +7627,22 @@
           "skillId": "skill-cloud",
           "skillName": "Cloud Architecture & DevOps",
           "level": 62,
-          "verified": true
+          "verified": true,
+          "_id": "6af521bf2be9199b1fd3b9cd"
         },
         {
           "skillId": "skill-python",
           "skillName": "Python Programming",
           "level": 68,
-          "verified": true
+          "verified": true,
+          "_id": "6af521bf2be9199b1fd3b9ce"
         },
         {
           "skillId": "skill-soil-sensors",
           "skillName": "Soil Sensor & Telemetry Integration",
           "level": 65,
-          "verified": false
+          "verified": false,
+          "_id": "6af521bf2be9199b1fd3b9cf"
         }
       ],
       "projects": [
@@ -7683,7 +7656,8 @@
             "Python",
             "MQTT"
           ],
-          "verified": true
+          "verified": true,
+          "_id": "6af521bf2be9199b1fd3b9d0"
         }
       ],
       "certifications": [
@@ -7704,7 +7678,11 @@
       "learningPace": "steady",
       "weeklyHoursCommitted": 10,
       "learningStyle": "hands_on",
-      "targetTimeline": "skill_building"
+      "targetTimeline": "skill_building",
+      "completedMilestoneIds": [],
+      "completedResourceIds": [],
+      "createdAt": "2026-11-12T02:17:35.839Z",
+      "updatedAt": "2026-11-12T02:17:35.839Z"
     },
     {
       "id": "student-karthick",
@@ -7730,25 +7708,29 @@
           "skillName": "SQL & Relational Databases",
           "level": 78,
           "verified": true,
-          "lastAssessedAt": "2024-03-04"
+          "lastAssessedAt": "2024-03-04",
+          "_id": "6af521bf2be9199b1fd3b9d2"
         },
         {
           "skillId": "skill-data-viz",
           "skillName": "Data Visualization & BI",
           "level": 75,
-          "verified": true
+          "verified": true,
+          "_id": "6af521bf2be9199b1fd3b9d3"
         },
         {
           "skillId": "skill-python",
           "skillName": "Python Programming",
           "level": 70,
-          "verified": true
+          "verified": true,
+          "_id": "6af521bf2be9199b1fd3b9d4"
         },
         {
           "skillId": "skill-stats",
           "skillName": "Applied Statistics & Probability",
           "level": 68,
-          "verified": false
+          "verified": false,
+          "_id": "6af521bf2be9199b1fd3b9d5"
         }
       ],
       "projects": [
@@ -7762,7 +7744,8 @@
             "Python",
             "Pandas"
           ],
-          "verified": true
+          "verified": true,
+          "_id": "6af521bf2be9199b1fd3b9d6"
         }
       ],
       "certifications": [
@@ -7783,7 +7766,11 @@
       "learningPace": "accelerated",
       "weeklyHoursCommitted": 12,
       "learningStyle": "hands_on",
-      "targetTimeline": "immediate"
+      "targetTimeline": "immediate",
+      "completedMilestoneIds": [],
+      "completedResourceIds": [],
+      "createdAt": "2026-11-12T02:17:35.839Z",
+      "updatedAt": "2026-11-12T02:17:35.839Z"
     },
     {
       "id": "student-kalai",
@@ -7809,27 +7796,31 @@
           "skillName": "Python Programming",
           "level": 80,
           "verified": true,
-          "lastAssessedAt": "2024-03-01"
+          "lastAssessedAt": "2024-03-01",
+          "_id": "6af521bf2be9199b1fd3b9d8"
         },
         {
           "skillId": "skill-sql",
           "skillName": "SQL & Relational Databases",
           "level": 62,
           "verified": false,
-          "lastAssessedAt": "2024-02-15"
+          "lastAssessedAt": "2024-02-15",
+          "_id": "6af521bf2be9199b1fd3b9d9"
         },
         {
           "skillId": "skill-stats",
           "skillName": "Applied Statistics & Probability",
           "level": 74,
           "verified": true,
-          "lastAssessedAt": "2024-03-05"
+          "lastAssessedAt": "2024-03-05",
+          "_id": "6af521bf2be9199b1fd3b9da"
         },
         {
           "skillId": "skill-data-viz",
           "skillName": "Data Visualization & BI",
           "level": 68,
-          "verified": false
+          "verified": false,
+          "_id": "6af521bf2be9199b1fd3b9db"
         }
       ],
       "projects": [
@@ -7843,7 +7834,8 @@
             "Matplotlib"
           ],
           "verified": true,
-          "link": "https://github.com/kalai/churn-analysis"
+          "link": "https://github.com/kalai/churn-analysis",
+          "_id": "6af521bf2be9199b1fd3b9dc"
         }
       ],
       "certifications": [
@@ -7871,7 +7863,9 @@
       ],
       "completedResourceIds": [
         "res-sql-1"
-      ]
+      ],
+      "createdAt": "2026-11-12T02:17:35.839Z",
+      "updatedAt": "2026-11-12T02:17:35.839Z"
     },
     {
       "id": "student-deepa",
@@ -7897,25 +7891,29 @@
           "skillName": "Python Programming",
           "level": 90,
           "verified": true,
-          "lastAssessedAt": "2024-03-06"
+          "lastAssessedAt": "2024-03-06",
+          "_id": "6af521bf2be9199b1fd3b9de"
         },
         {
           "skillId": "skill-stats",
           "skillName": "Applied Statistics & Probability",
           "level": 88,
-          "verified": true
+          "verified": true,
+          "_id": "6af521bf2be9199b1fd3b9df"
         },
         {
           "skillId": "skill-data-viz",
           "skillName": "Data Visualization & BI",
           "level": 75,
-          "verified": true
+          "verified": true,
+          "_id": "6af521bf2be9199b1fd3b9e0"
         },
         {
           "skillId": "skill-cloud",
           "skillName": "Cloud Architecture & DevOps",
           "level": 70,
-          "verified": false
+          "verified": false,
+          "_id": "6af521bf2be9199b1fd3b9e1"
         }
       ],
       "projects": [
@@ -7929,7 +7927,8 @@
             "FastAPI",
             "Docker"
           ],
-          "verified": true
+          "verified": true,
+          "_id": "6af521bf2be9199b1fd3b9e2"
         }
       ],
       "certifications": [
@@ -7951,7 +7950,11 @@
       "learningPace": "intensive",
       "weeklyHoursCommitted": 15,
       "learningStyle": "hands_on",
-      "targetTimeline": "immediate"
+      "targetTimeline": "immediate",
+      "completedMilestoneIds": [],
+      "completedResourceIds": [],
+      "createdAt": "2026-11-12T02:17:35.839Z",
+      "updatedAt": "2026-11-12T02:17:35.839Z"
     },
     {
       "id": "student-seetha",
@@ -7976,19 +7979,22 @@
           "skillId": "skill-soil-sensors",
           "skillName": "Soil Sensor & Telemetry Integration",
           "level": 70,
-          "verified": true
+          "verified": true,
+          "_id": "6af521bf2be9199b1fd3b9e4"
         },
         {
           "skillId": "skill-python",
           "skillName": "Python Programming",
           "level": 65,
-          "verified": false
+          "verified": false,
+          "_id": "6af521bf2be9199b1fd3b9e5"
         },
         {
           "skillId": "skill-stats",
           "skillName": "Applied Statistics & Probability",
           "level": 60,
-          "verified": false
+          "verified": false,
+          "_id": "6af521bf2be9199b1fd3b9e6"
         }
       ],
       "projects": [
@@ -8002,7 +8008,8 @@
             "BLE",
             "Digital Signal Processing"
           ],
-          "verified": true
+          "verified": true,
+          "_id": "6af521bf2be9199b1fd3b9e7"
         }
       ],
       "certifications": [
@@ -8023,7 +8030,11 @@
       "learningPace": "steady",
       "weeklyHoursCommitted": 10,
       "learningStyle": "hands_on",
-      "targetTimeline": "skill_building"
+      "targetTimeline": "skill_building",
+      "completedMilestoneIds": [],
+      "completedResourceIds": [],
+      "createdAt": "2026-11-12T02:17:35.839Z",
+      "updatedAt": "2026-11-12T02:17:35.839Z"
     },
     {
       "id": "student-sathya",
@@ -8048,19 +8059,22 @@
           "skillId": "skill-cloud",
           "skillName": "Cloud Architecture & DevOps",
           "level": 80,
-          "verified": true
+          "verified": true,
+          "_id": "6af521bf2be9199b1fd3b9e9"
         },
         {
           "skillId": "skill-python",
           "skillName": "Python Programming",
           "level": 78,
-          "verified": true
+          "verified": true,
+          "_id": "6af521bf2be9199b1fd3b9ea"
         },
         {
           "skillId": "skill-sql",
           "skillName": "SQL & Relational Databases",
           "level": 70,
-          "verified": false
+          "verified": false,
+          "_id": "6af521bf2be9199b1fd3b9eb"
         }
       ],
       "projects": [
@@ -8074,7 +8088,8 @@
             "CloudTrail",
             "Boto3"
           ],
-          "verified": true
+          "verified": true,
+          "_id": "6af521bf2be9199b1fd3b9ec"
         }
       ],
       "certifications": [
@@ -8096,7 +8111,11 @@
       "learningPace": "accelerated",
       "weeklyHoursCommitted": 12,
       "learningStyle": "hands_on",
-      "targetTimeline": "immediate"
+      "targetTimeline": "immediate",
+      "completedMilestoneIds": [],
+      "completedResourceIds": [],
+      "createdAt": "2026-11-12T02:17:35.840Z",
+      "updatedAt": "2026-11-12T02:17:35.840Z"
     },
     {
       "id": "student-saranya",
@@ -8121,19 +8140,22 @@
           "skillId": "skill-data-viz",
           "skillName": "Data Visualization & BI",
           "level": 55,
-          "verified": false
+          "verified": false,
+          "_id": "6af521bf2be9199b1fd3b9ee"
         },
         {
           "skillId": "skill-sql",
           "skillName": "SQL & Relational Databases",
           "level": 40,
-          "verified": false
+          "verified": false,
+          "_id": "6af521bf2be9199b1fd3b9ef"
         },
         {
           "skillId": "skill-python",
           "skillName": "Python Programming",
           "level": 42,
-          "verified": false
+          "verified": false,
+          "_id": "6af521bf2be9199b1fd3b9f0"
         }
       ],
       "projects": [],
@@ -8155,7 +8177,84 @@
       "learningPace": "steady",
       "weeklyHoursCommitted": 8,
       "learningStyle": "visual",
-      "targetTimeline": "skill_building"
+      "targetTimeline": "skill_building",
+      "completedMilestoneIds": [],
+      "completedResourceIds": [],
+      "createdAt": "2026-11-12T02:17:35.840Z",
+      "updatedAt": "2026-11-12T02:17:35.840Z"
+    },
+    {
+      "id": "student-1794452261228",
+      "userId": "user-1794452261228",
+      "fullName": "Selva",
+      "email": "selva.barathi2007@gmail.com",
+      "avatarUrl": "https://api.dicebear.com/7.x/initials/svg?seed=Selva",
+      "discipline": "engineering",
+      "stream": "Computer Science & Engineering / IT",
+      "specialization": "Computer Science & Engineering / IT",
+      "degree": "B.Tech / B.E. Computer Science & Engineering",
+      "yearOfStudy": 3,
+      "cgpa": 7.9,
+      "targetCareerId": "career-data-analyst",
+      "interests": [
+        "Computer Science & Engineering / IT",
+        "Data Science & Enterprise Intelligence",
+        "Adaptive Learning"
+      ],
+      "skills": [
+        {
+          "skillId": "skill-python",
+          "skillName": "Python Programming",
+          "level": 60,
+          "verified": false,
+          "lastAssessedAt": "2026-11-12T02:57:41.228Z"
+        },
+        {
+          "skillId": "skill-sql",
+          "skillName": "SQL & Relational Databases",
+          "level": 60,
+          "verified": false,
+          "lastAssessedAt": "2026-11-12T02:57:41.229Z"
+        },
+        {
+          "skillId": "skill-cloud",
+          "skillName": "Cloud Architecture & DevOps",
+          "level": 60,
+          "verified": false,
+          "lastAssessedAt": "2026-11-12T02:57:41.229Z"
+        },
+        {
+          "skillId": "skill-data-viz",
+          "skillName": "Data Visualization & BI",
+          "level": 60,
+          "verified": false,
+          "lastAssessedAt": "2026-11-12T02:57:41.229Z"
+        },
+        {
+          "skillId": "skill-ml",
+          "skillName": "Machine Learning Algorithms",
+          "level": 60,
+          "verified": false,
+          "lastAssessedAt": "2026-11-12T02:57:41.229Z"
+        }
+      ],
+      "projects": [],
+      "certifications": [],
+      "assessmentScores": {},
+      "uncertaintyScore": 10,
+      "readinessScore": {
+        "overallPercentage": 65,
+        "technicalScore": 80,
+        "projectScore": 56,
+        "problemSolvingScore": 59,
+        "softSkillScore": 70,
+        "status": "building"
+      },
+      "learningPace": "intensive",
+      "weeklyHoursCommitted": 20,
+      "learningStyle": "hands_on",
+      "targetTimeline": "skill_building",
+      "priorExperience": "5 skills tagged during onboarding"
     }
   ],
   "interventions": [
@@ -8168,7 +8267,8 @@
       "reason": "high_uncertainty",
       "status": "open",
       "notes": "High uncertainty flagged (38) with stalled project building. Scheduled 1-on-1 mentoring to review embedded electronics fundamentals and bridge microcontroller labs into biomedical robotics prototyping.",
-      "createdAt": "2024-03-08T10:30:00.000Z"
+      "createdAt": "2024-03-08T10:30:00.000Z",
+      "updatedAt": "2026-11-12T02:17:35.820Z"
     },
     {
       "id": "int-2",
@@ -8179,7 +8279,8 @@
       "reason": "persistent_gap",
       "status": "open",
       "notes": "Low readiness score (45%) on foundational SQL and spatial analytics. Assigned the SQL Practice Sandbox and recommended pairing with Kalai for peer-assisted learning.",
-      "createdAt": "2024-03-09T14:15:00.000Z"
+      "createdAt": "2024-03-09T14:15:00.000Z",
+      "updatedAt": "2026-11-12T02:17:35.820Z"
     },
     {
       "id": "int-3",
@@ -8190,7 +8291,8 @@
       "reason": "persistent_gap",
       "status": "addressed",
       "notes": "Exceptional progress across PyTorch and Deep Learning (78% readiness). Recommended advancing to high-scale model serving and exploring national hackathon challenges.",
-      "createdAt": "2024-03-10T11:00:00.000Z"
+      "createdAt": "2024-03-10T11:00:00.000Z",
+      "updatedAt": "2026-11-12T02:17:35.820Z"
     }
   ],
   "curriculumGaps": [
@@ -8247,54 +8349,14 @@
   ],
   "notifications": [
     {
-      "id": "notif-1789204355882-2",
-      "userId": "user-selva",
-      "title": "AI Course Recommendation Queued",
-      "message": "AI identified \"Advanced Relational Database Optimization & Analytics\" for your Advanced Statistics & Hypothesis Testing gap. Submitted to Dr. Balu Prasath for academic verification.",
-      "type": "curriculum",
+      "id": "notif-welcome-1794452261237",
+      "userId": "user-1794452261228",
+      "title": "Welcome Selva! Your Computer Science & Engineering / IT Roadmap is Ready",
+      "message": "We've personalized your roadmap and skill gap matrix for Data Analyst & BI Specialist. Explore your milestones and launch your diagnostic arena!",
+      "type": "system",
       "read": false,
-      "createdAt": "2026-09-12",
-      "link": "/resources"
-    },
-    {
-      "id": "notif-1789204355879-1",
-      "userId": "user-mentor-1",
-      "title": "New AI Courseware Approval Pending",
-      "message": "Selva has a new AI course recommendation for \"Advanced Statistics & Hypothesis Testing\". Academic clearance required.",
-      "type": "mentor",
-      "read": false,
-      "createdAt": "2026-09-12",
-      "link": "/mentor"
-    },
-    {
-      "id": "notif-1789204347238",
-      "userId": "user-sabari",
-      "title": "AI Course Material Approved!",
-      "message": "Dr. Balu Prasath approved \"Kubernetes Operator SDK & Controller Runtime Deep Dive\". It is now unlocked in your Resource Hub!",
-      "type": "mentor",
-      "read": false,
-      "createdAt": "2026-09-12",
-      "link": "/resources"
-    },
-    {
-      "id": "notif-1789202934832",
-      "userId": "user-selva",
-      "title": "Expert Reply from Dr. Balu Prasath",
-      "message": "Dr. Balu Prasath (Faculty Mentor & Academic Advisor) replied to your doubt: \"what AWS?...\"",
-      "type": "mentor",
-      "read": false,
-      "createdAt": "2026-09-12T08:48:54.832Z",
-      "link": "/guidance?id=doubt-1789202843038"
-    },
-    {
-      "id": "notif-1789202843047",
-      "userId": "user-balu",
-      "title": "New Student Query: Selva",
-      "message": "Selva posted a question on \"what AWS?\".",
-      "type": "mentor",
-      "read": false,
-      "createdAt": "2026-09-12T08:47:23.047Z",
-      "link": "/guidance?id=doubt-1789202843038"
+      "createdAt": "Just now",
+      "link": "/dashboard"
     },
     {
       "id": "notif-1",
@@ -8304,7 +8366,8 @@
       "type": "milestone",
       "read": false,
       "createdAt": "10 mins ago",
-      "link": "/roadmap"
+      "link": "/roadmap",
+      "updatedAt": "2026-11-12T02:17:35.821Z"
     },
     {
       "id": "notif-2",
@@ -8314,7 +8377,8 @@
       "type": "mentor",
       "read": false,
       "createdAt": "2 hours ago",
-      "link": "/skills"
+      "link": "/skills",
+      "updatedAt": "2026-11-12T02:17:35.821Z"
     },
     {
       "id": "notif-3",
@@ -8324,94 +8388,67 @@
       "type": "milestone",
       "read": false,
       "createdAt": "1 day ago",
-      "link": "/roadmap"
+      "link": "/roadmap",
+      "updatedAt": "2026-11-12T02:17:35.821Z"
     }
   ],
   "chatHistory": {
-    "student-selva": [
+    "student-1794452261228": [
       {
-        "id": "chat-selva-1",
-        "role": "assistant",
-        "content": "Hello Selva! As your AI Career Mentor, I'm tracking your roadmap for **AI & Machine Learning Engineer** tailored to your **B.Tech in Artificial Intelligence & Data Science** background.\n\nYou are currently **78% Career-Ready** committing ~14 hrs/week. Your fastest lever to unlock the next milestone is deploying your fine-tuned Transformer model to a cloud endpoint.\n\nHow can I help you today? You can ask me to review your resume projects, explain complex model architectures, or generate practice scenarios.",
-        "timestamp": "2026-09-12T07:51:41.200Z"
-      },
-      {
-        "id": "msg-user-1789205361825",
+        "id": "msg-user-1794452277675",
         "sender": "user",
-        "content": "How do I bridge my highest priority skill deficit?",
-        "timestamp": "2026-09-12T09:29:21.825Z"
+        "content": "hi",
+        "timestamp": "2026-11-12T02:57:57.675Z"
       },
       {
-        "id": "msg-1789205361825",
+        "id": "local-msg-1794452277675",
         "sender": "assistant",
-        "content": "Hello Selva! As your CareerBridge Mentor, I'm tracking your roadmap for **Data Analyst & BI Specialist** tailored to your **Artificial Intelligence & Data Science** background.\n\nYou are currently **99% Career-Ready** (career_ready) committing ~14 hrs/week. Your fastest lever to unlock the next milestone is closing the gap in **Python Programming**.\n\nHow can I help you today? You can ask me to explain why this path fits you, suggest high-impact resume projects, or generate practice scenarios.",
-        "timestamp": "2026-09-12T09:29:21.825Z",
+        "content": "### 🧭 Comprehensive Career Guidance for **Selva**\n\n- **Target Career**: **Data Analyst & BI Specialist**\n- **Academic Baseline**: **B.Tech / B.E. Computer Science & Engineering** (Computer Science & Engineering / IT), CGPA **7.9 / 10**\n- **Placement Readiness**: **65%** (BUILDING)\n- **Top Priority Competency**: **statistics** (0% ➔ 80%)\n\n**Recommended Next Step**:\nComplete your upcoming milestone: **Hands-on Practice: statistics Challenge** (6 hours estimated).\n\nFeel free to ask me about interview preparation, company eligibility, roadmap milestones, or hands-on project ideas!",
+        "timestamp": "2026-11-12T02:57:57.675Z",
         "suggestedActions": [
-          "What should I learn today?",
-          "Why is this career recommended for me?",
-          "Recommend a standout project"
+          "Help me prepare for technical interviews",
+          "Which companies are hiring for this role?",
+          "Suggest an impactful project for my resume"
         ],
         "contextSnapshot": {
           "careerTitle": "Data Analyst & BI Specialist",
-          "topGapSkill": "Python Programming",
-          "readiness": 99
+          "topGapSkill": "statistics",
+          "readiness": 65
         }
       },
       {
-        "id": "msg-user-1789205364611",
+        "id": "msg-user-1794452301645",
         "sender": "user",
-        "content": "Suggest an impactful project for my resume",
-        "timestamp": "2026-09-12T09:29:24.611Z"
+        "content": "what is my current state of learning?",
+        "timestamp": "2026-11-12T02:58:21.645Z"
       },
       {
-        "id": "msg-1789205364611",
+        "id": "local-msg-1794452301645",
         "sender": "assistant",
-        "content": "To stand out to recruiters for **Data Analyst & BI Specialist** from your **Artificial Intelligence & Data Science** background, I recommend building: **\"End-to-End Data Analyst & BI Specialist Capstone System\"**.\n\nKey execution checklist:\n1. Solve a real domain problem bridging Artificial Intelligence & Data Science with industry standards.\n2. Apply **Python Programming** to demonstrate capability where candidates typically struggle.\n3. Publish code with a clean README, architectural diagram, and deployment link.",
-        "timestamp": "2026-09-12T09:29:24.611Z",
+        "content": "### 🧭 Comprehensive Career Guidance for **Selva**\n\n- **Target Career**: **Data Analyst & BI Specialist**\n- **Academic Baseline**: **B.Tech / B.E. Computer Science & Engineering** (Computer Science & Engineering / IT), CGPA **7.9 / 10**\n- **Placement Readiness**: **65%** (BUILDING)\n- **Top Priority Competency**: **statistics** (0% ➔ 80%)\n\n**Recommended Next Step**:\nComplete your upcoming milestone: **Hands-on Practice: statistics Challenge** (6 hours estimated).\n\nFeel free to ask me about interview preparation, company eligibility, roadmap milestones, or hands-on project ideas!",
+        "timestamp": "2026-11-12T02:58:21.645Z",
         "suggestedActions": [
-          "View Project Brief in Roadmap",
-          "Explore GitHub Starters",
-          "Take Project Checkpoint Quiz"
+          "Help me prepare for technical interviews",
+          "Which companies are hiring for this role?",
+          "Suggest an impactful project for my resume"
         ],
         "contextSnapshot": {
           "careerTitle": "Data Analyst & BI Specialist",
-          "topGapSkill": "Python Programming",
-          "readiness": 99
+          "topGapSkill": "statistics",
+          "readiness": 65
         }
       },
       {
-        "id": "msg-user-1789206785913",
-        "sender": "user",
-        "content": "Help me prepare for technical interviews",
-        "timestamp": "2026-09-12T09:53:05.913Z"
-      },
-      {
-        "id": "msg-1789206785911",
-        "sender": "assistant",
-        "content": "### 🎯 Technical Interview Master Plan for **Data Analyst & BI Specialist**\n\nTo help you clear technical recruitment rounds for **Data Analyst & BI Specialist** from your **Artificial Intelligence & Data Science** foundation, here is your tailored 3-stage blueprint:\n\n#### 1. Core Technical Rounds Focus Areas\n- **Primary Interview Competencies**: **Python**, **SQL**, **statistics**, **pandas**, **scikit-learn**, **visualization**, **DSA**, **Java/Python/C++**, **Git**, **REST APIs**, **aptitude**, **Excel/BI**, **communication**, **case studies**.\n- **Diagnostic Lever**: Interviewers will test you extensively on **Python Programming** (your current index: **100%**). Be prepared to explain trade-offs and code live.\n- **Academic Benchmark**: Your CGPA of **8.85 / 10** qualifies you for Tier-1 engineering interview cutoffs (>7.5).\n\n#### 2. Expected Interview Questions Breakdown\n1. **Architecture & Design**: *\"How would you design a scalable data ingestion or simulation pipeline for Data Analyst & BI Specialist?\"*\n2. **Algorithmic Problem**: *\"Implement an optimized algorithm handling edge cases in Python Programming.\"*\n3. **Applied Domain**: *\"Walk me through a production obstacle you encountered in Transformer-Based Code Comprehension Engine and how you resolved it.\"*\n\n#### 3. Behavioral Round (STAR Technique)\nPrepare 2 specific stories highlighting **Situation, Task, Action, and Result** demonstrating cross-disciplinary collaboration and critical debugging under pressure.",
-        "timestamp": "2026-09-12T09:53:05.911Z",
-        "suggestedActions": [
-          "Practice Technical Assessment Drill",
-          "Suggest an impactful project for my resume",
-          "Which companies are hiring for this role?"
-        ],
-        "contextSnapshot": {
-          "careerTitle": "Data Analyst & BI Specialist",
-          "topGapSkill": "Python Programming",
-          "readiness": 99
-        }
-      },
-      {
-        "id": "msg-user-1789206982146",
+        "id": "msg-user-1794452305965",
         "sender": "user",
         "content": "Which companies are hiring for this role?",
-        "timestamp": "2026-09-12T09:56:22.146Z"
+        "timestamp": "2026-11-12T02:58:25.965Z"
       },
       {
-        "id": "msg-1789206982146",
+        "id": "local-msg-1794452305965",
         "sender": "assistant",
-        "content": "### 🏢 Live Placement Companies & Eligibility for **Selva**\n\nHere is your recruitment intelligence based on the Central Placement Cell data for **Data Analyst & BI Specialist**:\n\n#### 1. Active Recruitment Drives Matching Your Profile\n1. **Zoho Corporation** — Role: **Member Technical Staff (MTS) - Full Stack & Systems**\n   - **Compensation**: `undefined` | **Min CGPA**: `6.5` (Your CGPA: `8.85`)\n   - **Drive Date**: 2026-10-18 | **Status**: *ACTIVE*\n2. **Infosys Limited** — Role: **Specialist Programmer (SP) & Digital Specialist Engineer**\n   - **Compensation**: `undefined` | **Min CGPA**: `6.5` (Your CGPA: `8.85`)\n   - **Drive Date**: 2026-10-29 | **Status**: *ACTIVE*\n\n#### 2. Key Recruitment Criteria\n- **Eligibility Check**: With a **8.85 CGPA** and **99% Readiness Index**, you meet the eligibility threshold for **Zoho Corporation**.\n- **Crucial Differentiator**: Recruiters evaluate candidates on closing persistent skill deficits. Strengthening **Python Programming** will boost your shortlisting chances by ~28%.\n\n> 💡 **Next Step**: Check out the **Live Placement Drives** tab on your navigation menu to submit one-click applications directly to the college placement directorate.",
-        "timestamp": "2026-09-12T09:56:22.146Z",
+        "content": "### 🏢 Live Placement Companies & Eligibility for **Selva**\n\nHere is your recruitment intelligence based on the Central Placement Cell data for **Data Analyst & BI Specialist**:\n\n#### 1. Active Recruitment Drives Matching Your Profile\n1. **Amazon Web Services (AWS)** — Role: **Cloud Software Development Engineer (SDE-1)**\n   - **Compensation**: `₹24 - 32 LPA (₹18L Base + ₹8L Stock + Joining Bonus)` | **Min CGPA**: `7.5` (Your CGPA: `7.9`)\n   - **Drive Date**: 2026-10-15 | **Status**: *ACTIVE*\n2. **Microsoft Corporation** — Role: **Software Engineer - AI Platform & Intelligent Cloud**\n   - **Compensation**: `₹28 - 44 LPA (₹21L Base + Stocks + Relocation Allowance)` | **Min CGPA**: `8` (Your CGPA: `7.9`)\n   - **Drive Date**: 2026-11-12 | **Status**: *UPCOMING*\n3. **Zoho Corporation** — Role: **Member Technical Staff (MTS) - Full Stack & Systems**\n   - **Compensation**: `₹8.5 - 14 LPA` | **Min CGPA**: `6.5` (Your CGPA: `7.9`)\n   - **Drive Date**: 2026-10-18 | **Status**: *ACTIVE*\n\n#### 2. Key Recruitment Criteria\n- **Eligibility Check**: With a **7.9 CGPA** and **65% Readiness Index**, you meet the eligibility threshold for **Amazon Web Services (AWS)**.\n- **Crucial Differentiator**: Recruiters evaluate candidates on closing persistent skill deficits. Strengthening **statistics** will boost your shortlisting chances by ~28%.\n\n> 💡 **Next Step**: Check out the **Live Placement Drives** tab on your navigation menu to submit one-click applications directly to the college placement directorate.",
+        "timestamp": "2026-11-12T02:58:25.965Z",
         "suggestedActions": [
           "Help me prepare for technical interviews",
           "Explain the career scope and industry trajectory",
@@ -8419,163 +8456,57 @@
         ],
         "contextSnapshot": {
           "careerTitle": "Data Analyst & BI Specialist",
-          "topGapSkill": "Python Programming",
-          "readiness": 99
+          "topGapSkill": "statistics",
+          "readiness": 65
         }
       },
       {
-        "id": "msg-user-1789206982176",
+        "id": "msg-user-1794452307363",
         "sender": "user",
-        "content": "Suggest an impactful project for my resume",
-        "timestamp": "2026-09-12T09:56:22.176Z"
+        "content": "Help me prepare for technical interviews",
+        "timestamp": "2026-11-12T02:58:27.363Z"
       },
       {
-        "id": "msg-1789206982176",
+        "id": "local-msg-1794452307363",
         "sender": "assistant",
-        "content": "### 🚀 High-Impact Resume Project for **Data Analyst & BI Specialist**\n\nTo stand out to recruiters from your **Artificial Intelligence & Data Science** background, build a production-grade portfolio project:\n\n#### 📌 Recommended Project: **\"End-to-End Data Analyst & BI Specialist Capstone System\"**\n\n#### 🛠️ Architectural Blueprint\n1. **Data / Ingestion Layer**: Build a modular pipeline collecting real-world datasets relevant to engineering.\n2. **Processing & Core Logic**: Integrate **Python Programming** to demonstrate deep capability where candidates typically struggle.\n3. **Service & API**: Expose clean REST endpoints with thorough unit testing and input validation.\n4. **Interactive Dashboard / Frontend**: Provide an intuitive UI or analytics visualization demonstrating business KPIs.\n\n#### 📋 Recruiter Checklist\n- [x] Host repository on GitHub with architectural diagram, setup steps, and CI/CD workflow.\n- [x] Write clean documentation with quantifiable outcomes (*\"Improved throughput by 35%\"*).\n- [x] Include a live hosted deployment or Dockerized container link.",
-        "timestamp": "2026-09-12T09:56:22.176Z",
+        "content": "### 🎯 Technical Interview Master Plan for **Data Analyst & BI Specialist**\n\nTo help you clear technical recruitment rounds for **Data Analyst & BI Specialist** from your **Computer Science & Engineering / IT** foundation, here is your tailored 3-stage blueprint:\n\n#### 1. Core Technical Rounds Focus Areas\n- **Primary Interview Competencies**: **Python**, **SQL**, **statistics**, **pandas**, **scikit-learn**, **visualization**, **DSA**, **Java/Python/C++**, **Git**, **REST APIs**, **aptitude**, **Excel/BI**, **communication**, **case studies**.\n- **Diagnostic Lever**: Interviewers will test you extensively on **statistics** (your current index: **0%**). Be prepared to explain trade-offs and code live.\n- **Academic Benchmark**: Your CGPA of **7.9 / 10** qualifies you for Tier-1 engineering interview cutoffs (>7.5).\n\n#### 2. Expected Interview Questions Breakdown\n1. **Architecture & Design**: *\"How would you design a scalable data ingestion or simulation pipeline for Data Analyst & BI Specialist?\"*\n2. **Algorithmic Problem**: *\"Implement an optimized algorithm handling edge cases in statistics.\"*\n3. **Applied Domain**: *\"Walk me through a production obstacle you encountered in your capstone project and how you resolved it.\"*\n\n#### 3. Behavioral Round (STAR Technique)\nPrepare 2 specific stories highlighting **Situation, Task, Action, and Result** demonstrating cross-disciplinary collaboration and critical debugging under pressure.",
+        "timestamp": "2026-11-12T02:58:27.363Z",
+        "suggestedActions": [
+          "Practice Technical Assessment Drill",
+          "Suggest an impactful project for my resume",
+          "Which companies are hiring for this role?"
+        ],
+        "contextSnapshot": {
+          "careerTitle": "Data Analyst & BI Specialist",
+          "topGapSkill": "statistics",
+          "readiness": 65
+        }
+      },
+      {
+        "id": "msg-user-1794452309797",
+        "sender": "user",
+        "content": "Which companies are hiring for this role?",
+        "timestamp": "2026-11-12T02:58:29.797Z"
+      },
+      {
+        "id": "local-msg-1794452309797",
+        "sender": "assistant",
+        "content": "### 🏢 Live Placement Companies & Eligibility for **Selva**\n\nHere is your recruitment intelligence based on the Central Placement Cell data for **Data Analyst & BI Specialist**:\n\n#### 1. Active Recruitment Drives Matching Your Profile\n1. **Amazon Web Services (AWS)** — Role: **Cloud Software Development Engineer (SDE-1)**\n   - **Compensation**: `₹24 - 32 LPA (₹18L Base + ₹8L Stock + Joining Bonus)` | **Min CGPA**: `7.5` (Your CGPA: `7.9`)\n   - **Drive Date**: 2026-10-15 | **Status**: *ACTIVE*\n2. **Microsoft Corporation** — Role: **Software Engineer - AI Platform & Intelligent Cloud**\n   - **Compensation**: `₹28 - 44 LPA (₹21L Base + Stocks + Relocation Allowance)` | **Min CGPA**: `8` (Your CGPA: `7.9`)\n   - **Drive Date**: 2026-11-12 | **Status**: *UPCOMING*\n3. **Zoho Corporation** — Role: **Member Technical Staff (MTS) - Full Stack & Systems**\n   - **Compensation**: `₹8.5 - 14 LPA` | **Min CGPA**: `6.5` (Your CGPA: `7.9`)\n   - **Drive Date**: 2026-10-18 | **Status**: *ACTIVE*\n\n#### 2. Key Recruitment Criteria\n- **Eligibility Check**: With a **7.9 CGPA** and **65% Readiness Index**, you meet the eligibility threshold for **Amazon Web Services (AWS)**.\n- **Crucial Differentiator**: Recruiters evaluate candidates on closing persistent skill deficits. Strengthening **statistics** will boost your shortlisting chances by ~28%.\n\n> 💡 **Next Step**: Check out the **Live Placement Drives** tab on your navigation menu to submit one-click applications directly to the college placement directorate.",
+        "timestamp": "2026-11-12T02:58:29.797Z",
         "suggestedActions": [
           "Help me prepare for technical interviews",
-          "How do I bridge my highest priority skill deficit?",
-          "Explain the career scope and industry trajectory"
-        ],
-        "contextSnapshot": {
-          "careerTitle": "Data Analyst & BI Specialist",
-          "topGapSkill": "Python Programming",
-          "readiness": 99
-        }
-      },
-      {
-        "id": "msg-user-1789206982189",
-        "sender": "user",
-        "content": "Explain the career scope and industry trajectory",
-        "timestamp": "2026-09-12T09:56:22.189Z"
-      },
-      {
-        "id": "msg-1789206982189",
-        "sender": "assistant",
-        "content": "### 📈 Industry Scope & Career Trajectory: **Data Analyst & BI Specialist**\n\n#### 1. Market Growth & Salary Potential\n- **Industry Growth Rate**: **+32% (Very High Demand)** (High Market Demand in 2026–2030).\n- **Fresher / Campus Placement**: `$95,000 / ₹10-22 LPA`\n- **Median Experienced Level**: `$95,000 / ₹10-22 LPA`\n- **Senior / Lead Architect (5+ years)**: `₹25 - 45+ LPA`;\n\n#### 2. Industry Outlook for Artificial Intelligence & Data Science Students\nCompanies are rapidly transitioning toward automated, data-driven systems. Your interdisciplinary background in **Artificial Intelligence & Data Science** provides a unique competitive edge over pure generalists.\n\n#### 3. 5–10 Year Future-Ready Technologies\nStay ahead of industry shifts by tracking these frontier skills:\n1. **GenAI** — Crucial for long-term career longevity.\n2. **LLMs** — Crucial for long-term career longevity.\n3. **MLOps** — Crucial for long-term career longevity.\n4. **data governance** — Crucial for long-term career longevity.\n5. **AI agents** — Crucial for long-term career longevity.\n6. **cloud** — Crucial for long-term career longevity.\n7. **cybersecurity** — Crucial for long-term career longevity.\n8. **AI-assisted analytics** — Crucial for long-term career longevity.\n9. **product analytics** — Crucial for long-term career longevity.",
-        "timestamp": "2026-09-12T09:56:22.189Z",
-        "suggestedActions": [
-          "Which companies are hiring for this role?",
-          "Suggest an impactful project for my resume",
-          "What should I learn today?"
-        ],
-        "contextSnapshot": {
-          "careerTitle": "Data Analyst & BI Specialist",
-          "topGapSkill": "Python Programming",
-          "readiness": 99
-        }
-      },
-      {
-        "id": "msg-user-1789206982202",
-        "sender": "user",
-        "content": "How do I bridge my highest priority skill deficit?",
-        "timestamp": "2026-09-12T09:56:22.202Z"
-      },
-      {
-        "id": "msg-1789206982202",
-        "sender": "assistant",
-        "content": "### ⚡ Targeted Skill Deficit Mastery Sprint\n\nYour primary diagnostic focus is **Python Programming**. Here is your accelerated bridge plan:\n\n#### 1. Current Diagnostic Status\n- **Skill**: **Python Programming** (Programming)\n- **Current Proficiency**: `100%` ➔ **Target Benchmark**: `80%`\n- **Priority**: **MEDIUM** (Impact Weight: High)\n\n#### 2. 3-Phase Action Plan (14 hrs/week pace)\n1. **Foundation Review (Days 1–5)**:\n   - Study accredited courseware modules verified by Faculty Mentor **Dr. Balu Prasath**.\n   - Review syntax, core libraries, and algorithm patterns for **Python Programming**.\n2. **Hands-on Sandboxes (Days 6–15)**:\n   - Complete targeted drills in the **Assessment Arena** to convert theory into muscle memory.\n3. **Mini-Project Milestone (Days 16–25)**:\n   - Build an applied module integrating **Python Programming** into your active roadmap.\n\n> 🛡️ **Mentor Assurance**: Remember that all AI course suggestions must be audited and approved by **Dr. Balu Prasath** before unlocking for verified readiness points.",
-        "timestamp": "2026-09-12T09:56:22.202Z",
-        "suggestedActions": [
-          "Request Course for Python Programming",
-          "Suggest an impactful project for my resume",
-          "Help me prepare for technical interviews"
-        ],
-        "contextSnapshot": {
-          "careerTitle": "Data Analyst & BI Specialist",
-          "topGapSkill": "Python Programming",
-          "readiness": 99
-        }
-      },
-      {
-        "id": "msg-user-1789206982214",
-        "sender": "user",
-        "content": "Who is my mentor and how are courses approved?",
-        "timestamp": "2026-09-12T09:56:22.214Z"
-      },
-      {
-        "id": "msg-1789206982214",
-        "sender": "assistant",
-        "content": "### 👨‍🏫 Faculty Mentor Academic Quality Assurance\n\nAt CareerBridge, AI suggestions are strictly governed by your academic mentors to guarantee institutional curriculum alignment.\n\n- **Assigned Faculty Mentor**: **Dr. Balu Prasath** (*Dept. of Computer Science & Engineering*).\n- **Approval Protocol**: Any course material recommended by AI for your skill deficits enters a `Pending Review` state.\n- **Mentor Verification**: Dr. Balu Prasath audits provider rigor (Coursera, MIT OCW, Linux Foundation, NPTEL) and releases verified material directly to your **Resource Hub**.\n- **Readiness Guarantee**: Only mentor-approved courses unlock verified completion points toward your official college readiness score.",
-        "timestamp": "2026-09-12T09:56:22.214Z",
-        "suggestedActions": [
-          "What should I learn today?",
-          "Suggest an impactful project for my resume",
-          "Help me prepare for technical interviews"
-        ],
-        "contextSnapshot": {
-          "careerTitle": "Data Analyst & BI Specialist",
-          "topGapSkill": "Python Programming",
-          "readiness": 99
-        }
-      },
-      {
-        "id": "msg-user-1789206982225",
-        "sender": "user",
-        "content": "Can I switch to Cloud Architect?",
-        "timestamp": "2026-09-12T09:56:22.225Z"
-      },
-      {
-        "id": "msg-1789206982224",
-        "sender": "assistant",
-        "content": "### 🔄 Career Pivot & Transferability Analysis\n\nYou can smoothly transition from **Artificial Intelligence & Data Science** into adjacent engineering domains!\n\n#### 1. High-Overlap Adjacent Career Tracks\n\n\n#### 2. Transition Feasibility\n- **Foundational Assets**: Your core strengths in **Python Programming, Applied Statistics & Probability, Data Visualization & BI, SQL & Relational Databases, skill-statistics, skill-pandas, skill-scikit-learn, capstone-career-data, future-career-data** transfer directly.\n- **Estimated Pivot Time**: At your **accelerated pace** (~14 hrs/week), bridging remaining domain gaps typically takes **6–10 weeks**.\n\n> 💡 **Try It**: Visit the **Career Simulator & Pivot** module on your sidebar to run a live simulation comparing salary, time-to-readiness, and milestone bridges!",
-        "timestamp": "2026-09-12T09:56:22.224Z",
-        "suggestedActions": [
-          "Launch Career Simulator",
-          "Why is this career recommended for me?",
+          "Explain the career scope and industry trajectory",
           "How do I bridge my highest priority skill deficit?"
         ],
         "contextSnapshot": {
           "careerTitle": "Data Analyst & BI Specialist",
-          "topGapSkill": "Python Programming",
-          "readiness": 99
+          "topGapSkill": "statistics",
+          "readiness": 65
         }
-      }
-    ],
-    "student-kalai": [
-      {
-        "id": "chat-kalai-1",
-        "role": "assistant",
-        "content": "Hello Kalai! As your AI Career Mentor, I'm tracking your roadmap for **Data Analyst & BI Specialist** tailored to your **B.Tech in Computer Science & Engineering** background.\n\nYou are currently **72% Career-Ready** committing ~12 hrs/week. Your fastest lever to unlock the next milestone is closing the gap in **SQL & Relational Databases** (specifically window functions).\n\nHow can I help you today?",
-        "timestamp": "2026-09-12T07:51:41.201Z"
       }
     ]
   },
   "doubts": [
-    {
-      "id": "doubt-1789202843038",
-      "studentId": "student-selva",
-      "studentName": "Selva",
-      "studentEmail": "selva@college.edu",
-      "title": "what AWS?",
-      "queryText": "what AWS?",
-      "domain": "Cloud DevOps & SRE",
-      "category": "technical",
-      "tags": [
-        "AWS"
-      ],
-      "urgency": "urgent",
-      "status": "resolved",
-      "createdAt": "2026-09-12T08:47:23.038Z",
-      "upvotes": 11,
-      "replies": [
-        {
-          "id": "reply-1789202934822",
-          "doubtId": "doubt-1789202843038",
-          "authorId": "user-mentor-1",
-          "authorName": "Dr. Balu Prasath",
-          "authorRole": "mentor",
-          "authorTitle": "Faculty Mentor & Academic Advisor",
-          "authorOrg": "College Academic Faculty",
-          "content": "It a cloud deployment platform",
-          "verified": true,
-          "upvotes": 0,
-          "createdAt": "2026-09-12T08:48:54.822Z"
-        }
-      ]
-    },
     {
       "id": "doubt-1",
       "studentId": "student-selva",
@@ -8610,7 +8541,8 @@
           "codeSnippet": "from transformers import BitsAndBytesConfig\n\nbnb_config = BitsAndBytesConfig(\n    load_in_4bit=True,\n    bnb_4bit_quant_type='nf4',\n    bnb_4bit_compute_dtype=torch.bfloat16,\n    bnb_4bit_use_double_quant=True\n)\n\n# Also enable in training_args:\ntraining_args.gradient_checkpointing = True\ntraining_args.optim = 'paged_adamw_8bit'",
           "verified": true,
           "upvotes": 18,
-          "createdAt": "2026-09-10T11:40:00.000Z"
+          "createdAt": "2026-09-10T11:40:00.000Z",
+          "_id": "6af521bf2be9199b1fd3b9fd"
         },
         {
           "id": "reply-1-2",
@@ -8623,9 +8555,11 @@
           "content": "Great question Selva. Dr. Vikram's advice on paged 8-bit AdamW is exact. Also ensure you target only the projection query and value matrices (q_proj, v_proj) initially to keep trainable parameters under 0.2% of the base model.",
           "verified": true,
           "upvotes": 9,
-          "createdAt": "2026-09-10T13:10:00.000Z"
+          "createdAt": "2026-09-10T13:10:00.000Z",
+          "_id": "6af521bf2be9199b1fd3b9fe"
         }
-      ]
+      ],
+      "updatedAt": "2026-11-12T02:17:35.841Z"
     },
     {
       "id": "doubt-2",
@@ -8661,9 +8595,11 @@
           "codeSnippet": "lifecycle:\n  preStop:\n    exec:\n      command: ['/bin/sh', '-c', 'sleep 15']\nterminationGracePeriodSeconds: 75",
           "verified": true,
           "upvotes": 22,
-          "createdAt": "2026-09-11T10:15:00.000Z"
+          "createdAt": "2026-09-11T10:15:00.000Z",
+          "_id": "6af521bf2be9199b1fd3ba00"
         }
-      ]
+      ],
+      "updatedAt": "2026-11-12T02:17:35.842Z"
     },
     {
       "id": "doubt-3",
@@ -8698,9 +8634,11 @@
           "content": "Always prioritize hardware common-mode rejection first. Implement a Right-Leg Drive (RLD) active feedback loop to invert patient common-mode body voltage back into the body. This boosts CMRR >100dB. Then, in MCU firmware, apply a 2nd-order IIR Notch filter centered at 50Hz (Q=30) sampled at 500Hz. Digital-only filtering without RLD will saturate your ADC frontend.",
           "verified": true,
           "upvotes": 14,
-          "createdAt": "2026-09-11T16:00:00.000Z"
+          "createdAt": "2026-09-11T16:00:00.000Z",
+          "_id": "6af521bf2be9199b1fd3ba02"
         }
-      ]
+      ],
+      "updatedAt": "2026-11-12T02:17:35.842Z"
     },
     {
       "id": "doubt-4",
@@ -8735,7 +8673,8 @@
           "content": "Create a composite B-tree index matching the exact partitioning and ordering keys:\n`CREATE INDEX idx_trans_window ON enterprise_transactions(transaction_year, customer_segment, total_spend DESC);`\nThis allows PostgreSQL to stream pre-sorted records directly into the window accumulator node, dropping execution time from 14.8s to 82ms!",
           "verified": true,
           "upvotes": 19,
-          "createdAt": "2026-09-11T18:45:00.000Z"
+          "createdAt": "2026-09-11T18:45:00.000Z",
+          "_id": "6af521bf2be9199b1fd3ba04"
         },
         {
           "id": "reply-4-2",
@@ -8748,9 +8687,11 @@
           "content": "Kalai, also consider running `SET work_mem = '64MB';` for that session to give the in-memory window buffer adequate room if running multi-tenant queries.",
           "verified": true,
           "upvotes": 7,
-          "createdAt": "2026-09-11T19:10:00.000Z"
+          "createdAt": "2026-09-11T19:10:00.000Z",
+          "_id": "6af521bf2be9199b1fd3ba05"
         }
-      ]
+      ],
+      "updatedAt": "2026-11-12T02:17:35.842Z"
     },
     {
       "id": "doubt-5",
@@ -8771,7 +8712,7 @@
       "urgency": "urgent",
       "status": "answered",
       "createdAt": "2026-09-12T07:15:00.000Z",
-      "upvotes": 35,
+      "upvotes": 24,
       "replies": [
         {
           "id": "reply-5-1",
@@ -8784,7 +8725,8 @@
           "content": "Here is the official hiring rubric from our visiting recruiters this semester:\n1. Round 1 Online Test: 100% DSA (Trees, Graphs, Sliding Window, DP, Binary Search).\n2. Technical Interview 1: DSA live whiteboard coding + time/space complexity proof.\n3. Technical Interview 2: Core CS (OS process scheduling, virtual memory, ACID transactions, TCP 3-way handshake) + applied projects.\n4. We have 8 recruitment drives live now on the portal. Make sure your readiness score is above 70% to unlock direct shortlisting!",
           "verified": true,
           "upvotes": 31,
-          "createdAt": "2026-09-12T08:00:00.000Z"
+          "createdAt": "2026-09-12T08:00:00.000Z",
+          "_id": "6af521bf2be9199b1fd3ba07"
         },
         {
           "id": "reply-5-2",
@@ -8797,9 +8739,11 @@
           "content": "Master the Blind 75 questions first. When given a problem in interview, do NOT jump straight to code: talk through brute-force in 2 mins, identify trade-offs, state target O(N) complexity, and write modular clean code with descriptive variable names.",
           "verified": true,
           "upvotes": 25,
-          "createdAt": "2026-09-12T08:45:00.000Z"
+          "createdAt": "2026-09-12T08:45:00.000Z",
+          "_id": "6af521bf2be9199b1fd3ba08"
         }
-      ]
+      ],
+      "updatedAt": "2026-11-12T02:17:35.842Z"
     },
     {
       "id": "doubt-6",
@@ -8833,9 +8777,11 @@
           "content": "Use `IFC4 Design Transfer View` rather than IFC2x3 Coordination View. In Revit IFC Export options:\n1. Enable 'Export Rebar Elements as BRep Solid Geometry'.\n2. Turn on 'Include Internal Revit Property Sets'.\nThis eliminates mesh clipping in Navisworks 2024 and links seamlessly to Primavera P6 / MS Project time nodes.",
           "verified": true,
           "upvotes": 16,
-          "createdAt": "2026-09-12T10:15:00.000Z"
+          "createdAt": "2026-09-12T10:15:00.000Z",
+          "_id": "6af521bf2be9199b1fd3ba0a"
         }
-      ]
+      ],
+      "updatedAt": "2026-11-12T02:17:35.842Z"
     }
   ],
   "placementDrives": [
@@ -8884,7 +8830,9 @@
       "shortlistedStudentIds": [
         "student-sabari"
       ],
-      "placedStudentIds": []
+      "placedStudentIds": [],
+      "createdAt": "2026-11-12T02:17:35.822Z",
+      "updatedAt": "2026-11-12T02:17:35.822Z"
     },
     {
       "id": "drive-tata-elxsi",
@@ -8931,7 +8879,9 @@
       "shortlistedStudentIds": [
         "student-sanjay"
       ],
-      "placedStudentIds": []
+      "placedStudentIds": [],
+      "createdAt": "2026-11-12T02:17:35.822Z",
+      "updatedAt": "2026-11-12T02:17:35.822Z"
     },
     {
       "id": "drive-bosch-mobility",
@@ -8973,7 +8923,9 @@
         "student-gokul"
       ],
       "shortlistedStudentIds": [],
-      "placedStudentIds": []
+      "placedStudentIds": [],
+      "createdAt": "2026-11-12T02:17:35.822Z",
+      "updatedAt": "2026-11-12T02:17:35.822Z"
     },
     {
       "id": "drive-microsoft-ai",
@@ -9018,7 +8970,9 @@
       "shortlistedStudentIds": [
         "student-deepa"
       ],
-      "placedStudentIds": []
+      "placedStudentIds": [],
+      "createdAt": "2026-11-12T02:17:35.822Z",
+      "updatedAt": "2026-11-12T02:17:35.822Z"
     },
     {
       "id": "drive-qualcomm-vlsi",
@@ -9059,7 +9013,9 @@
         "student-kishore"
       ],
       "shortlistedStudentIds": [],
-      "placedStudentIds": []
+      "placedStudentIds": [],
+      "createdAt": "2026-11-12T02:17:35.822Z",
+      "updatedAt": "2026-11-12T02:17:35.822Z"
     },
     {
       "id": "drive-zoho-corp",
@@ -9104,7 +9060,9 @@
       ],
       "placedStudentIds": [
         "student-sabari"
-      ]
+      ],
+      "createdAt": "2026-11-12T02:17:35.822Z",
+      "updatedAt": "2026-11-12T02:17:35.822Z"
     },
     {
       "id": "drive-lt-smartcities",
@@ -9145,7 +9103,9 @@
         "student-saranya"
       ],
       "shortlistedStudentIds": [],
-      "placedStudentIds": []
+      "placedStudentIds": [],
+      "createdAt": "2026-11-12T02:17:35.823Z",
+      "updatedAt": "2026-11-12T02:17:35.823Z"
     },
     {
       "id": "drive-infosys-sp",
@@ -9188,7 +9148,9 @@
       ],
       "placedStudentIds": [
         "student-kalai"
-      ]
+      ],
+      "createdAt": "2026-11-12T02:17:35.823Z",
+      "updatedAt": "2026-11-12T02:17:35.823Z"
     }
   ],
   "placementApplications": [
@@ -9202,7 +9164,9 @@
       "readinessPercentage": 82,
       "status": "shortlisted",
       "appliedAt": "2026-09-08T14:30:00.000Z",
-      "feedback": "Cleared Online Coding Assessment (100% test cases passed). Technical Interview 1 scheduled for Oct 15."
+      "feedback": "Cleared Online Coding Assessment (100% test cases passed). Technical Interview 1 scheduled for Oct 15.",
+      "createdAt": "2026-11-12T02:17:35.823Z",
+      "updatedAt": "2026-11-12T02:17:35.823Z"
     },
     {
       "id": "app-2",
@@ -9214,7 +9178,9 @@
       "readinessPercentage": 78,
       "status": "applied",
       "appliedAt": "2026-09-10T11:00:00.000Z",
-      "feedback": "Application registered. Online Assessment link dispatched to selva@college.edu."
+      "feedback": "Application registered. Online Assessment link dispatched to selva@college.edu.",
+      "createdAt": "2026-11-12T02:17:35.823Z",
+      "updatedAt": "2026-11-12T02:17:35.823Z"
     },
     {
       "id": "app-3",
@@ -9226,7 +9192,9 @@
       "readinessPercentage": 82,
       "status": "offer_extended",
       "appliedAt": "2026-08-28T09:00:00.000Z",
-      "feedback": "Outstanding performance in On-Spot Prototyping. Official offer letter issued for Member Technical Staff (₹12 LPA)."
+      "feedback": "Outstanding performance in On-Spot Prototyping. Official offer letter issued for Member Technical Staff (₹12 LPA).",
+      "createdAt": "2026-11-12T02:17:35.823Z",
+      "updatedAt": "2026-11-12T02:17:35.823Z"
     },
     {
       "id": "app-4",
@@ -9238,7 +9206,9 @@
       "readinessPercentage": 74,
       "status": "shortlisted",
       "appliedAt": "2026-09-02T16:00:00.000Z",
-      "feedback": "Advanced DSA round cleared. Application Development round scheduled for Oct 18."
+      "feedback": "Advanced DSA round cleared. Application Development round scheduled for Oct 18.",
+      "createdAt": "2026-11-12T02:17:35.823Z",
+      "updatedAt": "2026-11-12T02:17:35.823Z"
     },
     {
       "id": "app-5",
@@ -9250,7 +9220,9 @@
       "readinessPercentage": 86,
       "status": "interview_scheduled",
       "appliedAt": "2026-09-05T10:00:00.000Z",
-      "feedback": "OA score 300/300. Virtual Onsite Technical Interview scheduled for Nov 12."
+      "feedback": "OA score 300/300. Virtual Onsite Technical Interview scheduled for Nov 12.",
+      "createdAt": "2026-11-12T02:17:35.823Z",
+      "updatedAt": "2026-11-12T02:17:35.823Z"
     },
     {
       "id": "app-6",
@@ -9262,7 +9234,9 @@
       "readinessPercentage": 68,
       "status": "shortlisted",
       "appliedAt": "2026-09-06T15:30:00.000Z",
-      "feedback": "Cleared C/C++ bitwise drill. Firmware simulation round scheduled for Oct 22."
+      "feedback": "Cleared C/C++ bitwise drill. Firmware simulation round scheduled for Oct 22.",
+      "createdAt": "2026-11-12T02:17:35.823Z",
+      "updatedAt": "2026-11-12T02:17:35.823Z"
     },
     {
       "id": "app-7",
@@ -9274,7 +9248,9 @@
       "readinessPercentage": 72,
       "status": "offer_extended",
       "appliedAt": "2026-08-25T11:00:00.000Z",
-      "feedback": "Specialist Programmer offer confirmed (₹9.5 LPA). Welcome to Infosys SP cohort!"
+      "feedback": "Specialist Programmer offer confirmed (₹9.5 LPA). Welcome to Infosys SP cohort!",
+      "createdAt": "2026-11-12T02:17:35.823Z",
+      "updatedAt": "2026-11-12T02:17:35.823Z"
     },
     {
       "id": "app-8",
@@ -9286,29 +9262,12 @@
       "readinessPercentage": 64,
       "status": "applied",
       "appliedAt": "2026-09-11T12:00:00.000Z",
-      "feedback": "Application submitted. Document verification under review by Central Placement Cell."
+      "feedback": "Application submitted. Document verification under review by Central Placement Cell.",
+      "createdAt": "2026-11-12T02:17:35.823Z",
+      "updatedAt": "2026-11-12T02:17:35.823Z"
     }
   ],
   "courseRecommendations": [
-    {
-      "id": "rec-1789204355871-45fy",
-      "studentId": "student-selva",
-      "studentName": "Selva",
-      "studentEmail": "selva@college.edu",
-      "department": "B.Tech in Artificial Intelligence & Data Science",
-      "targetCareer": "Data Analyst & BI Specialist",
-      "skillGapName": "Advanced Statistics & Hypothesis Testing",
-      "courseTitle": "Advanced Relational Database Optimization & Analytics",
-      "provider": "Udacity Enterprise / Coursera",
-      "courseUrl": "https://www.coursera.org/specializations/data-engineering-foundations",
-      "type": "interactive",
-      "durationMinutes": 360,
-      "difficulty": "intermediate",
-      "rating": 4.8,
-      "aiRationale": "AI flagged query execution plan bottlenecks. This module provides focused indexing, window functions, and partitioning drills.",
-      "status": "pending_approval",
-      "requestedAt": "2026-09-12T09:12:35.871Z"
-    },
     {
       "id": "rec-1",
       "studentId": "student-selva",
@@ -9326,7 +9285,9 @@
       "rating": 4.9,
       "aiRationale": "AI Diagnostic detected Selva scored 54% in Advanced Neural Architectures assessment. This course directly addresses tensor manipulation, gradient descent optimizations, and convolutional layers needed for the target benchmark.",
       "status": "pending_approval",
-      "requestedAt": "2026-09-11T10:15:00.000Z"
+      "requestedAt": "2026-09-11T10:15:00.000Z",
+      "createdAt": "2026-11-12T02:17:35.824Z",
+      "updatedAt": "2026-11-12T02:17:35.824Z"
     },
     {
       "id": "rec-2",
@@ -9344,12 +9305,10 @@
       "difficulty": "advanced",
       "rating": 4.8,
       "aiRationale": "AI evaluated Sabari's milestone completion rate at 82%, but flagged an 18% competency deficit in production K8s operator patterns required for senior cloud architect roles.",
-      "status": "approved",
+      "status": "pending_approval",
       "requestedAt": "2026-09-12T08:30:00.000Z",
-      "mentorId": "user-mentor-1",
-      "mentorName": "Dr. Balu Prasath",
-      "mentorFeedback": "Audited against Semester 7 Cloud Architecture syllabus. Approved.",
-      "reviewedAt": "2026-09-12T09:12:27.227Z"
+      "createdAt": "2026-11-12T02:17:35.824Z",
+      "updatedAt": "2026-11-12T02:17:35.824Z"
     },
     {
       "id": "rec-3",
@@ -9372,7 +9331,9 @@
       "mentorName": "Dr. Balu Prasath",
       "mentorFeedback": "Curriculum vetted against Semester 6 Biomedical DSP syllabus. Excellent rigor and practical simulation assignments.",
       "requestedAt": "2026-09-08T09:00:00.000Z",
-      "reviewedAt": "2026-09-09T14:20:00.000Z"
+      "reviewedAt": "2026-09-09T14:20:00.000Z",
+      "createdAt": "2026-11-12T02:17:35.824Z",
+      "updatedAt": "2026-11-12T02:17:35.824Z"
     },
     {
       "id": "rec-4",
@@ -9395,7 +9356,9 @@
       "mentorName": "Dr. Balu Prasath",
       "mentorFeedback": "Approved for credit completion. Focus on EXPLAIN ANALYZE modules 3 and 4.",
       "requestedAt": "2026-09-07T11:00:00.000Z",
-      "reviewedAt": "2026-09-08T16:45:00.000Z"
+      "reviewedAt": "2026-09-08T16:45:00.000Z",
+      "createdAt": "2026-11-12T02:17:35.824Z",
+      "updatedAt": "2026-11-12T02:17:35.824Z"
     },
     {
       "id": "rec-5",
@@ -9418,7 +9381,9 @@
       "mentorName": "Dr. Balu Prasath",
       "mentorFeedback": "Critical skill for Tier-2 SOC placement interviews. Approved.",
       "requestedAt": "2026-09-06T13:30:00.000Z",
-      "reviewedAt": "2026-09-07T10:15:00.000Z"
+      "reviewedAt": "2026-09-07T10:15:00.000Z",
+      "createdAt": "2026-11-12T02:17:35.824Z",
+      "updatedAt": "2026-11-12T02:17:35.824Z"
     },
     {
       "id": "rec-6",
@@ -9437,7 +9402,9 @@
       "rating": 4.95,
       "aiRationale": "Deepa demonstrated 86% readiness for Microsoft AI drive; this courseware bridges open-source weights fine-tuning for edge LLMs.",
       "status": "pending_approval",
-      "requestedAt": "2026-09-12T09:10:00.000Z"
+      "requestedAt": "2026-09-12T09:10:00.000Z",
+      "createdAt": "2026-11-12T02:17:35.824Z",
+      "updatedAt": "2026-11-12T02:17:35.824Z"
     }
   ]
 }

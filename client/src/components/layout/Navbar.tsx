@@ -67,7 +67,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenMobileCompanion, onOpenQRS
         };
       case 'placement_cell':
         return {
-          label: 'Placement Directorate',
+          label: 'Placement Cell',
           icon: Building2,
           color: 'bg-emerald-50 text-emerald-700 dark:bg-emerald-950/80 dark:text-emerald-300 border-emerald-200 dark:border-emerald-900/60'
         };
@@ -305,6 +305,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenMobileCompanion, onOpenQRS
                           setProfileDropdownOpen(false);
                           if (role === 'admin') navigate('/admin');
                           else if (role === 'mentor') navigate('/mentor');
+                          else if (role === 'placement_cell') navigate('/placement-cell');
                           else navigate('/dashboard');
                         }}
                         className="w-full flex items-center gap-2 rounded-lg px-2.5 py-2 text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors font-medium"

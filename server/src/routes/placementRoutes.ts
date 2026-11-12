@@ -1,6 +1,7 @@
 import { Router } from 'express';
 import { db } from '../db/database.js';
 import { PlacementCompanyDrive, PlacementApplication, PlacementAnalyticsSummary } from '../types/shared.js';
+import { authenticate, requireRole } from '../middleware/authMiddleware.js';
 
 export const placementRouter = Router();
 
@@ -64,7 +65,19 @@ placementRouter.post('/drives', (req, res) => {
   } = req.body;
 
   if (!companyName || !roleTitle || !ctcPackage) {
-    return res.status(400).json({ error: 'Company Name, Role Title, and CTC Package are required' });
+    return res.status(400).json({ error: 'Company Name, Role Title, and CTC Package are required.' });
+  }
+
+  // Validate dates
+  const resolvedDriveDate = driveDate || new Date(Date.now() + 14 * 86400000).toISOString().split('T')[0];
+  const resolvedDeadline = applicationDeadline || new Date(Date.now() + 7 * 86400000).toISOString().split('T')[0];
+
+  const appDeadlineDate = new Date(resolvedDeadline);
+  const campusDriveDate = new Date(resolvedDriveDate);
+  if (!Number.isNaN(appDeadlineDate.getTime()) && !Number.isNaN(campusDriveDate.getTime())) {
+    if (appDeadlineDate > campusDriveDate) {
+      return res.status(400).json({ error: 'Application deadline cannot be after the recruitment drive date.' });
+    }
   }
 
   const newDrive: PlacementCompanyDrive = {
@@ -75,8 +88,8 @@ placementRouter.post('/drives', (req, res) => {
     ctcPackage,
     jobType: jobType || 'full_time',
     workLocation: workLocation || 'Pan India / Hybrid',
-    driveDate: driveDate || new Date(Date.now() + 14 * 86400000).toISOString().split('T')[0],
-    applicationDeadline: applicationDeadline || new Date(Date.now() + 7 * 86400000).toISOString().split('T')[0],
+    driveDate: resolvedDriveDate,
+    applicationDeadline: resolvedDeadline,
     status: status || 'upcoming',
     eligibleDepartments: eligibleDepartments && eligibleDepartments.length > 0 ? eligibleDepartments : ['All Engineering Branches'],
     minCgpa: Number(minCgpa) || 7.0,
@@ -120,6 +133,20 @@ placementRouter.post('/drives/:id/apply', (req, res) => {
     return res.status(404).json({ error: 'Placement drive not found' });
   }
 
+  // Check if drive is already completed
+  if (drive.status === 'completed') {
+    return res.status(400).json({ error: `This recruitment drive for ${drive.companyName} has already concluded.` });
+  }
+
+  // Check application deadline
+  const deadline = new Date(drive.applicationDeadline);
+  deadline.setHours(23, 59, 59, 999);
+  if (!Number.isNaN(deadline.getTime()) && deadline.getTime() < Date.now()) {
+    return res.status(400).json({
+      error: `The application deadline for ${drive.companyName} (${drive.applicationDeadline}) has passed. Applications are closed.`
+    });
+  }
+
   const { studentId } = req.body;
   if (!studentId) {
     return res.status(400).json({ error: 'studentId is required' });
@@ -127,7 +154,7 @@ placementRouter.post('/drives/:id/apply', (req, res) => {
 
   const profile = db.getProfileById(studentId);
   if (!profile) {
-    return res.status(404).json({ error: 'Student profile not found' });
+    return res.status(404).json({ error: 'Student profile not found. Please complete your profile first.' });
   }
 
   // Check if already registered
@@ -137,13 +164,48 @@ placementRouter.post('/drives/:id/apply', (req, res) => {
     return res.status(400).json({ error: 'You have already submitted an application for this drive.' });
   }
 
-  // Check minimum CGPA & Readiness criteria
-  const studentCgpa = profile.cgpa || 7.0;
-  const readiness = profile.readinessScore?.overallPercentage || 50;
-
-  if (studentCgpa < drive.minCgpa - 0.2) {
+  // Check profile data honesty - do not invent or silently fall back to mock data
+  if (typeof profile.cgpa !== 'number' || Number.isNaN(profile.cgpa)) {
     return res.status(400).json({
-      error: `Your current CGPA (${studentCgpa}) does not meet the minimum requirement of ${drive.minCgpa} for ${drive.companyName}.`
+      error: 'Your academic profile is missing a verified CGPA. Please complete your profile before applying.'
+    });
+  }
+
+  if (!profile.readinessScore || typeof profile.readinessScore.overallPercentage !== 'number') {
+    return res.status(400).json({
+      error: 'Your profile does not have an evaluated career readiness score. Please complete diagnostic assessments before applying.'
+    });
+  }
+
+  const studentCgpa = profile.cgpa;
+  const readiness = profile.readinessScore.overallPercentage;
+
+  // Strict CGPA check
+  if (studentCgpa < drive.minCgpa) {
+    return res.status(400).json({
+      error: `Your current CGPA (${studentCgpa.toFixed(2)}) does not meet the minimum requirement of ${drive.minCgpa.toFixed(2)} for ${drive.companyName}.`
+    });
+  }
+
+  // Strict Readiness check
+  if (readiness < drive.minReadinessScore) {
+    return res.status(400).json({
+      error: `Your current career readiness (${readiness}%) does not meet the minimum required benchmark (${drive.minReadinessScore}%) for ${drive.companyName}.`
+    });
+  }
+
+  // Check Department / Branch eligibility
+  const studentDept = (profile.stream || profile.discipline || '').toLowerCase();
+  const isDeptEligible =
+    drive.eligibleDepartments.includes('All Engineering Branches') ||
+    drive.eligibleDepartments.some(
+      dept =>
+        studentDept.includes(dept.toLowerCase()) || dept.toLowerCase().includes(studentDept)
+    );
+
+  if (!isDeptEligible) {
+    return res.status(400).json({
+      error: `Students from '${profile.stream || profile.discipline}' are not eligible for this drive. Eligible branches: ${drive.eligibleDepartments.join(', ')}.`
     });
   }
 
@@ -198,8 +260,24 @@ placementRouter.get('/applications/drive/:driveId', (req, res) => {
 });
 
 // PUT update candidate application status (Placement Cell actions)
-placementRouter.put('/applications/:applicationId/status', (req, res) => {
+placementRouter.put('/applications/:applicationId/status', authenticate, requireRole(['placement_cell', 'admin']), (req, res) => {
   const { status, feedback } = req.body;
+  const allowedStatuses = [
+    'applied',
+    'under_review',
+    'shortlisted',
+    'assessment_cleared',
+    'interview_scheduled',
+    'offer_extended',
+    'rejected'
+  ];
+
+  if (!status || !allowedStatuses.includes(status)) {
+    return res.status(400).json({
+      error: `Invalid application status. Allowed: ${allowedStatuses.join(', ')}`
+    });
+  }
+
   const applications = db.getPlacementApplications();
   const app = applications.find(a => a.id === req.params.applicationId);
 

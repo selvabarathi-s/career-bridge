@@ -1,0 +1,1699 @@
+{
+  "timestamp": "2026-11-12T02:24:29.836Z",
+  "durationSeconds": 1.84,
+  "baseUrl": "http://localhost:4005",
+  "summary": {
+    "totalTests": 225,
+    "totalPassed": 225,
+    "totalFailed": 0,
+    "passRate": 100
+  },
+  "tierStats": {
+    "1": {
+      "total": 100,
+      "passed": 100,
+      "failed": 0
+    },
+    "2": {
+      "total": 100,
+      "passed": 100,
+      "failed": 0
+    },
+    "3": {
+      "total": 20,
+      "passed": 20,
+      "failed": 0
+    },
+    "4": {
+      "total": 5,
+      "passed": 5,
+      "failed": 0
+    }
+  },
+  "suites": [
+    {
+      "featureId": "F01",
+      "featureName": "Client Build Blocker Resolution",
+      "tier": 1,
+      "total": 5,
+      "passed": 5,
+      "failed": 0,
+      "skipped": 0,
+      "results": [
+        {
+          "name": "F01-T1-1: App.tsx has no dangling ReviewThreePage imports",
+          "status": "PASS",
+          "durationMs": 2
+        },
+        {
+          "name": "F01-T1-2: Sidebar.tsx has no dangling ReviewThreePage imports",
+          "status": "PASS",
+          "durationMs": 0
+        },
+        {
+          "name": "F01-T1-3: Client package.json defines standard build scripts",
+          "status": "PASS",
+          "durationMs": 1
+        },
+        {
+          "name": "F01-T1-4: Client production dist contains index.html and compiled bundles",
+          "status": "PASS",
+          "durationMs": 0
+        },
+        {
+          "name": "F01-T1-5: Root routes in App.tsx map to existing page components",
+          "status": "PASS",
+          "durationMs": 1
+        }
+      ]
+    },
+    {
+      "featureId": "F02",
+      "featureName": "Profile Isolation & Fallback Removal",
+      "tier": 1,
+      "total": 5,
+      "passed": 5,
+      "failed": 0,
+      "skipped": 0,
+      "results": [
+        {
+          "name": "F02-T1-1: Student login returns student own profile",
+          "status": "PASS",
+          "durationMs": 29
+        },
+        {
+          "name": "F02-T1-2: Admin login must NOT return student profile fallback",
+          "status": "PASS",
+          "durationMs": 5
+        },
+        {
+          "name": "F02-T1-3: Mentor login must NOT return student profile fallback",
+          "status": "PASS",
+          "durationMs": 5
+        },
+        {
+          "name": "F02-T1-4: Placement Cell login must NOT return student profile fallback",
+          "status": "PASS",
+          "durationMs": 3
+        },
+        {
+          "name": "F02-T1-5: GET /api/profiles/:id returns 404 for non-existent profile ID",
+          "status": "PASS",
+          "durationMs": 4
+        }
+      ]
+    },
+    {
+      "featureId": "F03",
+      "featureName": "Backend RBAC & Session Auth",
+      "tier": 1,
+      "total": 5,
+      "passed": 5,
+      "failed": 0,
+      "skipped": 0,
+      "results": [
+        {
+          "name": "F03-T1-1: Authentication returns unique bearer token on successful login",
+          "status": "PASS",
+          "durationMs": 3
+        },
+        {
+          "name": "F03-T1-2: Student role credentials validate against student portal",
+          "status": "PASS",
+          "durationMs": 4
+        },
+        {
+          "name": "F03-T1-3: Mentor role credentials validate against mentor portal",
+          "status": "PASS",
+          "durationMs": 3
+        },
+        {
+          "name": "F03-T1-4: Placement cell credentials validate against placement portal",
+          "status": "PASS",
+          "durationMs": 4
+        },
+        {
+          "name": "F03-T1-5: Admin role credentials validate against admin portal",
+          "status": "PASS",
+          "durationMs": 3
+        }
+      ]
+    },
+    {
+      "featureId": "F04",
+      "featureName": "Private Chat & Data Protection",
+      "tier": 1,
+      "total": 5,
+      "passed": 5,
+      "failed": 0,
+      "skipped": 0,
+      "results": [
+        {
+          "name": "F04-T1-1: GET /api/ai-mentor/history returns chat history array for student",
+          "status": "PASS",
+          "durationMs": 23
+        },
+        {
+          "name": "F04-T1-2: GET /api/ai-mentor/history returns empty or 404 for non-existent profile without leaking other chats",
+          "status": "PASS",
+          "durationMs": 6
+        },
+        {
+          "name": "F04-T1-3: POST /api/ai-mentor/chat accepts message and returns guidance response",
+          "status": "PASS",
+          "durationMs": 66
+        },
+        {
+          "name": "F04-T1-4: POST /api/ai-mentor/chat without studentId provides general guidance without crashing",
+          "status": "PASS",
+          "durationMs": 21
+        },
+        {
+          "name": "F04-T1-5: General guidance chat does NOT pollute student chat history",
+          "status": "PASS",
+          "durationMs": 37
+        }
+      ]
+    },
+    {
+      "featureId": "F05",
+      "featureName": "Vector Pathway Matching (AI.SIMILARITY)",
+      "tier": 1,
+      "total": 5,
+      "passed": 5,
+      "failed": 0,
+      "skipped": 0,
+      "results": [
+        {
+          "name": "F05-T1-1: GET /api/careers returns complete catalog of multi-disciplinary careers",
+          "status": "PASS",
+          "durationMs": 6
+        },
+        {
+          "name": "F05-T1-2: POST /api/simulator/simulate computes vector similarity & transferable skills",
+          "status": "PASS",
+          "durationMs": 9
+        },
+        {
+          "name": "F05-T1-3: Simulator produces deterministic transition difficulty classification",
+          "status": "PASS",
+          "durationMs": 11
+        },
+        {
+          "name": "F05-T1-4: Pathway match includes structured roadmap transition milestones",
+          "status": "PASS",
+          "durationMs": 7
+        },
+        {
+          "name": "F05-T1-5: Filter careers by discipline returns matching domain careers",
+          "status": "PASS",
+          "durationMs": 6
+        }
+      ]
+    },
+    {
+      "featureId": "F06",
+      "featureName": "Calibrated Readiness Scoring (ML.PREDICT)",
+      "tier": 1,
+      "total": 5,
+      "passed": 5,
+      "failed": 0,
+      "skipped": 0,
+      "results": [
+        {
+          "name": "F06-T1-1: GET /api/profiles/:id returns profile with valid readinessScore structure",
+          "status": "PASS",
+          "durationMs": 2
+        },
+        {
+          "name": "F06-T1-2: Readiness score overall percentage is bounded [0, 100]",
+          "status": "PASS",
+          "durationMs": 2
+        },
+        {
+          "name": "F06-T1-3: Readiness status accurately categorizes readiness tiers",
+          "status": "PASS",
+          "durationMs": 2
+        },
+        {
+          "name": "F06-T1-4: Technical component scores are non-negative and properly evaluated",
+          "status": "PASS",
+          "durationMs": 2
+        },
+        {
+          "name": "F06-T1-5: Readiness scoring does NOT rely on fake static softSkillScore: 75 across diverse profiles",
+          "status": "PASS",
+          "durationMs": 6
+        }
+      ]
+    },
+    {
+      "featureId": "F07",
+      "featureName": "Explainable Key Drivers (AI.KEY_DRIVERS)",
+      "tier": 1,
+      "total": 5,
+      "passed": 5,
+      "failed": 0,
+      "skipped": 0,
+      "results": [
+        {
+          "name": "F07-T1-1: GET /api/profiles/:id returns prioritized skill gap drivers",
+          "status": "PASS",
+          "durationMs": 2
+        },
+        {
+          "name": "F07-T1-2: Skill gap drivers contain explainable pedagogical rationales",
+          "status": "PASS",
+          "durationMs": 2
+        },
+        {
+          "name": "F07-T1-3: Critical prerequisite blockers are flagged as highest priority",
+          "status": "PASS",
+          "durationMs": 2
+        },
+        {
+          "name": "F07-T1-4: AI evaluation telemetry reports global feature importance contributions",
+          "status": "PASS",
+          "durationMs": 5
+        },
+        {
+          "name": "F07-T1-5: Drivers distinguish mastered competencies from deficit gaps",
+          "status": "PASS",
+          "durationMs": 3
+        }
+      ]
+    },
+    {
+      "featureId": "F08",
+      "featureName": "Topological Roadmap Sequencing (AI.FORECAST)",
+      "tier": 1,
+      "total": 5,
+      "passed": 5,
+      "failed": 0,
+      "skipped": 0,
+      "results": [
+        {
+          "name": "F08-T1-1: GET /api/roadmaps/:studentId returns sequenced milestones",
+          "status": "PASS",
+          "durationMs": 6
+        },
+        {
+          "name": "F08-T1-2: Milestones follow ordered progression indices without gaps or negative numbers",
+          "status": "PASS",
+          "durationMs": 4
+        },
+        {
+          "name": "F08-T1-3: Roadmap response includes computeNextBestAction recommendation",
+          "status": "PASS",
+          "durationMs": 4
+        },
+        {
+          "name": "F08-T1-4: Adaptation context calculates completion metrics and projected duration",
+          "status": "PASS",
+          "durationMs": 4
+        },
+        {
+          "name": "F08-T1-5: POST /api/roadmaps/:studentId/milestones/:id/status updates milestone and boosts skill",
+          "status": "PASS",
+          "durationMs": 18
+        }
+      ]
+    },
+    {
+      "featureId": "F09",
+      "featureName": "Native AI/ML Evaluation Suite",
+      "tier": 1,
+      "total": 5,
+      "passed": 5,
+      "failed": 0,
+      "skipped": 0,
+      "results": [
+        {
+          "name": "F09-T1-1: GET /api/admin/model-metrics returns model telemetry suite",
+          "status": "PASS",
+          "durationMs": 3
+        },
+        {
+          "name": "F09-T1-2: Classification evaluation reports valid AUC-ROC, F1-Score, and MCC",
+          "status": "PASS",
+          "durationMs": 6
+        },
+        {
+          "name": "F09-T1-3: Ranking evaluation reports valid NDCG@5 metric",
+          "status": "PASS",
+          "durationMs": 6
+        },
+        {
+          "name": "F09-T1-4: Calibration evaluation reports valid Cohen's Kappa agreement",
+          "status": "PASS",
+          "durationMs": 6
+        },
+        {
+          "name": "F09-T1-5: Confusion matrix elements sum consistently to totalEvaluated",
+          "status": "PASS",
+          "durationMs": 4
+        }
+      ]
+    },
+    {
+      "featureId": "F10",
+      "featureName": "Resilient AI Career Mentor Gateway",
+      "tier": 1,
+      "total": 5,
+      "passed": 5,
+      "failed": 0,
+      "skipped": 0,
+      "results": [
+        {
+          "name": "F10-T1-1: Gateway returns actionable career coaching advice when Gemini API key is unset",
+          "status": "PASS",
+          "durationMs": 26
+        },
+        {
+          "name": "F10-T1-2: Offline fallback recognizes student profile domain and technical skills",
+          "status": "PASS",
+          "durationMs": 35
+        },
+        {
+          "name": "F10-T1-3: General guidance endpoint works reliably without requiring student profile",
+          "status": "PASS",
+          "durationMs": 30
+        },
+        {
+          "name": "F10-T1-4: AI guidance responses use clean formatted text with structural headings or bullets",
+          "status": "PASS",
+          "durationMs": 31
+        },
+        {
+          "name": "F10-T1-5: Chat service safely records messages in profile history without duplicates",
+          "status": "PASS",
+          "durationMs": 48
+        }
+      ]
+    },
+    {
+      "featureId": "F11",
+      "featureName": "Demo Artifact & Quick-Fill Removal",
+      "tier": 1,
+      "total": 5,
+      "passed": 5,
+      "failed": 0,
+      "skipped": 0,
+      "results": [
+        {
+          "name": "F11-T1-1: LoginPage.tsx initializes email and password as empty strings",
+          "status": "PASS",
+          "durationMs": 1
+        },
+        {
+          "name": "F11-T1-2: LoginPage.tsx contains no auto-filling demo credential cards",
+          "status": "PASS",
+          "durationMs": 0
+        },
+        {
+          "name": "F11-T1-3: MobileCompanionModal.tsx contains no fake APK download alerts",
+          "status": "PASS",
+          "durationMs": 1
+        },
+        {
+          "name": "F11-T1-4: Submitting empty credentials to /api/auth/login returns 400 validation error",
+          "status": "PASS",
+          "durationMs": 3
+        },
+        {
+          "name": "F11-T1-5: Valid credentials successfully authenticate without requiring demo cards",
+          "status": "PASS",
+          "durationMs": 2
+        }
+      ]
+    },
+    {
+      "featureId": "F12",
+      "featureName": "Professional SaaS Terminology",
+      "tier": 1,
+      "total": 5,
+      "passed": 5,
+      "failed": 0,
+      "skipped": 0,
+      "results": [
+        {
+          "name": "F12-T1-1: Sidebar navigation uses direct professional terminology",
+          "status": "PASS",
+          "durationMs": 1
+        },
+        {
+          "name": "F12-T1-2: Sidebar does NOT contain banned novelty labels (\"Arena\", \"Studio\")",
+          "status": "PASS",
+          "durationMs": 0
+        },
+        {
+          "name": "F12-T1-3: Navbar branding uses clean enterprise SaaS title",
+          "status": "PASS",
+          "durationMs": 0
+        },
+        {
+          "name": "F12-T1-4: LivePlacementDrivesPage uses professional placement terms",
+          "status": "PASS",
+          "durationMs": 1
+        },
+        {
+          "name": "F12-T1-5: StudentDashboard uses professional workspace hierarchy",
+          "status": "PASS",
+          "durationMs": 0
+        }
+      ]
+    },
+    {
+      "featureId": "F13",
+      "featureName": "Honest Data States & Empty States",
+      "tier": 1,
+      "total": 5,
+      "passed": 5,
+      "failed": 0,
+      "skipped": 0,
+      "results": [
+        {
+          "name": "F13-T1-1: LivePlacementDrivesPage does not hardcode fabricated CGPA 8.50 default",
+          "status": "PASS",
+          "durationMs": 1
+        },
+        {
+          "name": "F13-T1-2: LivePlacementDrivesPage does not hardcode fabricated readiness 78% default",
+          "status": "PASS",
+          "durationMs": 0
+        },
+        {
+          "name": "F13-T1-3: Sidebar.tsx does not fall back to fabricated readiness 60%",
+          "status": "PASS",
+          "durationMs": 1
+        },
+        {
+          "name": "F13-T1-4: GET /api/placements/drives returns genuine eligibility without mock fallback",
+          "status": "PASS",
+          "durationMs": 6
+        },
+        {
+          "name": "F13-T1-5: Applying without a verified CGPA returns honest validation error",
+          "status": "PASS",
+          "durationMs": 9
+        }
+      ]
+    },
+    {
+      "featureId": "F14",
+      "featureName": "Accessible Design & Placement Contrast",
+      "tier": 1,
+      "total": 5,
+      "passed": 5,
+      "failed": 0,
+      "skipped": 0,
+      "results": [
+        {
+          "name": "F14-T1-1: LivePlacementDrivesPage uses high-contrast deep background for hero banner",
+          "status": "PASS",
+          "durationMs": 1
+        },
+        {
+          "name": "F14-T1-2: Hero banner text uses high-contrast foreground classes",
+          "status": "PASS",
+          "durationMs": 0
+        },
+        {
+          "name": "F14-T1-3: Global styles define accessible font families and smooth theme transitions",
+          "status": "PASS",
+          "durationMs": 0
+        },
+        {
+          "name": "F14-T1-4: AppLayout ensures accessible max-width and responsive gutters",
+          "status": "PASS",
+          "durationMs": 1
+        },
+        {
+          "name": "F14-T1-5: Button components specify visible focus rings for keyboard navigation",
+          "status": "PASS",
+          "durationMs": 0
+        }
+      ]
+    },
+    {
+      "featureId": "F15",
+      "featureName": "Placement Drive Deadline & Validation",
+      "tier": 1,
+      "total": 5,
+      "passed": 5,
+      "failed": 0,
+      "skipped": 0,
+      "results": [
+        {
+          "name": "F15-T1-1: GET /api/placements/drives returns drives with ISO deadline strings",
+          "status": "PASS",
+          "durationMs": 7
+        },
+        {
+          "name": "F15-T1-2: Applying to an expired drive returns 400 with deadline passed error",
+          "status": "PASS",
+          "durationMs": 16
+        },
+        {
+          "name": "F15-T1-3: Active drive with future deadline allows eligible student to apply",
+          "status": "PASS",
+          "durationMs": 36
+        },
+        {
+          "name": "F15-T1-4: Duplicate application submission for the same drive is rejected with 400",
+          "status": "PASS",
+          "durationMs": 34
+        },
+        {
+          "name": "F15-T1-5: Applying to a completed drive is rejected with 400",
+          "status": "PASS",
+          "durationMs": 13
+        }
+      ]
+    },
+    {
+      "featureId": "F16",
+      "featureName": "Role-Aware Placement & Management Views",
+      "tier": 1,
+      "total": 5,
+      "passed": 5,
+      "failed": 0,
+      "skipped": 0,
+      "results": [
+        {
+          "name": "F16-T1-1: LivePlacementDrivesPage conditionally hides student quick readiness pill from non-students",
+          "status": "PASS",
+          "durationMs": 1
+        },
+        {
+          "name": "F16-T1-2: LivePlacementDrivesPage shows role-tailored description for non-student roles",
+          "status": "PASS",
+          "durationMs": 0
+        },
+        {
+          "name": "F16-T1-3: GET /api/placements/analytics returns institutional summary for placement coordinators",
+          "status": "PASS",
+          "durationMs": 3
+        },
+        {
+          "name": "F16-T1-4: GET /api/placements/applications/student/:studentId returns student applications list",
+          "status": "PASS",
+          "durationMs": 2
+        },
+        {
+          "name": "F16-T1-5: PUT /api/placements/applications/:id/status allows placement officers to update hiring stages",
+          "status": "PASS",
+          "durationMs": 28
+        }
+      ]
+    },
+    {
+      "featureId": "F17",
+      "featureName": "Genuine Institutional Aggregates",
+      "tier": 1,
+      "total": 5,
+      "passed": 5,
+      "failed": 0,
+      "skipped": 0,
+      "results": [
+        {
+          "name": "F17-T1-1: GET /api/admin/analytics returns institutional metrics payload",
+          "status": "PASS",
+          "durationMs": 5
+        },
+        {
+          "name": "F17-T1-2: Institutional metrics reflect dynamic database profile counts rather than hardcoded 482",
+          "status": "PASS",
+          "durationMs": 4
+        },
+        {
+          "name": "F17-T1-3: Average readiness index is dynamically bounded [0, 100]",
+          "status": "PASS",
+          "durationMs": 5
+        },
+        {
+          "name": "F17-T1-4: Career distribution maps student counts accurately across target roles",
+          "status": "PASS",
+          "durationMs": 4
+        },
+        {
+          "name": "F17-T1-5: Discipline readiness average is calculated per department without NaN",
+          "status": "PASS",
+          "durationMs": 4
+        }
+      ]
+    },
+    {
+      "featureId": "F18",
+      "featureName": "Dual-Track E2E Test Suite",
+      "tier": 1,
+      "total": 5,
+      "passed": 5,
+      "failed": 0,
+      "skipped": 0,
+      "results": [
+        {
+          "name": "F18-T1-1: TEST_INFRA.md exists at project root and specifies 4 tiers",
+          "status": "PASS",
+          "durationMs": 1
+        },
+        {
+          "name": "F18-T1-2: TEST_INFRA.md covers all 20 inventoried features from PROJECT.md",
+          "status": "PASS",
+          "durationMs": 1
+        },
+        {
+          "name": "F18-T1-3: Test suite helpers are properly initialized and typed",
+          "status": "PASS",
+          "durationMs": 0
+        },
+        {
+          "name": "F18-T1-4: Health check probe responds with 200 OK",
+          "status": "PASS",
+          "durationMs": 5
+        },
+        {
+          "name": "F18-T1-5: Test credentials guide endpoint is available for reference",
+          "status": "PASS",
+          "durationMs": 2
+        }
+      ]
+    },
+    {
+      "featureId": "F19",
+      "featureName": "E2E Test Suite Pass Readiness",
+      "tier": 1,
+      "total": 5,
+      "passed": 5,
+      "failed": 0,
+      "skipped": 0,
+      "results": [
+        {
+          "name": "F19-T1-1: TestCollector records test case results with duration metrics",
+          "status": "PASS",
+          "durationMs": 1
+        },
+        {
+          "name": "F19-T1-2: TestCollector correctly catches and captures assertion failure details",
+          "status": "PASS",
+          "durationMs": 0
+        },
+        {
+          "name": "F19-T1-3: Async test execution handles promise rejections cleanly",
+          "status": "PASS",
+          "durationMs": 14
+        },
+        {
+          "name": "F19-T1-4: Suite results aggregate total test counts accurately",
+          "status": "PASS",
+          "durationMs": 1
+        },
+        {
+          "name": "F19-T1-5: Error messages in assertion failures preserve expected and actual values",
+          "status": "PASS",
+          "durationMs": 0
+        }
+      ]
+    },
+    {
+      "featureId": "F20",
+      "featureName": "Adversarial Coverage Hardening (Tier 5)",
+      "tier": 1,
+      "total": 5,
+      "passed": 5,
+      "failed": 0,
+      "skipped": 0,
+      "results": [
+        {
+          "name": "F20-T1-1: API safely ignores unexpected extra payload fields without crashing",
+          "status": "PASS",
+          "durationMs": 2
+        },
+        {
+          "name": "F20-T1-2: AI Mentor chat sanitizes HTML / script tags in messages",
+          "status": "PASS",
+          "durationMs": 21
+        },
+        {
+          "name": "F20-T1-3: Extremely long message payload is handled without buffer overflow",
+          "status": "PASS",
+          "durationMs": 21
+        },
+        {
+          "name": "F20-T1-4: Career search gracefully handles regex metacharacters in query parameter",
+          "status": "PASS",
+          "durationMs": 2
+        },
+        {
+          "name": "F20-T1-5: Drive creation handles special characters in company name",
+          "status": "PASS",
+          "durationMs": 9
+        }
+      ]
+    },
+    {
+      "featureId": "F01",
+      "featureName": "Build & Route Boundaries",
+      "tier": 2,
+      "total": 5,
+      "passed": 5,
+      "failed": 0,
+      "skipped": 0,
+      "results": [
+        {
+          "name": "F01-T2-1: Non-existent static client asset returns 404 rather than unhandled crash",
+          "status": "PASS",
+          "durationMs": 9
+        },
+        {
+          "name": "F01-T2-2: Client tsconfig.json enforces strict or valid TypeScript settings",
+          "status": "PASS",
+          "durationMs": 0
+        },
+        {
+          "name": "F01-T2-3: Server tsconfig.json target and module resolution are configured",
+          "status": "PASS",
+          "durationMs": 1
+        },
+        {
+          "name": "F01-T2-4: Root package.json contains valid scripts without syntax errors",
+          "status": "PASS",
+          "durationMs": 0
+        },
+        {
+          "name": "F01-T2-5: Corrupted URL paths to API routes return standard 404",
+          "status": "PASS",
+          "durationMs": 5
+        }
+      ]
+    },
+    {
+      "featureId": "F02",
+      "featureName": "Profile Isolation Boundaries",
+      "tier": 2,
+      "total": 5,
+      "passed": 5,
+      "failed": 0,
+      "skipped": 0,
+      "results": [
+        {
+          "name": "F02-T2-1: GET /api/profiles/../malicious path traversal attempt rejected with 404 or sanitized",
+          "status": "PASS",
+          "durationMs": 1
+        },
+        {
+          "name": "F02-T2-2: PUT /api/profiles/:id returns 404 for non-existent profile ID",
+          "status": "PASS",
+          "durationMs": 4
+        },
+        {
+          "name": "F02-T2-3: POST /api/simulator/simulate with non-existent studentId does NOT fall back to student 0",
+          "status": "PASS",
+          "durationMs": 2
+        },
+        {
+          "name": "F02-T2-4: Profile update with empty payload does not corrupt existing profile",
+          "status": "PASS",
+          "durationMs": 15
+        },
+        {
+          "name": "F02-T2-5: Querying profile with special characters in ID is handled cleanly",
+          "status": "PASS",
+          "durationMs": 2
+        }
+      ]
+    },
+    {
+      "featureId": "F03",
+      "featureName": "RBAC & Auth Boundaries",
+      "tier": 2,
+      "total": 5,
+      "passed": 5,
+      "failed": 0,
+      "skipped": 0,
+      "results": [
+        {
+          "name": "F03-T2-1: Login with unknown email returns 401 Account not found",
+          "status": "PASS",
+          "durationMs": 2
+        },
+        {
+          "name": "F03-T2-2: Login with incorrect password returns 401 Invalid password",
+          "status": "PASS",
+          "durationMs": 2
+        },
+        {
+          "name": "F03-T2-3: Student credentials used on Admin portal are rejected with 403",
+          "status": "PASS",
+          "durationMs": 2
+        },
+        {
+          "name": "F03-T2-4: Missing password in login request returns 400 validation error",
+          "status": "PASS",
+          "durationMs": 4
+        },
+        {
+          "name": "F03-T2-5: Malformed authorization header is handled without server crash",
+          "status": "PASS",
+          "durationMs": 1
+        }
+      ]
+    },
+    {
+      "featureId": "F04",
+      "featureName": "Private Chat Boundaries",
+      "tier": 2,
+      "total": 5,
+      "passed": 5,
+      "failed": 0,
+      "skipped": 0,
+      "results": [
+        {
+          "name": "F04-T2-1: Empty chat message string returns 400 error",
+          "status": "PASS",
+          "durationMs": 5
+        },
+        {
+          "name": "F04-T2-2: Whitespace-only chat message returns 400 error",
+          "status": "PASS",
+          "durationMs": 5
+        },
+        {
+          "name": "F04-T2-3: Chat history for non-existent student ID returns 404 or empty array without 500 crash",
+          "status": "PASS",
+          "durationMs": 4
+        },
+        {
+          "name": "F04-T2-4: Chat endpoint accepts and preserves UTF-8 emoji and international characters",
+          "status": "PASS",
+          "durationMs": 21
+        },
+        {
+          "name": "F04-T2-5: Chat with non-existent studentId is safely rejected with 404 or falls back without 500 crash",
+          "status": "PASS",
+          "durationMs": 4
+        }
+      ]
+    },
+    {
+      "featureId": "F05",
+      "featureName": "Vector Pathway Boundaries",
+      "tier": 2,
+      "total": 5,
+      "passed": 5,
+      "failed": 0,
+      "skipped": 0,
+      "results": [
+        {
+          "name": "F05-T2-1: GET /api/careers/:id returns 404 for non-existent career ID",
+          "status": "PASS",
+          "durationMs": 2
+        },
+        {
+          "name": "F05-T2-2: Simulator with invalid sourceCareerId returns 400",
+          "status": "PASS",
+          "durationMs": 2
+        },
+        {
+          "name": "F05-T2-3: Simulator with invalid targetCareerId returns 400",
+          "status": "PASS",
+          "durationMs": 2
+        },
+        {
+          "name": "F05-T2-4: Filter careers by non-existent discipline returns empty list without error",
+          "status": "PASS",
+          "durationMs": 1
+        },
+        {
+          "name": "F05-T2-5: Simulator comparing career to itself returns high synergy overlap",
+          "status": "PASS",
+          "durationMs": 3
+        }
+      ]
+    },
+    {
+      "featureId": "F06",
+      "featureName": "Readiness Scoring Boundaries",
+      "tier": 2,
+      "total": 5,
+      "passed": 5,
+      "failed": 0,
+      "skipped": 0,
+      "results": [
+        {
+          "name": "F06-T2-1: Profile with empty skills array computes readiness without division-by-zero or NaN",
+          "status": "PASS",
+          "durationMs": 22
+        },
+        {
+          "name": "F06-T2-2: Extreme CGPA 10.0 produces capped score without overflow",
+          "status": "PASS",
+          "durationMs": 20
+        },
+        {
+          "name": "F06-T2-3: Minimum CGPA 0.0 does not produce negative score",
+          "status": "PASS",
+          "durationMs": 21
+        },
+        {
+          "name": "F06-T2-4: Profile update preserves targetCareer association even with empty projects",
+          "status": "PASS",
+          "durationMs": 25
+        },
+        {
+          "name": "F06-T2-5: Readiness status remains one of standard enum values across boundary inputs",
+          "status": "PASS",
+          "durationMs": 1
+        }
+      ]
+    },
+    {
+      "featureId": "F07",
+      "featureName": "Key Drivers Boundaries",
+      "tier": 2,
+      "total": 5,
+      "passed": 5,
+      "failed": 0,
+      "skipped": 0,
+      "results": [
+        {
+          "name": "F07-T2-1: Skill gap calculation clamps gapScore to non-negative numbers",
+          "status": "PASS",
+          "durationMs": 2
+        },
+        {
+          "name": "F07-T2-2: Mastered skills have gapScore 0 and status \"mastered\"",
+          "status": "PASS",
+          "durationMs": 2
+        },
+        {
+          "name": "F07-T2-3: POST /api/admin/curriculum-gaps creates new curriculum gap with defaulted deficiency",
+          "status": "PASS",
+          "durationMs": 10
+        },
+        {
+          "name": "F07-T2-4: Priority weights strictly maintain order critical >= high >= medium >= low",
+          "status": "PASS",
+          "durationMs": 2
+        },
+        {
+          "name": "F07-T2-5: Rationale is non-empty string for every gap category",
+          "status": "PASS",
+          "durationMs": 1
+        }
+      ]
+    },
+    {
+      "featureId": "F08",
+      "featureName": "Roadmap Sequencing Boundaries",
+      "tier": 2,
+      "total": 5,
+      "passed": 5,
+      "failed": 0,
+      "skipped": 0,
+      "results": [
+        {
+          "name": "F08-T2-1: GET /api/roadmaps/:studentId returns 404 for unknown student ID",
+          "status": "PASS",
+          "durationMs": 2
+        },
+        {
+          "name": "F08-T2-2: POST milestone status returns 404 for unknown student ID",
+          "status": "PASS",
+          "durationMs": 2
+        },
+        {
+          "name": "F08-T2-3: Marking an already completed milestone completed does not duplicate IDs",
+          "status": "PASS",
+          "durationMs": 24
+        },
+        {
+          "name": "F08-T2-4: Milestone status update with unknown milestone ID handles gracefully",
+          "status": "PASS",
+          "durationMs": 10
+        },
+        {
+          "name": "F08-T2-5: Roadmap adaptation projected weeks is non-negative and finite",
+          "status": "PASS",
+          "durationMs": 3
+        }
+      ]
+    },
+    {
+      "featureId": "F09",
+      "featureName": "Model Metrics Boundaries",
+      "tier": 2,
+      "total": 5,
+      "passed": 5,
+      "failed": 0,
+      "skipped": 0,
+      "results": [
+        {
+          "name": "F09-T2-1: Model evaluation dataset size is substantial (>= 5000 records)",
+          "status": "PASS",
+          "durationMs": 3
+        },
+        {
+          "name": "F09-T2-2: K-fold cross-validation folds is valid integer (>= 5)",
+          "status": "PASS",
+          "durationMs": 2
+        },
+        {
+          "name": "F09-T2-3: Probability calibration loss metrics (LogLoss & BrierScore) are non-negative",
+          "status": "PASS",
+          "durationMs": 2
+        },
+        {
+          "name": "F09-T2-4: Regression R-Squared is bounded <= 1.0 and MAE/RMSE are positive",
+          "status": "PASS",
+          "durationMs": 3
+        },
+        {
+          "name": "F09-T2-5: Live cohort validation reports positive evaluated count",
+          "status": "PASS",
+          "durationMs": 2
+        }
+      ]
+    },
+    {
+      "featureId": "F10",
+      "featureName": "AI Mentor Gateway Boundaries",
+      "tier": 2,
+      "total": 5,
+      "passed": 5,
+      "failed": 0,
+      "skipped": 0,
+      "results": [
+        {
+          "name": "F10-T2-1: Prompt containing code snippets (Python/SQL) is parsed and answered cleanly",
+          "status": "PASS",
+          "durationMs": 18
+        },
+        {
+          "name": "F10-T2-2: Rapid successive calls to AI mentor gateway do not crash service",
+          "status": "PASS",
+          "durationMs": 50
+        },
+        {
+          "name": "F10-T2-3: Guidance requests for non-CS disciplines (Mechanical/ECE) return domain advice",
+          "status": "PASS",
+          "durationMs": 17
+        },
+        {
+          "name": "F10-T2-4: Malformed request body with non-string message returns 400",
+          "status": "PASS",
+          "durationMs": 3
+        },
+        {
+          "name": "F10-T2-5: Gateway preserves student context across different questions",
+          "status": "PASS",
+          "durationMs": 21
+        }
+      ]
+    },
+    {
+      "featureId": "F11",
+      "featureName": "Auth Form Validation Boundaries",
+      "tier": 2,
+      "total": 5,
+      "passed": 5,
+      "failed": 0,
+      "skipped": 0,
+      "results": [
+        {
+          "name": "F11-T2-1: Login email is case-insensitive (e.g. uppercase email resolves correctly)",
+          "status": "PASS",
+          "durationMs": 2
+        },
+        {
+          "name": "F11-T2-2: Login email trims surrounding whitespace automatically",
+          "status": "PASS",
+          "durationMs": 1
+        },
+        {
+          "name": "F11-T2-3: Login via student ID (STU-ENG-2024-001) succeeds as login identifier",
+          "status": "PASS",
+          "durationMs": 2
+        },
+        {
+          "name": "F11-T2-4: Register endpoint validates required name and email",
+          "status": "PASS",
+          "durationMs": 1
+        },
+        {
+          "name": "F11-T2-5: Password verification distinguishes exact casing",
+          "status": "PASS",
+          "durationMs": 1
+        }
+      ]
+    },
+    {
+      "featureId": "F12",
+      "featureName": "Professional Terminology Boundaries",
+      "tier": 2,
+      "total": 5,
+      "passed": 5,
+      "failed": 0,
+      "skipped": 0,
+      "results": [
+        {
+          "name": "F12-T2-1: LoginPage does not contain arcade or gaming jargon",
+          "status": "PASS",
+          "durationMs": 1
+        },
+        {
+          "name": "F12-T2-2: Navbar component does not contain \"Directorate\" jargon",
+          "status": "PASS",
+          "durationMs": 0
+        },
+        {
+          "name": "F12-T2-3: AdminHubPage uses professional terminology for curriculum gap management",
+          "status": "PASS",
+          "durationMs": 0
+        },
+        {
+          "name": "F12-T2-4: MentorPortalPage uses professional advising terminology",
+          "status": "PASS",
+          "durationMs": 1
+        },
+        {
+          "name": "F12-T2-5: RealTimeGuidancePage uses professional counseling titles",
+          "status": "PASS",
+          "durationMs": 0
+        }
+      ]
+    },
+    {
+      "featureId": "F13",
+      "featureName": "Honest Empty State Boundaries",
+      "tier": 2,
+      "total": 5,
+      "passed": 5,
+      "failed": 0,
+      "skipped": 0,
+      "results": [
+        {
+          "name": "F13-T2-1: Career search yielding 0 results returns empty array without throwing",
+          "status": "PASS",
+          "durationMs": 2
+        },
+        {
+          "name": "F13-T2-2: Placement drives filter by unknown department returns empty list without error",
+          "status": "PASS",
+          "durationMs": 6
+        },
+        {
+          "name": "F13-T2-3: Recommendations query for non-existent student returns empty array",
+          "status": "PASS",
+          "durationMs": 2
+        },
+        {
+          "name": "F13-T2-4: Assessment questions for unknown skill ID returns empty list",
+          "status": "PASS",
+          "durationMs": 1
+        },
+        {
+          "name": "F13-T2-5: Mentor interventions returns array without crashing",
+          "status": "PASS",
+          "durationMs": 3
+        }
+      ]
+    },
+    {
+      "featureId": "F14",
+      "featureName": "Design Token Contrast Boundaries",
+      "tier": 2,
+      "total": 5,
+      "passed": 5,
+      "failed": 0,
+      "skipped": 0,
+      "results": [
+        {
+          "name": "F14-T2-1: Client tailwind.config.js preserves Tailwind v3 darkMode config",
+          "status": "PASS",
+          "durationMs": 0
+        },
+        {
+          "name": "F14-T2-2: Navbar implements dark mode variants for text and surfaces",
+          "status": "PASS",
+          "durationMs": 1
+        },
+        {
+          "name": "F14-T2-3: Sidebar implements dark mode variants for text and surfaces",
+          "status": "PASS",
+          "durationMs": 0
+        },
+        {
+          "name": "F14-T2-4: StudentDashboard cards use clear contrast borders",
+          "status": "PASS",
+          "durationMs": 0
+        },
+        {
+          "name": "F14-T2-5: Text inputs in LoginPage use high contrast placeholders and focus indicators",
+          "status": "PASS",
+          "durationMs": 0
+        }
+      ]
+    },
+    {
+      "featureId": "F15",
+      "featureName": "Placement Deadline Boundaries",
+      "tier": 2,
+      "total": 5,
+      "passed": 5,
+      "failed": 0,
+      "skipped": 0,
+      "results": [
+        {
+          "name": "F15-T2-1: POST /api/placements/drives rejects missing companyName or roleTitle with 400",
+          "status": "PASS",
+          "durationMs": 2
+        },
+        {
+          "name": "F15-T2-2: Student with CGPA below drive cutoff is rejected with 400",
+          "status": "PASS",
+          "durationMs": 15
+        },
+        {
+          "name": "F15-T2-3: Student with readiness below cutoff is rejected with 400",
+          "status": "PASS",
+          "durationMs": 13
+        },
+        {
+          "name": "F15-T2-4: Student from non-eligible branch is rejected with 400",
+          "status": "PASS",
+          "durationMs": 14
+        },
+        {
+          "name": "F15-T2-5: Applying without studentId returns 400 studentId required",
+          "status": "PASS",
+          "durationMs": 6
+        }
+      ]
+    },
+    {
+      "featureId": "F16",
+      "featureName": "Placement Management Boundaries",
+      "tier": 2,
+      "total": 5,
+      "passed": 5,
+      "failed": 0,
+      "skipped": 0,
+      "results": [
+        {
+          "name": "F16-T2-1: Updating application status for non-existent application ID returns 404",
+          "status": "PASS",
+          "durationMs": 3
+        },
+        {
+          "name": "F16-T2-2: Updating application status with invalid status enum value returns 400",
+          "status": "PASS",
+          "durationMs": 6
+        },
+        {
+          "name": "F16-T2-3: GET /api/placements/applications/student/:studentId filters strictly for target student",
+          "status": "PASS",
+          "durationMs": 1
+        },
+        {
+          "name": "F16-T2-4: GET /api/placements/drives/:id returns 404 for non-existent drive",
+          "status": "PASS",
+          "durationMs": 2
+        },
+        {
+          "name": "F16-T2-5: Drive creation defaults hiringCount if unspecified",
+          "status": "PASS",
+          "durationMs": 9
+        }
+      ]
+    },
+    {
+      "featureId": "F17",
+      "featureName": "Institutional Aggregates Boundaries",
+      "tier": 2,
+      "total": 5,
+      "passed": 5,
+      "failed": 0,
+      "skipped": 0,
+      "results": [
+        {
+          "name": "F17-T2-1: Mentor interventions active count matches actual open interventions",
+          "status": "PASS",
+          "durationMs": 4
+        },
+        {
+          "name": "F17-T2-2: Curriculum gaps array in analytics response is populated with valid items",
+          "status": "PASS",
+          "durationMs": 4
+        },
+        {
+          "name": "F17-T2-3: Career distribution counts are strictly non-negative integers",
+          "status": "PASS",
+          "durationMs": 3
+        },
+        {
+          "name": "F17-T2-4: High readiness count does not exceed total enrolled count",
+          "status": "PASS",
+          "durationMs": 3
+        },
+        {
+          "name": "F17-T2-5: Active on roadmap count does not exceed total enrolled count",
+          "status": "PASS",
+          "durationMs": 2
+        }
+      ]
+    },
+    {
+      "featureId": "F18",
+      "featureName": "Test Infrastructure Boundaries",
+      "tier": 2,
+      "total": 5,
+      "passed": 5,
+      "failed": 0,
+      "skipped": 0,
+      "results": [
+        {
+          "name": "F18-T2-1: ApiClient handles connection refused to dead port gracefully",
+          "status": "PASS",
+          "durationMs": 4
+        },
+        {
+          "name": "F18-T2-2: TestCollector handles empty suite without crashing",
+          "status": "PASS",
+          "durationMs": 0
+        },
+        {
+          "name": "F18-T2-3: Assertion error provides clear diff information",
+          "status": "PASS",
+          "durationMs": 1
+        },
+        {
+          "name": "F18-T2-4: ApiClient setToken properly applies Authorization header to subsequent requests",
+          "status": "PASS",
+          "durationMs": 0
+        },
+        {
+          "name": "F18-T2-5: ApiClient setBaseUrl updates request targets accurately",
+          "status": "PASS",
+          "durationMs": 0
+        }
+      ]
+    },
+    {
+      "featureId": "F19",
+      "featureName": "Pass Robustness Boundaries",
+      "tier": 2,
+      "total": 5,
+      "passed": 5,
+      "failed": 0,
+      "skipped": 0,
+      "results": [
+        {
+          "name": "F19-T2-1: Synchronous unhandled exceptions in tests are caught by collector",
+          "status": "PASS",
+          "durationMs": 0
+        },
+        {
+          "name": "F19-T2-2: Asynchronous rejected promises in tests are caught by collector",
+          "status": "PASS",
+          "durationMs": 0
+        },
+        {
+          "name": "F19-T2-3: Results array length strictly matches total tests count",
+          "status": "PASS",
+          "durationMs": 0
+        },
+        {
+          "name": "F19-T2-4: Elapsed duration in test results is non-negative number",
+          "status": "PASS",
+          "durationMs": 0
+        },
+        {
+          "name": "F19-T2-5: Multiple assertions in a single test evaluate in sequence",
+          "status": "PASS",
+          "durationMs": 0
+        }
+      ]
+    },
+    {
+      "featureId": "F20",
+      "featureName": "Adversarial Attack Boundaries",
+      "tier": 2,
+      "total": 5,
+      "passed": 5,
+      "failed": 0,
+      "skipped": 0,
+      "results": [
+        {
+          "name": "F20-T2-1: SQL injection string in query param does not execute or crash server",
+          "status": "PASS",
+          "durationMs": 2
+        },
+        {
+          "name": "F20-T2-2: Null byte characters in string fields are safely sanitized or rejected",
+          "status": "PASS",
+          "durationMs": 24
+        },
+        {
+          "name": "F20-T2-3: Negative minCgpa in drive creation is handled without corruption",
+          "status": "PASS",
+          "durationMs": 15
+        },
+        {
+          "name": "F20-T2-4: Extremely large numeric inputs do not cause overflow crashes",
+          "status": "PASS",
+          "durationMs": 14
+        },
+        {
+          "name": "F20-T2-5: Rapid repeated requests to health check endpoint remain stable",
+          "status": "PASS",
+          "durationMs": 21
+        }
+      ]
+    },
+    {
+      "featureId": "T3-RBAC",
+      "featureName": "Auth & RBAC Pairwise Matrix",
+      "tier": 3,
+      "total": 5,
+      "passed": 5,
+      "failed": 0,
+      "skipped": 0,
+      "results": [
+        {
+          "name": "T3-RBAC-1: Login matrix — all 4 roles receive valid tokens corresponding to registered role",
+          "status": "PASS",
+          "durationMs": 8
+        },
+        {
+          "name": "T3-RBAC-2: Role portal cross-validation — each role is rejected if attempting an unauthorized portal tab",
+          "status": "PASS",
+          "durationMs": 5
+        },
+        {
+          "name": "T3-RBAC-3: Session token isolation — different users receive distinct session tokens",
+          "status": "PASS",
+          "durationMs": 4
+        },
+        {
+          "name": "T3-RBAC-4: Endpoint accessibility matrix across public vs protected resources",
+          "status": "PASS",
+          "durationMs": 12
+        },
+        {
+          "name": "T3-RBAC-5: Admin analytics endpoint returns valid data structure when requested with admin token",
+          "status": "PASS",
+          "durationMs": 4
+        }
+      ]
+    },
+    {
+      "featureId": "T3-AI",
+      "featureName": "AI Pipeline Chaining (Similarity -> Roadmap -> Scoring)",
+      "tier": 3,
+      "total": 5,
+      "passed": 5,
+      "failed": 0,
+      "skipped": 0,
+      "results": [
+        {
+          "name": "T3-AI-1: Career Selection -> Skill Gap Diagnosis data consistency",
+          "status": "PASS",
+          "durationMs": 2
+        },
+        {
+          "name": "T3-AI-2: Skill Gap Diagnosis -> Adaptive Roadmap Sequencing chaining",
+          "status": "PASS",
+          "durationMs": 5
+        },
+        {
+          "name": "T3-AI-3: Milestone Completion -> Skill Level Boost & Readiness Recalculation",
+          "status": "PASS",
+          "durationMs": 25
+        },
+        {
+          "name": "T3-AI-4: Career Simulator -> AI Guidance Context synchronization",
+          "status": "PASS",
+          "durationMs": 46
+        },
+        {
+          "name": "T3-AI-5: Global model metrics validation reflects active profiles in pipeline",
+          "status": "PASS",
+          "durationMs": 2
+        }
+      ]
+    },
+    {
+      "featureId": "T3-PLC",
+      "featureName": "Placement Workflow Pairwise Matrix",
+      "tier": 3,
+      "total": 5,
+      "passed": 5,
+      "failed": 0,
+      "skipped": 0,
+      "results": [
+        {
+          "name": "T3-PLC-1: [Active Drive] x [Future Deadline] x [Eligible Student] -> Application ACCEPTED (200 OK)",
+          "status": "PASS",
+          "durationMs": 46
+        },
+        {
+          "name": "T3-PLC-2: [Active Drive] x [Past Deadline] x [Eligible Student] -> Application REJECTED (400 Deadline Passed)",
+          "status": "PASS",
+          "durationMs": 12
+        },
+        {
+          "name": "T3-PLC-3: [Active Drive] x [Future Deadline] x [Low CGPA Student] -> Application REJECTED (400 CGPA Cutoff)",
+          "status": "PASS",
+          "durationMs": 15
+        },
+        {
+          "name": "T3-PLC-4: [Completed Drive] x [Future Deadline] x [Eligible Student] -> Application REJECTED (400 Concluded)",
+          "status": "PASS",
+          "durationMs": 13
+        },
+        {
+          "name": "T3-PLC-5: [Active Drive] x [Future Deadline] x [Ineligible Department] -> Application REJECTED (400 Department Mismatch)",
+          "status": "PASS",
+          "durationMs": 11
+        }
+      ]
+    },
+    {
+      "featureId": "T3-ISO",
+      "featureName": "Cross-Role Multi-User Data Isolation Matrix",
+      "tier": 3,
+      "total": 5,
+      "passed": 5,
+      "failed": 0,
+      "skipped": 0,
+      "results": [
+        {
+          "name": "T3-ISO-1: Student A and Student B have distinct personal profiles and student IDs",
+          "status": "PASS",
+          "durationMs": 4
+        },
+        {
+          "name": "T3-ISO-2: Chat history for Student A is strictly separate from Student B",
+          "status": "PASS",
+          "durationMs": 38
+        },
+        {
+          "name": "T3-ISO-3: Placement applications for Student A do not bleed into Student B list",
+          "status": "PASS",
+          "durationMs": 3
+        },
+        {
+          "name": "T3-ISO-4: Faculty mentor assigned cohorts filter by mentor identity",
+          "status": "PASS",
+          "durationMs": 4
+        },
+        {
+          "name": "T3-ISO-5: Admin institutional overview aggregates data across all students without student impersonation",
+          "status": "PASS",
+          "durationMs": 4
+        }
+      ]
+    },
+    {
+      "featureId": "T4-S1",
+      "featureName": "Scenario 1: Student Career-Readiness Journey",
+      "tier": 4,
+      "total": 1,
+      "passed": 1,
+      "failed": 0,
+      "skipped": 0,
+      "results": [
+        {
+          "name": "Scenario 1: Full Student Persona Lifecycle",
+          "status": "PASS",
+          "durationMs": 51
+        }
+      ]
+    },
+    {
+      "featureId": "T4-S2",
+      "featureName": "Scenario 2: Placement Officer Campus Drive Lifecycle",
+      "tier": 4,
+      "total": 1,
+      "passed": 1,
+      "failed": 0,
+      "skipped": 0,
+      "results": [
+        {
+          "name": "Scenario 2: Placement Officer Campus Drive Lifecycle",
+          "status": "PASS",
+          "durationMs": 82
+        }
+      ]
+    },
+    {
+      "featureId": "T4-S3",
+      "featureName": "Scenario 3: Faculty Mentor Cohort Advising & Intervention",
+      "tier": 4,
+      "total": 1,
+      "passed": 1,
+      "failed": 0,
+      "skipped": 0,
+      "results": [
+        {
+          "name": "Scenario 3: Faculty Mentor Cohort Advising & Intervention",
+          "status": "PASS",
+          "durationMs": 27
+        }
+      ]
+    },
+    {
+      "featureId": "T4-S4",
+      "featureName": "Scenario 4: Institution Admin Curriculum & AI Analytics Audit",
+      "tier": 4,
+      "total": 1,
+      "passed": 1,
+      "failed": 0,
+      "skipped": 0,
+      "results": [
+        {
+          "name": "Scenario 4: Institution Admin Curriculum & AI Analytics Audit",
+          "status": "PASS",
+          "durationMs": 14
+        }
+      ]
+    },
+    {
+      "featureId": "T4-S5",
+      "featureName": "Scenario 5: Resilient Offline Career Guidance Fallback",
+      "tier": 4,
+      "total": 1,
+      "passed": 1,
+      "failed": 0,
+      "skipped": 0,
+      "results": [
+        {
+          "name": "Scenario 5: Resilient Offline Career Guidance Fallback",
+          "status": "PASS",
+          "durationMs": 54
+        }
+      ]
+    }
+  ]
+}

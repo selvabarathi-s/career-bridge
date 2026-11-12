@@ -172,6 +172,11 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
         localStorage.setItem('careerbridge_user_id', res.user.id);
         localStorage.setItem('careerbridge_role', res.user.role);
         localStorage.setItem('careerbridge_user', JSON.stringify(res.user));
+        if (res.token) {
+          localStorage.setItem('careerbridge_token', res.token);
+        } else {
+          localStorage.setItem('careerbridge_token', res.user.id);
+        }
 
         if (res.user.profileId && res.user.role === 'student') {
           try {
@@ -223,6 +228,11 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
         localStorage.setItem('careerbridge_user_id', res.user.id);
         localStorage.setItem('careerbridge_role', res.user.role);
         localStorage.setItem('careerbridge_user', JSON.stringify(res.user));
+        if (res.token) {
+          localStorage.setItem('careerbridge_token', res.token);
+        } else {
+          localStorage.setItem('careerbridge_token', res.user.id);
+        }
 
         if (res.profile) {
           setProfile(res.profile);
@@ -254,6 +264,7 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
     localStorage.removeItem('careerbridge_user_id');
     localStorage.removeItem('careerbridge_role');
     localStorage.removeItem('careerbridge_user');
+    localStorage.removeItem('careerbridge_token');
   };
 
   const markNotificationRead = async (id: string) => {

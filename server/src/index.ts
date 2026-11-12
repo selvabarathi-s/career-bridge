@@ -1,6 +1,8 @@
+import dotenv from 'dotenv';
+dotenv.config();
+
 import express from 'express';
 import cors from 'cors';
-import dotenv from 'dotenv';
 import path from 'path';
 import fs from 'fs';
 import { fileURLToPath } from 'url';
@@ -18,8 +20,6 @@ import { guidanceRouter } from './routes/guidanceRoutes.js';
 import { placementRouter } from './routes/placementRoutes.js';
 import { recommendationRouter } from './routes/recommendationRoutes.js';
 
-dotenv.config();
-
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
@@ -29,7 +29,7 @@ const PORT = process.env.PORT || 4000;
 app.use(cors({
   origin: '*',
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-  allowedHeaders: ['Content-Type', 'Authorization']
+  allowedHeaders: ['Content-Type', 'Authorization', 'x-user-id', 'x-session-token', 'x-auth-token']
 }));
 
 app.use(express.json());
@@ -44,6 +44,7 @@ app.use('/api/simulator', simulatorRouter);
 app.use('/api/ai-mentor', aiMentorRouter);
 app.use('/api/mentor', mentorRouter);
 app.use('/api/admin', adminRouter);
+app.use('/api/analytics', adminRouter);
 app.use('/api/mobile', mobileRouter);
 app.use('/api/guidance', guidanceRouter);
 app.use('/api/placements', placementRouter);

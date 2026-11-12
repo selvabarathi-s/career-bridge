@@ -2,12 +2,19 @@ import { StudentProfile, AIMessage, Career, SkillGapItem } from '../types/shared
 import { db } from '../db/database.js';
 import { SkillGapService } from './skillGapService.js';
 import { AdaptiveRoadmapService } from './adaptiveRoadmapService.js';
+import { LocalAIService } from './localAIService.js';
 
 export class AIMentorService {
   public static async generateGuidance(
     profile: StudentProfile,
     userQuery: string
   ): Promise<AIMessage> {
+    // Check if configured to use the local model (default true)
+    const useLocal = process.env.USE_LOCAL_MODEL !== 'false';
+    if (useLocal) {
+      return LocalAIService.generateGuidance(profile, userQuery);
+    }
+
     const career = db.getCareerById(profile.targetCareerId) || db.getCareers()[0];
     const gaps = SkillGapService.calculateSkillGaps(profile, career);
     const topGap = gaps.find(g => g.priority === 'critical') || gaps[0] || ({
@@ -87,6 +94,11 @@ export class AIMentorService {
    * This path deliberately avoids selecting or writing to any student's record.
    */
   public static async generateGeneralGuidance(userQuery: string): Promise<AIMessage> {
+    const useLocal = process.env.USE_LOCAL_MODEL !== 'false';
+    if (useLocal) {
+      return LocalAIService.generateGeneralGuidance(userQuery);
+    }
+
     const llmReply = await this.callGeneralGeminiAPI(userQuery);
     const { reply, suggestedActions } = llmReply
       ? {
@@ -106,6 +118,10 @@ export class AIMentorService {
       timestamp: new Date().toISOString(),
       suggestedActions
     };
+  }
+
+  public static getModelTelemetry() {
+    return LocalAIService.getModelTelemetry();
   }
 
   private static evaluateGeneralGuidance(userQuery: string): { reply: string; suggestedActions: string[] } {
@@ -374,7 +390,7 @@ Your primary diagnostic focus is **${topGap.skillName}**. Here is your accelerat
    - Study accredited courseware modules verified by Faculty Mentor **Dr. Balu Prasath**.
    - Review syntax, core libraries, and algorithm patterns for **${topGap.skillName}**.
 2. **Hands-on Sandboxes (Days 6–15)**:
-   - Complete targeted drills in the **Assessment Arena** to convert theory into muscle memory.
+   - Complete targeted drills in the **Skills Assessment** modules to convert theory into muscle memory.
 3. **Mini-Project Milestone (Days 16–25)**:
    - Build an applied module integrating **${topGap.skillName}** into your active roadmap.
 

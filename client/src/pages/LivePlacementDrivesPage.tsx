@@ -46,10 +46,18 @@ export const LivePlacementDrivesPage: React.FC = () => {
   const [isApplying, setIsApplying] = useState(false);
   const [applicationSuccess, setApplicationSuccess] = useState<string | null>(null);
 
-  const studentId = user?.studentId || profile?.id || (user ? `STU-${user.id}` : 'STU-001');
-  const studentCgpa = profile?.cgpa ?? 8.5;
-  const studentReadiness = profile?.readinessScore?.overallPercentage ?? 75;
-  const studentStream = profile?.stream || 'Computer Science & Engineering';
+  const studentId = profile?.id || user?.studentId || (user ? user.id : '');
+  const hasProfileData = Boolean(
+    profile &&
+    typeof profile.cgpa === 'number' &&
+    profile.readinessScore &&
+    typeof profile.readinessScore.overallPercentage === 'number'
+  );
+  const studentCgpa = typeof profile?.cgpa === 'number' ? profile.cgpa : null;
+  const studentReadiness = typeof profile?.readinessScore?.overallPercentage === 'number'
+    ? profile.readinessScore.overallPercentage
+    : null;
+  const studentStream = profile?.stream || profile?.degree || '';
 
   const isApplicationDeadlinePassed = (drive: PlacementCompanyDrive) => {
     const deadline = new Date(drive.applicationDeadline);
@@ -81,6 +89,17 @@ export const LivePlacementDrivesPage: React.FC = () => {
 
   // Check student eligibility for a drive
   const checkEligibility = (drive: PlacementCompanyDrive) => {
+    if (!hasProfileData || studentCgpa === null || studentReadiness === null) {
+      return {
+        isFullyEligible: false,
+        isMarginal: false,
+        isDeptEligible: false,
+        isCgpaEligible: false,
+        isReadinessEligible: false,
+        missingProfileData: true
+      };
+    }
+
     const isDeptEligible =
       drive.eligibleDepartments.includes('All Engineering Branches') ||
       drive.eligibleDepartments.some(
@@ -103,7 +122,8 @@ export const LivePlacementDrivesPage: React.FC = () => {
       isMarginal,
       isDeptEligible,
       isCgpaEligible,
-      isReadinessEligible
+      isReadinessEligible,
+      missingProfileData: false
     };
   };
 
@@ -113,6 +133,10 @@ export const LivePlacementDrivesPage: React.FC = () => {
 
   // Submit application
   const handleApply = async (drive: PlacementCompanyDrive) => {
+    if (!studentId || !hasProfileData) {
+      alert('Please complete your academic profile with verified CGPA and department before applying.');
+      return;
+    }
     try {
       setIsApplying(true);
       const res = await api.applyToPlacementDrive(drive.id, studentId);
@@ -281,26 +305,46 @@ export const LivePlacementDrivesPage: React.FC = () => {
             <div className="rounded-xl border border-white/10 bg-black/40 p-4 min-w-[260px] backdrop-blur-md shadow-inner">
               <div className="flex items-center justify-between mb-2">
                 <span className="text-xs font-bold text-slate-400 uppercase tracking-wider">Your Eligibility Profile</span>
-                <span className="text-xs font-bold text-emerald-400 font-mono">
-                  {studentReadiness}% Ready
-                </span>
-              </div>
-              <div className="space-y-1.5 text-xs text-slate-300">
-                <div className="flex justify-between">
-                  <span className="text-slate-400">CGPA:</span>
-                  <span className="font-semibold text-white">{studentCgpa.toFixed(2)}</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-slate-400">Branch:</span>
-                  <span className="font-semibold text-white truncate max-w-[150px] text-right" title={studentStream}>
-                    {studentStream}
+                {hasProfileData && studentReadiness !== null ? (
+                  <span className="text-xs font-bold text-emerald-400 font-mono">
+                    {studentReadiness}% Ready
                   </span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-slate-400">Active Applications:</span>
-                  <span className="font-semibold text-blue-400 font-mono">{applications.length}</span>
-                </div>
+                ) : (
+                  <span className="text-xs font-bold text-amber-400 font-mono">
+                    Incomplete
+                  </span>
+                )}
               </div>
+              {hasProfileData && studentCgpa !== null ? (
+                <div className="space-y-1.5 text-xs text-slate-300">
+                  <div className="flex justify-between">
+                    <span className="text-slate-400">CGPA:</span>
+                    <span className="font-semibold text-white">{studentCgpa.toFixed(2)}</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-slate-400">Branch:</span>
+                    <span className="font-semibold text-white truncate max-w-[150px] text-right" title={studentStream}>
+                      {studentStream || 'Not specified'}
+                    </span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-slate-400">Active Applications:</span>
+                    <span className="font-semibold text-blue-400 font-mono">{applications.length}</span>
+                  </div>
+                </div>
+              ) : (
+                <div className="space-y-1.5 text-xs text-slate-300">
+                  <p className="text-[11px] text-slate-400 leading-relaxed">
+                    CGPA and career readiness data missing.
+                  </p>
+                  <a
+                    href="/profile"
+                    className="inline-block text-[11px] font-bold text-blue-400 hover:text-blue-300 underline"
+                  >
+                    Complete your profile →
+                  </a>
+                </div>
+              )}
             </div>
           )}
         </div>
@@ -314,7 +358,7 @@ export const LivePlacementDrivesPage: React.FC = () => {
             <div>
               <p className="text-sm font-bold">Application Successfully Submitted to {applicationSuccess}!</p>
               <p className="text-xs text-emerald-600 dark:text-emerald-400">
-                The Placement Cell Directorate has recorded your profile and forwarded your verified credentials to the corporate recruitment team.
+                The Placement Cell has recorded your profile and forwarded your verified credentials to the corporate recruitment team.
               </p>
             </div>
           </div>
@@ -517,41 +561,50 @@ export const LivePlacementDrivesPage: React.FC = () => {
 
                       {/* Student-only eligibility breakdown */}
                       {role === 'student' && (
-                      <div className="rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50/70 dark:bg-slate-900/50 p-3 mb-4 space-y-2">
-                        <div className="flex items-center justify-between text-xs">
-                          <span className="font-bold text-slate-700 dark:text-slate-300">Eligibility Status</span>
-                          {eligibility.isFullyEligible ? (
-                            <span className="flex items-center gap-1 font-bold text-emerald-600 dark:text-emerald-400 text-xs">
-                              <CheckCircle2 className="h-3.5 w-3.5" /> Eligible to Apply
-                            </span>
-                          ) : eligibility.isMarginal ? (
-                            <span className="flex items-center gap-1 font-bold text-amber-600 dark:text-amber-400 text-xs">
-                              <AlertCircle className="h-3.5 w-3.5" /> Marginal Gap
-                            </span>
+                        <div className="rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50/70 dark:bg-slate-900/50 p-3 mb-4 space-y-2">
+                          <div className="flex items-center justify-between text-xs">
+                            <span className="font-bold text-slate-700 dark:text-slate-300">Eligibility Status</span>
+                            {eligibility.missingProfileData ? (
+                              <span className="flex items-center gap-1 font-bold text-amber-600 dark:text-amber-400 text-xs">
+                                <AlertCircle className="h-3.5 w-3.5" /> Incomplete Profile
+                              </span>
+                            ) : eligibility.isFullyEligible ? (
+                              <span className="flex items-center gap-1 font-bold text-emerald-600 dark:text-emerald-400 text-xs">
+                                <CheckCircle2 className="h-3.5 w-3.5" /> Eligible to Apply
+                              </span>
+                            ) : eligibility.isMarginal ? (
+                              <span className="flex items-center gap-1 font-bold text-amber-600 dark:text-amber-400 text-xs">
+                                <AlertCircle className="h-3.5 w-3.5" /> Marginal Gap
+                              </span>
+                            ) : (
+                              <span className="flex items-center gap-1 font-bold text-slate-500 text-xs">
+                                <X className="h-3.5 w-3.5" /> Criteria Not Met
+                              </span>
+                            )}
+                          </div>
+
+                          {eligibility.missingProfileData ? (
+                            <div className="text-[11px] text-slate-500 dark:text-slate-400">
+                              Complete your academic profile and readiness assessment to evaluate eligibility for this drive.
+                            </div>
                           ) : (
-                            <span className="flex items-center gap-1 font-bold text-slate-500 text-xs">
-                              <X className="h-3.5 w-3.5" /> Criteria Not Met
-                            </span>
+                            <div className="grid grid-cols-3 gap-1.5 text-[11px]">
+                              <div className={`p-1.5 rounded-lg border ${eligibility.isDeptEligible ? 'bg-emerald-50 dark:bg-emerald-950/30 border-emerald-300 dark:border-emerald-800/60 text-emerald-700 dark:text-emerald-300' : 'bg-rose-50 dark:bg-rose-950/30 border-rose-300 dark:border-rose-800/60 text-rose-700 dark:text-rose-300'}`}>
+                                <span className="block font-semibold">Branch</span>
+                                <span className="truncate block">{eligibility.isDeptEligible ? 'Eligible' : 'Branch Mismatch'}</span>
+                              </div>
+                              <div className={`p-1.5 rounded-lg border ${eligibility.isCgpaEligible ? 'bg-emerald-50 dark:bg-emerald-950/30 border-emerald-300 dark:border-emerald-800/60 text-emerald-700 dark:text-emerald-300' : 'bg-rose-50 dark:bg-rose-950/30 border-rose-300 dark:border-rose-800/60 text-rose-700 dark:text-rose-300'}`}>
+                                <span className="block font-semibold">CGPA ≥ {drive.minCgpa}</span>
+                                <span>{studentCgpa !== null ? studentCgpa.toFixed(1) : '--'} {eligibility.isCgpaEligible ? '✓' : '✗'}</span>
+                              </div>
+                              <div className={`p-1.5 rounded-lg border ${eligibility.isReadinessEligible ? 'bg-emerald-50 dark:bg-emerald-950/30 border-emerald-300 dark:border-emerald-800/60 text-emerald-700 dark:text-emerald-300' : 'bg-amber-50 dark:bg-amber-950/30 border-amber-300 dark:border-amber-800/60 text-amber-700 dark:text-amber-300'}`}>
+                                <span className="block font-semibold">Readiness ≥ {drive.minReadinessScore}%</span>
+                                <span>{studentReadiness !== null ? `${studentReadiness}%` : '--'} {eligibility.isReadinessEligible ? '✓' : '✗'}</span>
+                              </div>
+                            </div>
                           )}
                         </div>
-
-                        <div className="grid grid-cols-3 gap-1.5 text-[11px]">
-                          <div className={`p-1.5 rounded-lg border ${eligibility.isDeptEligible ? 'bg-emerald-50 dark:bg-emerald-950/30 border-emerald-300 dark:border-emerald-800/60 text-emerald-700 dark:text-emerald-300' : 'bg-rose-50 dark:bg-rose-950/30 border-rose-300 dark:border-rose-800/60 text-rose-700 dark:text-rose-300'}`}>
-                            <span className="block font-semibold">Branch</span>
-                            <span className="truncate block">{eligibility.isDeptEligible ? 'Eligible' : 'Branch Mismatch'}</span>
-                          </div>
-                          <div className={`p-1.5 rounded-lg border ${eligibility.isCgpaEligible ? 'bg-emerald-50 dark:bg-emerald-950/30 border-emerald-300 dark:border-emerald-800/60 text-emerald-700 dark:text-emerald-300' : 'bg-rose-50 dark:bg-rose-950/30 border-rose-300 dark:border-rose-800/60 text-rose-700 dark:text-rose-300'}`}>
-                            <span className="block font-semibold">CGPA ≥ {drive.minCgpa}</span>
-                            <span>{studentCgpa.toFixed(1)} {eligibility.isCgpaEligible ? '✓' : '✗'}</span>
-                          </div>
-                          <div className={`p-1.5 rounded-lg border ${eligibility.isReadinessEligible ? 'bg-emerald-50 dark:bg-emerald-950/30 border-emerald-300 dark:border-emerald-800/60 text-emerald-700 dark:text-emerald-300' : 'bg-amber-50 dark:bg-amber-950/30 border-amber-300 dark:border-amber-800/60 text-amber-700 dark:text-amber-300'}`}>
-                            <span className="block font-semibold">Readiness ≥ {drive.minReadinessScore}%</span>
-                            <span>{studentReadiness}% {eligibility.isReadinessEligible ? '✓' : '✗'}</span>
-                          </div>
-                        </div>
-                      </div>
-
-                                            )}
+                      )}
 
                       {/* Required Skills Badges */}
                       <div className="flex flex-wrap gap-1.5 mb-4">
@@ -590,14 +643,22 @@ export const LivePlacementDrivesPage: React.FC = () => {
                       ) : (
                         <button
                           onClick={() => setApplyingDrive(drive)}
-                          disabled={!eligibility.isFullyEligible || deadlinePassed}
+                          disabled={!eligibility.isFullyEligible || deadlinePassed || eligibility.missingProfileData}
                           className={`flex items-center gap-1.5 rounded-xl px-4 py-2 text-xs font-bold transition-all ${
                             eligibility.isFullyEligible && !deadlinePassed
                               ? 'bg-blue-600 text-white hover:bg-blue-700 shadow-md shadow-blue-600/20 active:scale-95 cursor-pointer'
                               : 'bg-slate-100 dark:bg-slate-800 text-slate-400 cursor-not-allowed'
                           }`}
                         >
-                          <span>{deadlinePassed ? 'Deadline Passed' : eligibility.isFullyEligible ? 'Apply for Drive' : 'Ineligible'}</span>
+                          <span>
+                            {deadlinePassed
+                              ? 'Deadline Passed'
+                              : eligibility.missingProfileData
+                              ? 'Incomplete Profile'
+                              : eligibility.isFullyEligible
+                              ? 'Apply for Drive'
+                              : 'Criteria Not Met'}
+                          </span>
                           <ArrowUpRight className="h-3.5 w-3.5" />
                         </button>
                       )}
@@ -711,13 +772,13 @@ export const LivePlacementDrivesPage: React.FC = () => {
                       </div>
                     </div>
 
-                    {/* Placement Directorate & Recruiter Feedback Note */}
+                    {/* Placement Cell & Recruiter Feedback Note */}
                     {app.feedback && (
                       <div className="rounded-xl bg-blue-50/70 dark:bg-blue-950/30 border border-blue-200 dark:border-blue-900/50 p-3.5 text-xs">
                         <div className="flex items-center gap-2 mb-1">
                           <ShieldCheck className="h-4 w-4 text-blue-600 dark:text-blue-400" />
                           <span className="font-bold text-blue-900 dark:text-blue-200">
-                            Placement Directorate & Recruiter Feedback
+                            Placement Cell & Recruiter Feedback
                           </span>
                         </div>
                         <p className="text-slate-700 dark:text-slate-300 leading-relaxed pl-6">
@@ -882,11 +943,15 @@ export const LivePlacementDrivesPage: React.FC = () => {
                 </div>
                 <div className="flex justify-between">
                   <span>Academic CGPA:</span>
-                  <span className="font-semibold text-emerald-600 dark:text-emerald-400 font-mono">{studentCgpa.toFixed(2)}</span>
+                  <span className="font-semibold text-emerald-600 dark:text-emerald-400 font-mono">
+                    {studentCgpa !== null ? studentCgpa.toFixed(2) : 'Not available'}
+                  </span>
                 </div>
                 <div className="flex justify-between">
                   <span>Career Readiness:</span>
-                  <span className="font-semibold text-blue-600 dark:text-blue-400 font-mono">{studentReadiness}%</span>
+                  <span className="font-semibold text-blue-600 dark:text-blue-400 font-mono">
+                    {studentReadiness !== null ? `${studentReadiness}%` : 'Not available'}
+                  </span>
                 </div>
                 <div className="flex justify-between">
                   <span>Department:</span>
@@ -896,7 +961,7 @@ export const LivePlacementDrivesPage: React.FC = () => {
             </div>
 
             <p className="text-[11px] text-slate-500 leading-relaxed">
-              By submitting, you authorize the college Placement Cell Directorate to forward your academic transcript and CareerBridge readiness metrics to {applyingDrive.companyName} for the upcoming selection drive.
+              By submitting, you authorize the college Placement Cell to forward your academic transcript and CareerBridge readiness metrics to {applyingDrive.companyName} for the upcoming selection drive.
             </p>
 
             <div className="flex justify-end gap-3 pt-2">

@@ -1,6 +1,18 @@
+import dotenv from 'dotenv';
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import dns from 'dns';
+import mongoose from 'mongoose';
+
+dotenv.config();
+try {
+  const currentFile = fileURLToPath(import.meta.url);
+  const currentDir = path.dirname(currentFile);
+  dotenv.config({ path: path.resolve(currentDir, '../../.env') });
+  dotenv.config({ path: path.resolve(process.cwd(), '.env') });
+  dotenv.config({ path: path.resolve(process.cwd(), 'server/.env') });
+} catch {}
 import {
   Career,
   Skill,
@@ -13,7 +25,6 @@ import {
   UserAccount,
   NotificationItem,
   DoubtQuery,
-  DoubtReply,
   PlacementCompanyDrive,
   PlacementApplication,
   CourseRecommendation
@@ -33,6 +44,29 @@ import {
   SEED_PLACEMENT_APPLICATIONS,
   SEED_COURSE_RECOMMENDATIONS
 } from './seedData.js';
+import {
+  UserModel,
+  CareerModel,
+  SkillModel,
+  AssessmentModel,
+  ResourceModel,
+  ProfileModel,
+  InterventionModel,
+  CurriculumGapModel,
+  NotificationModel,
+  DoubtModel,
+  PlacementDriveModel,
+  PlacementApplicationModel,
+  CourseRecommendationModel,
+  ChatHistoryModel
+} from '../models/schemas.js';
+
+// Ensure standard public DNS servers for MongoDB Atlas SRV lookup on Windows
+try {
+  dns.setServers(['8.8.8.8', '8.8.4.4', '1.1.1.1']);
+} catch {
+  // Ignore in restricted environments
+}
 
 interface DatabaseSchema {
   users: UserAccount[];
@@ -56,16 +90,41 @@ const __dirname = path.dirname(__filename);
 const DATA_DIR = path.resolve(__dirname, '../../data');
 const DB_FILE = path.join(DATA_DIR, 'db.json');
 
+function cleanMongoDoc<T>(doc: any): T {
+  if (!doc) return doc;
+  const obj = typeof doc.toObject === 'function' ? doc.toObject() : { ...doc };
+  delete obj._id;
+  delete obj.__v;
+  // If assessmentScores is a Map, convert to a plain object
+  if (obj.assessmentScores && obj.assessmentScores instanceof Map) {
+    obj.assessmentScores = Object.fromEntries(obj.assessmentScores);
+  }
+  return obj as T;
+}
+
 class DatabaseService {
   private data: DatabaseSchema;
+  private isMongoConnected: boolean = false;
+  private initPromise: Promise<void>;
 
   constructor() {
-    this.data = this.initialize();
+    this.data = this.initializeLocal();
+    this.initPromise = this.initMongoDB();
   }
 
-  private initialize(): DatabaseSchema {
+  public async ready(): Promise<void> {
+    await this.initPromise;
+  }
+
+  public getMongoStatus(): { connected: boolean } {
+    return { connected: this.isMongoConnected };
+  }
+
+  private initializeLocal(): DatabaseSchema {
     if (!fs.existsSync(DATA_DIR)) {
-      fs.mkdirSync(DATA_DIR, { recursive: true });
+      try {
+        fs.mkdirSync(DATA_DIR, { recursive: true });
+      } catch {}
     }
 
     if (fs.existsSync(DB_FILE)) {
@@ -73,7 +132,6 @@ class DatabaseService {
         const raw = fs.readFileSync(DB_FILE, 'utf-8');
         const parsed = JSON.parse(raw);
         if (parsed.users && parsed.users.length > 0) {
-          // Merge latest seed catalogs ensuring all new careers, skills, assessments are available
           parsed.careers = SEED_CAREERS;
           parsed.skills = SEED_SKILLS;
           parsed.assessments = SEED_ASSESSMENTS;
@@ -87,22 +145,13 @@ class DatabaseService {
               parsed.users[idx] = { ...su, ...parsed.users[idx] };
             }
           }
-          if (!parsed.notifications || parsed.notifications.length === 0) {
-            parsed.notifications = SEED_NOTIFICATIONS;
-          }
-          if (!parsed.doubts || parsed.doubts.length === 0) {
-            parsed.doubts = SEED_DOUBTS;
-          }
-          if (!parsed.placementDrives || parsed.placementDrives.length === 0) {
-            parsed.placementDrives = SEED_PLACEMENT_DRIVES;
-          }
-          if (!parsed.placementApplications || parsed.placementApplications.length === 0) {
-            parsed.placementApplications = SEED_PLACEMENT_APPLICATIONS;
-          }
-          if (!parsed.courseRecommendations || parsed.courseRecommendations.length === 0) {
-            parsed.courseRecommendations = SEED_COURSE_RECOMMENDATIONS;
-          }
-          this.saveData(parsed);
+          if (!parsed.notifications || parsed.notifications.length === 0) parsed.notifications = SEED_NOTIFICATIONS;
+          if (!parsed.doubts || parsed.doubts.length === 0) parsed.doubts = SEED_DOUBTS;
+          if (!parsed.placementDrives || parsed.placementDrives.length === 0) parsed.placementDrives = SEED_PLACEMENT_DRIVES;
+          if (!parsed.placementApplications || parsed.placementApplications.length === 0) parsed.placementApplications = SEED_PLACEMENT_APPLICATIONS;
+          if (!parsed.courseRecommendations || parsed.courseRecommendations.length === 0) parsed.courseRecommendations = SEED_COURSE_RECOMMENDATIONS;
+          if (!parsed.chatHistory) parsed.chatHistory = {};
+          this.saveLocalData(parsed);
           return parsed;
         }
       } catch (err) {
@@ -127,15 +176,124 @@ class DatabaseService {
       chatHistory: {}
     };
 
-    this.saveData(initialData);
+    this.saveLocalData(initialData);
     return initialData;
   }
 
-  private saveData(dataToSave: DatabaseSchema = this.data): void {
+  private saveLocalData(dataToSave: DatabaseSchema = this.data): void {
     try {
       fs.writeFileSync(DB_FILE, JSON.stringify(dataToSave, null, 2), 'utf-8');
     } catch (err) {
-      console.error('Error saving data to db.json:', err);
+      // Local file write failure is non-fatal
+    }
+  }
+
+  private async initMongoDB(): Promise<void> {
+    const mongoUri =
+      process.env.MONGODB_URI ||
+      'mongodb+srv://selvabarathisit_db_user:FuaBPhDJrJK6tRJN@careerbrigde.0i8vqzt.mongodb.net/careerbridge?retryWrites=true&w=majority&appName=careerbrigde';
+    if (!mongoUri) {
+      console.log('ℹ️ MONGODB_URI not provided; running in local storage mode.');
+      return;
+    }
+
+    try {
+      if (mongoose.connection.readyState !== 1) {
+        await mongoose.connect(mongoUri, { serverSelectionTimeoutMS: 8000 });
+      }
+      this.isMongoConnected = true;
+      console.log('✅ Connected to MongoDB Atlas successfully.');
+
+      // Check if auto-seed is required
+      const userCount = await UserModel.countDocuments();
+      if (userCount === 0) {
+        console.log('🌱 Seeding MongoDB Atlas collections with comprehensive seed data...');
+        await Promise.all([
+          UserModel.insertMany(SEED_USERS),
+          CareerModel.insertMany(SEED_CAREERS),
+          SkillModel.insertMany(SEED_SKILLS),
+          AssessmentModel.insertMany(SEED_ASSESSMENTS),
+          ResourceModel.insertMany(SEED_RESOURCES),
+          ProfileModel.insertMany(SEED_PROFILES),
+          InterventionModel.insertMany(SEED_INTERVENTIONS),
+          CurriculumGapModel.insertMany(SEED_CURRICULUM_GAPS),
+          NotificationModel.insertMany(SEED_NOTIFICATIONS),
+          DoubtModel.insertMany(SEED_DOUBTS),
+          PlacementDriveModel.insertMany(SEED_PLACEMENT_DRIVES),
+          PlacementApplicationModel.insertMany(SEED_PLACEMENT_APPLICATIONS),
+          CourseRecommendationModel.insertMany(SEED_COURSE_RECOMMENDATIONS)
+        ]);
+        console.log('🌱 MongoDB Atlas successfully seeded with all initial data.');
+      }
+
+      // Synchronize in-memory cache with MongoDB Atlas
+      await this.syncFromMongoDB();
+    } catch (err) {
+      console.warn('⚠️ MongoDB Atlas connection/initialization error (falling back to local cache):', err);
+      this.isMongoConnected = false;
+    }
+  }
+
+  public async syncFromMongoDB(): Promise<void> {
+    if (!this.isMongoConnected) return;
+
+    try {
+      const [
+        users,
+        careers,
+        skills,
+        assessments,
+        resources,
+        profiles,
+        interventions,
+        curriculumGaps,
+        notifications,
+        doubts,
+        placementDrives,
+        placementApplications,
+        courseRecommendations,
+        chats
+      ] = await Promise.all([
+        UserModel.find({}).lean(),
+        CareerModel.find({}).lean(),
+        SkillModel.find({}).lean(),
+        AssessmentModel.find({}).lean(),
+        ResourceModel.find({}).lean(),
+        ProfileModel.find({}).lean(),
+        InterventionModel.find({}).lean(),
+        CurriculumGapModel.find({}).lean(),
+        NotificationModel.find({}).lean(),
+        DoubtModel.find({}).lean(),
+        PlacementDriveModel.find({}).lean(),
+        PlacementApplicationModel.find({}).lean(),
+        CourseRecommendationModel.find({}).lean(),
+        ChatHistoryModel.find({}).lean()
+      ]);
+
+      if (users.length > 0) this.data.users = users.map(u => cleanMongoDoc<UserAccount>(u));
+      if (careers.length > 0) this.data.careers = careers.map(c => cleanMongoDoc<Career>(c));
+      if (skills.length > 0) this.data.skills = skills.map(s => cleanMongoDoc<Skill>(s));
+      if (assessments.length > 0) this.data.assessments = assessments.map(a => cleanMongoDoc<Assessment>(a));
+      if (resources.length > 0) this.data.resources = resources.map(r => cleanMongoDoc<Resource>(r));
+      if (profiles.length > 0) this.data.profiles = profiles.map(p => cleanMongoDoc<StudentProfile>(p));
+      if (interventions.length > 0) this.data.interventions = interventions.map(i => cleanMongoDoc<MentorIntervention>(i));
+      if (curriculumGaps.length > 0) this.data.curriculumGaps = curriculumGaps.map(g => cleanMongoDoc<CurriculumGapInsight>(g));
+      if (notifications.length > 0) this.data.notifications = notifications.map(n => cleanMongoDoc<NotificationItem>(n));
+      if (doubts.length > 0) this.data.doubts = doubts.map(d => cleanMongoDoc<DoubtQuery>(d));
+      if (placementDrives.length > 0) this.data.placementDrives = placementDrives.map(d => cleanMongoDoc<PlacementCompanyDrive>(d));
+      if (placementApplications.length > 0) this.data.placementApplications = placementApplications.map(a => cleanMongoDoc<PlacementApplication>(a));
+      if (courseRecommendations.length > 0) this.data.courseRecommendations = courseRecommendations.map(c => cleanMongoDoc<CourseRecommendation>(c));
+
+      this.data.chatHistory = {};
+      for (const c of chats) {
+        if (c.studentId) {
+          this.data.chatHistory[c.studentId] = c.messages || [];
+        }
+      }
+
+      console.log(`📊 Synchronized state from MongoDB Atlas: ${this.data.users.length} users, ${this.data.profiles.length} profiles, ${this.data.careers.length} careers.`);
+    } catch (err) {
+      console.error('Failed to sync from MongoDB Atlas:', err);
     }
   }
 
@@ -160,7 +318,13 @@ class DatabaseService {
     } else {
       this.data.users.push(user);
     }
-    this.saveData();
+    this.saveLocalData();
+
+    if (this.isMongoConnected) {
+      UserModel.findOneAndUpdate({ id: user.id }, user, { upsert: true }).catch(err => {
+        console.error('MongoDB Atlas saveUser error:', err);
+      });
+    }
     return user;
   }
 
@@ -183,7 +347,13 @@ class DatabaseService {
     } else {
       this.data.careers.push(career);
     }
-    this.saveData();
+    this.saveLocalData();
+
+    if (this.isMongoConnected) {
+      CareerModel.findOneAndUpdate({ id: career.id }, career, { upsert: true }).catch(err => {
+        console.error('MongoDB Atlas saveCareer error:', err);
+      });
+    }
     return career;
   }
 
@@ -206,7 +376,13 @@ class DatabaseService {
     } else {
       this.data.skills.push(skill);
     }
-    this.saveData();
+    this.saveLocalData();
+
+    if (this.isMongoConnected) {
+      SkillModel.findOneAndUpdate({ id: skill.id }, skill, { upsert: true }).catch(err => {
+        console.error('MongoDB Atlas saveSkill error:', err);
+      });
+    }
     return skill;
   }
 
@@ -239,7 +415,13 @@ class DatabaseService {
     } else {
       this.data.resources.unshift(resource);
     }
-    this.saveData();
+    this.saveLocalData();
+
+    if (this.isMongoConnected) {
+      ResourceModel.findOneAndUpdate({ id: resource.id }, resource, { upsert: true }).catch(err => {
+        console.error('MongoDB Atlas saveResource error:', err);
+      });
+    }
     return resource;
   }
 
@@ -259,7 +441,13 @@ class DatabaseService {
     } else {
       this.data.profiles.push(profile);
     }
-    this.saveData();
+    this.saveLocalData();
+
+    if (this.isMongoConnected) {
+      ProfileModel.findOneAndUpdate({ id: profile.id }, profile, { upsert: true }).catch(err => {
+        console.error('MongoDB Atlas saveProfile error:', err);
+      });
+    }
     return profile;
   }
 
@@ -274,7 +462,13 @@ class DatabaseService {
   public addNotification(item: NotificationItem): NotificationItem {
     if (!this.data.notifications) this.data.notifications = [];
     this.data.notifications.unshift(item);
-    this.saveData();
+    this.saveLocalData();
+
+    if (this.isMongoConnected) {
+      NotificationModel.findOneAndUpdate({ id: item.id }, item, { upsert: true }).catch(err => {
+        console.error('MongoDB Atlas addNotification error:', err);
+      });
+    }
     return item;
   }
 
@@ -283,7 +477,13 @@ class DatabaseService {
     const notif = this.data.notifications.find(n => n.id === id);
     if (notif) {
       notif.read = true;
-      this.saveData();
+      this.saveLocalData();
+    }
+
+    if (this.isMongoConnected) {
+      NotificationModel.updateOne({ id }, { $set: { read: true } }).catch(err => {
+        console.error('MongoDB Atlas markNotificationRead error:', err);
+      });
     }
   }
 
@@ -299,7 +499,13 @@ class DatabaseService {
     } else {
       this.data.interventions.push(intervention);
     }
-    this.saveData();
+    this.saveLocalData();
+
+    if (this.isMongoConnected) {
+      InterventionModel.findOneAndUpdate({ id: intervention.id }, intervention, { upsert: true }).catch(err => {
+        console.error('MongoDB Atlas saveIntervention error:', err);
+      });
+    }
     return intervention;
   }
 
@@ -315,7 +521,13 @@ class DatabaseService {
     } else {
       this.data.curriculumGaps.push(gap);
     }
-    this.saveData();
+    this.saveLocalData();
+
+    if (this.isMongoConnected) {
+      CurriculumGapModel.findOneAndUpdate({ id: gap.id }, gap, { upsert: true }).catch(err => {
+        console.error('MongoDB Atlas saveCurriculumGap error:', err);
+      });
+    }
     return gap;
   }
 
@@ -329,7 +541,17 @@ class DatabaseService {
       this.data.chatHistory[studentId] = [];
     }
     this.data.chatHistory[studentId].push(message);
-    this.saveData();
+    this.saveLocalData();
+
+    if (this.isMongoConnected) {
+      ChatHistoryModel.findOneAndUpdate(
+        { studentId },
+        { $push: { messages: message } },
+        { upsert: true }
+      ).catch(err => {
+        console.error('MongoDB Atlas addChatMessage error:', err);
+      });
+    }
   }
 
   // --- Real-Time Guidance & Doubts ---
@@ -349,7 +571,13 @@ class DatabaseService {
     } else {
       this.data.doubts.unshift(doubt);
     }
-    this.saveData();
+    this.saveLocalData();
+
+    if (this.isMongoConnected) {
+      DoubtModel.findOneAndUpdate({ id: doubt.id }, doubt, { upsert: true }).catch(err => {
+        console.error('MongoDB Atlas saveDoubt error:', err);
+      });
+    }
     return doubt;
   }
 
@@ -370,7 +598,13 @@ class DatabaseService {
     } else {
       this.data.placementDrives.unshift(drive);
     }
-    this.saveData();
+    this.saveLocalData();
+
+    if (this.isMongoConnected) {
+      PlacementDriveModel.findOneAndUpdate({ id: drive.id }, drive, { upsert: true }).catch(err => {
+        console.error('MongoDB Atlas savePlacementDrive error:', err);
+      });
+    }
     return drive;
   }
 
@@ -391,7 +625,13 @@ class DatabaseService {
     } else {
       this.data.placementApplications.unshift(app);
     }
-    this.saveData();
+    this.saveLocalData();
+
+    if (this.isMongoConnected) {
+      PlacementApplicationModel.findOneAndUpdate({ id: app.id }, app, { upsert: true }).catch(err => {
+        console.error('MongoDB Atlas savePlacementApplication error:', err);
+      });
+    }
     return app;
   }
 
@@ -419,11 +659,17 @@ class DatabaseService {
     } else {
       this.data.courseRecommendations.unshift(rec);
     }
-    this.saveData();
+    this.saveLocalData();
+
+    if (this.isMongoConnected) {
+      CourseRecommendationModel.findOneAndUpdate({ id: rec.id }, rec, { upsert: true }).catch(err => {
+        console.error('MongoDB Atlas saveCourseRecommendation error:', err);
+      });
+    }
     return rec;
   }
 
-  public resetToSeed(): void {
+  public async resetToSeed(): Promise<void> {
     this.data = {
       users: SEED_USERS,
       careers: SEED_CAREERS,
@@ -440,7 +686,45 @@ class DatabaseService {
       courseRecommendations: SEED_COURSE_RECOMMENDATIONS,
       chatHistory: {}
     };
-    this.saveData();
+    this.saveLocalData();
+
+    if (this.isMongoConnected) {
+      try {
+        await Promise.all([
+          UserModel.deleteMany({}),
+          CareerModel.deleteMany({}),
+          SkillModel.deleteMany({}),
+          AssessmentModel.deleteMany({}),
+          ResourceModel.deleteMany({}),
+          ProfileModel.deleteMany({}),
+          InterventionModel.deleteMany({}),
+          CurriculumGapModel.deleteMany({}),
+          NotificationModel.deleteMany({}),
+          DoubtModel.deleteMany({}),
+          PlacementDriveModel.deleteMany({}),
+          PlacementApplicationModel.deleteMany({}),
+          CourseRecommendationModel.deleteMany({}),
+          ChatHistoryModel.deleteMany({})
+        ]);
+        await Promise.all([
+          UserModel.insertMany(SEED_USERS),
+          CareerModel.insertMany(SEED_CAREERS),
+          SkillModel.insertMany(SEED_SKILLS),
+          AssessmentModel.insertMany(SEED_ASSESSMENTS),
+          ResourceModel.insertMany(SEED_RESOURCES),
+          ProfileModel.insertMany(SEED_PROFILES),
+          InterventionModel.insertMany(SEED_INTERVENTIONS),
+          CurriculumGapModel.insertMany(SEED_CURRICULUM_GAPS),
+          NotificationModel.insertMany(SEED_NOTIFICATIONS),
+          DoubtModel.insertMany(SEED_DOUBTS),
+          PlacementDriveModel.insertMany(SEED_PLACEMENT_DRIVES),
+          PlacementApplicationModel.insertMany(SEED_PLACEMENT_APPLICATIONS),
+          CourseRecommendationModel.insertMany(SEED_COURSE_RECOMMENDATIONS)
+        ]);
+      } catch (err) {
+        console.error('Error re-seeding MongoDB Atlas on resetToSeed:', err);
+      }
+    }
   }
 }
 

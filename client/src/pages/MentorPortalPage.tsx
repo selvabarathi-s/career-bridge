@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { api } from '../api/client';
+import { useAuth } from '../context/AuthContext';
 import { MentorIntervention, CourseRecommendation } from '../../../shared/types';
 import { UserAvatar } from '../components/common/UserAvatar';
 import confetti from 'canvas-confetti';
@@ -28,6 +29,7 @@ import {
 } from 'lucide-react';
 
 export const MentorPortalPage: React.FC = () => {
+  const { role } = useAuth();
   const [students, setStudents] = useState<any[]>([]);
   const [interventions, setInterventions] = useState<MentorIntervention[]>([]);
   const [recommendations, setRecommendations] = useState<CourseRecommendation[]>([]);
@@ -141,6 +143,26 @@ export const MentorPortalPage: React.FC = () => {
     if (recStatusFilter === 'all') return true;
     return r.status === recStatusFilter;
   });
+
+  if (role !== 'mentor' && role !== 'admin') {
+    return (
+      <div className="rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-8 text-center space-y-4 my-8 max-w-xl mx-auto">
+        <div className="h-12 w-12 rounded-full bg-amber-500/10 text-amber-600 flex items-center justify-center mx-auto">
+          <ShieldCheck className="h-6 w-6" />
+        </div>
+        <h2 className="text-lg font-bold text-slate-900 dark:text-white">Faculty Mentor Access Only</h2>
+        <p className="text-sm text-slate-600 dark:text-slate-400">
+          This portal is reserved for faculty mentors to review course approvals and advise assigned student cohorts.
+        </p>
+        <a
+          href="/dashboard"
+          className="inline-flex items-center gap-2 rounded-xl bg-blue-600 px-4 py-2 text-xs font-bold text-white hover:bg-blue-700"
+        >
+          Return to Student Dashboard →
+        </a>
+      </div>
+    );
+  }
 
   return (
     <div className="space-y-6 pb-12">

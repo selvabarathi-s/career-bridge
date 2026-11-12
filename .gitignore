@@ -30,3 +30,11 @@ Thumbs.db
 # Mobile builds
 android/
 ios/
+
+# Scratch & analysis files
+*.docx
+*.pdf
+*.txt
+ANTIGRAVITY_CAREERBRIDGE_REWORK_PLAN.md
+TEST_INFRA.md
+TEST_READY.md

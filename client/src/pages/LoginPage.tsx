@@ -16,91 +16,9 @@ import {
   AlertCircle,
   Building2,
   Cpu,
-  Sprout,
-  HeartPulse,
-  ChevronDown,
-  ChevronUp,
-  KeyRound,
   UserPlus,
-  HelpCircle,
-  Check
+  HelpCircle
 } from 'lucide-react';
-
-interface TestCredential {
-  portal: 'student' | 'mentor' | 'admin' | 'placement_cell';
-  name: string;
-  email: string;
-  role: UserRole;
-  stream: string;
-  goal: string;
-  studentId: string;
-}
-
-const TEST_CREDENTIALS: TestCredential[] = [
-  {
-    portal: 'student',
-    name: 'Selva',
-    email: 'selva@college.edu',
-    role: 'student',
-    stream: 'Artificial Intelligence & Data Science',
-    goal: 'AI & Machine Learning Engineer',
-    studentId: 'STU-ENG-2024-001'
-  },
-  {
-    portal: 'student',
-    name: 'Kalai',
-    email: 'kalai@college.edu',
-    role: 'student',
-    stream: 'Computer Science & Engineering',
-    goal: 'Data Analyst & BI Specialist',
-    studentId: 'STU-ENG-2024-008'
-  },
-  {
-    portal: 'student',
-    name: 'Sabari',
-    email: 'sabari@college.edu',
-    role: 'student',
-    stream: 'Computer Science & Engineering / IT',
-    goal: 'Cloud DevOps & Site Reliability Engineer',
-    studentId: 'STU-ENG-2024-002'
-  },
-  {
-    portal: 'student',
-    name: 'Ram',
-    email: 'ram@college.edu',
-    role: 'student',
-    stream: 'Cybersecurity & Network Systems',
-    goal: 'Cybersecurity Architect & SOC Analyst',
-    studentId: 'STU-ENG-2024-003'
-  },
-  {
-    portal: 'mentor',
-    name: 'Dr. Balu Prasath',
-    email: 'balu.prasath@university.edu',
-    role: 'mentor',
-    stream: 'Faculty Mentor & Advisor',
-    goal: 'Cohort Interventions & Advising',
-    studentId: 'FAC-ENG-904'
-  },
-  {
-    portal: 'placement_cell',
-    name: 'Mr. K. Senthil Kumar',
-    email: 'placement@college.edu',
-    role: 'placement_cell',
-    stream: 'Corporate Relations & Placement Directorate',
-    goal: 'Campus Recruitment Drives & Placements',
-    studentId: 'PLC-DIR-001'
-  },
-  {
-    portal: 'admin',
-    name: 'Ms. Anjali Govindh',
-    email: 'admin@careerbridge.io',
-    role: 'admin',
-    stream: 'Dean of Curriculum & Academics',
-    goal: 'Campus-wide Gap Intelligence',
-    studentId: 'ADM-EXEC-001'
-  }
-];
 
 export const LoginPage: React.FC = () => {
   const { login } = useAuth();
@@ -108,31 +26,16 @@ export const LoginPage: React.FC = () => {
 
   // Active portal tab: 'student' | 'mentor' | 'admin' | 'placement_cell'
   const [activePortal, setActivePortal] = useState<'student' | 'mentor' | 'admin' | 'placement_cell'>('student');
-  const [email, setEmail] = useState('selva@college.edu');
-  const [password, setPassword] = useState('password123');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   const [rememberMe, setRememberMe] = useState(true);
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
   const [submitting, setSubmitting] = useState(false);
-  const [showCredentialsGuide, setShowCredentialsGuide] = useState(false);
-  const [copiedAccount, setCopiedAccount] = useState<string | null>(null);
 
   const handlePortalSwitch = (portal: 'student' | 'mentor' | 'admin' | 'placement_cell') => {
     setActivePortal(portal);
     setErrorMsg(null);
-    if (portal === 'student') {
-      setEmail('selva@college.edu');
-      setPassword('password123');
-    } else if (portal === 'mentor') {
-      setEmail('balu.prasath@university.edu');
-      setPassword('password123');
-    } else if (portal === 'placement_cell') {
-      setEmail('placement@college.edu');
-      setPassword('password123');
-    } else {
-      setEmail('admin@careerbridge.io');
-      setPassword('password123');
-    }
   };
 
   const handleLoginSubmit = async (e?: React.FormEvent) => {
@@ -168,15 +71,6 @@ export const LoginPage: React.FC = () => {
     }
   };
 
-  const handleFillCredentials = (cred: TestCredential) => {
-    setActivePortal(cred.portal);
-    setEmail(cred.email);
-    setPassword('password123');
-    setErrorMsg(null);
-    setCopiedAccount(cred.email);
-    setTimeout(() => setCopiedAccount(null), 2500);
-  };
-
   const portalConfig = {
     student: {
       title: 'Student Learning Portal',
@@ -195,7 +89,7 @@ export const LoginPage: React.FC = () => {
       idPlaceholder: 'faculty.advisor@university.edu or FAC-ENG-904'
     },
     placement_cell: {
-      title: 'Placement Cell Directorate',
+      title: 'Career & Placement Cell',
       subtitle: 'Manage recruitment drives, corporate partnerships, student shortlisting & offer tracking',
       icon: Building2,
       color: 'emerald',
@@ -404,70 +298,15 @@ export const LoginPage: React.FC = () => {
         )}
       </div>
 
-      {/* Expandable Credentials Reference Guide (Clean & Collapsible) */}
-      <div className="max-w-2xl mx-auto rounded-2xl border border-slate-200 dark:border-slate-800 bg-white/60 dark:bg-slate-900/60 backdrop-blur-sm p-4 space-y-3">
-        <button
-          onClick={() => setShowCredentialsGuide(!showCredentialsGuide)}
-          className="w-full flex items-center justify-between text-xs font-bold text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
-        >
-          <div className="flex items-center gap-2">
-            <KeyRound className="h-4 w-4 text-blue-600 dark:text-blue-400" />
-            <span>Institutional Test Accounts & Credentials Guide</span>
-          </div>
-          <div className="flex items-center gap-1 text-[11px] text-slate-500">
-            <span>{showCredentialsGuide ? 'Hide Guide' : 'Show Test Accounts'}</span>
-            {showCredentialsGuide ? <ChevronUp className="h-4 w-4" /> : <ChevronDown className="h-4 w-4" />}
-          </div>
-        </button>
-
-        {showCredentialsGuide && (
-          <div className="pt-2 space-y-2.5 border-t border-slate-200/80 dark:border-slate-800/80">
-            <p className="text-[11px] text-slate-500 dark:text-slate-400">
-              You can sign in with any of the seeded multi-disciplinary personas below. Click <strong>"Use Account"</strong> to populate the login form above.
-            </p>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
-              {TEST_CREDENTIALS.map((cred, idx) => (
-                <div
-                  key={idx}
-                  className="rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950/80 p-2.5 flex flex-col justify-between space-y-2"
-                >
-                  <div>
-                    <div className="flex items-center justify-between">
-                      <span className="font-bold text-slate-900 dark:text-white text-xs">{cred.name}</span>
-                      <span className="text-[9px] font-bold uppercase px-1.5 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 border border-slate-200 dark:border-slate-700">
-                        {cred.portal}
-                      </span>
-                    </div>
-                    <div className="text-[10px] text-slate-500 dark:text-slate-400 mt-0.5 font-mono truncate">
-                      {cred.email}
-                    </div>
-                    <div className="text-[10px] text-slate-600 dark:text-slate-400 mt-1">
-                      {cred.stream} • <strong className="text-slate-800 dark:text-slate-200">{cred.goal}</strong>
-                    </div>
-                  </div>
-
-                  <div className="pt-1.5 border-t border-slate-100 dark:border-slate-850 flex items-center justify-between">
-                    <span className="text-[10px] text-slate-400 font-mono">pass: password123</span>
-                    <button
-                      onClick={() => handleFillCredentials(cred)}
-                      className="inline-flex items-center gap-1 rounded-lg bg-blue-50 dark:bg-blue-950/80 text-blue-700 dark:text-blue-300 hover:bg-blue-600 hover:text-white px-2 py-1 text-[10px] font-bold transition-all border border-blue-200 dark:border-blue-900"
-                    >
-                      {copiedAccount === cred.email ? (
-                        <>
-                          <Check className="h-3 w-3 text-emerald-500" />
-                          <span>Loaded!</span>
-                        </>
-                      ) : (
-                        <span>Use Account</span>
-                      )}
-                    </button>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        )}
+      {/* Institutional Access & Enterprise Single Sign-On Notice */}
+      <div className="max-w-2xl mx-auto rounded-2xl border border-slate-200 dark:border-slate-800 bg-white/60 dark:bg-slate-900/60 backdrop-blur-sm p-5 space-y-2.5 text-center">
+        <div className="flex items-center justify-center gap-2 text-xs font-bold text-slate-800 dark:text-slate-200">
+          <ShieldCheck className="h-4 w-4 text-blue-600 dark:text-blue-400" />
+          <span>Institutional Single Sign-On & Centralized Identity Governance</span>
+        </div>
+        <p className="text-[11px] leading-relaxed text-slate-500 dark:text-slate-400 max-w-xl mx-auto">
+          CareerBridge workspaces are provisioned by your institution's central IT directory. Enrolled students, faculty advisors, placement coordinators, and academic deans authenticate using institutional email credentials. For account provisioning, SSO troubleshooting, or password resets, contact your campus IT administrator.
+        </p>
       </div>
     </div>
   );

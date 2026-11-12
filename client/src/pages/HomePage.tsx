@@ -36,6 +36,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onOpenMobileCompanion }) => 
     if (user) {
       if (user.role === 'admin') navigate('/admin');
       else if (user.role === 'mentor') navigate('/mentor');
+      else if (user.role === 'placement_cell') navigate('/placement-cell');
       else navigate('/dashboard');
     } else {
       navigate('/login');

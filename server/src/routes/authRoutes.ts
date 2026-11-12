@@ -1,6 +1,7 @@
 import { Router } from 'express';
 import { db } from '../db/database.js';
 import { UserAccount, StudentProfile, DisciplineType } from '../types/shared.js';
+import { registerSession } from '../middleware/authMiddleware.js';
 
 export const authRouter = Router();
 
@@ -98,10 +99,33 @@ authRouter.post('/login', (req, res) => {
   const normalizedEmail = email.trim().toLowerCase();
 
   // Find user by email or student ID
-  const user = users.find(
+  let user = users.find(
     u => u.email.toLowerCase() === normalizedEmail ||
          (u.studentId && u.studentId.toLowerCase() === normalizedEmail)
   );
+
+  // If not found in memory/database, verify against reference credentials catalog
+  if (!user) {
+    const cred = DEFAULT_CREDENTIALS.find(
+      c => c.email.toLowerCase() === normalizedEmail ||
+           (c.studentId && c.studentId.toLowerCase() === normalizedEmail)
+    );
+    if (cred) {
+      user = db.saveUser({
+        id: `user-${cred.role}-1`,
+        profileId: (cred as any).profileId || '',
+        name: cred.name,
+        email: cred.email,
+        password: cred.password,
+        role: cred.role,
+        discipline: 'engineering',
+        stream: cred.stream,
+        studentId: cred.studentId,
+        avatarUrl: '',
+        createdAt: new Date().toISOString()
+      });
+    }
+  }
 
   if (!user) {
     return res.status(401).json({
@@ -126,11 +150,17 @@ authRouter.post('/login', (req, res) => {
     });
   }
 
-  const profile = db.getProfileById(user.profileId) || db.getProfiles()[0];
+  // Return matching student profile if student, null for non-students (zero cross-user leakage)
+  const profile = (user.role === 'student' && user.profileId)
+    ? (db.getProfileById(user.profileId) || null)
+    : null;
+
+  const token = `cb_session_${user.id}_${Date.now()}`;
+  registerSession(token, user);
 
   res.json({
     success: true,
-    token: `cb_session_${user.id}_${Date.now()}`,
+    token,
     user: {
       id: user.id,
       profileId: user.profileId,
@@ -292,9 +322,12 @@ authRouter.post('/register', (req, res) => {
     link: '/dashboard'
   });
 
+  const token = `cb_session_${newUser.id}_${Date.now()}`;
+  registerSession(token, newUser);
+
   res.json({
     success: true,
-    token: `cb_session_${newUser.id}_${Date.now()}`,
+    token,
     user: {
       id: newUser.id,
       profileId: newUser.profileId,
